@@ -4,8 +4,30 @@ block title
     title Index page
 
 block content
-    .alex Content
+    main.home-page
 
-    // .btn.btn_radius.btn_radius_right.btn_radius_while
-        svg
-            use( xlink:href="" )
+        section.intro
+            .swiper-container#home-slider.intro__slider.slider
+
+                .slider__over
+                    p.slider__collection Новая коллекция
+                    p.slider__title Женской одежды
+                    .slider__btn
+                        a(href="#").btn.btn-fill.btn-while в Каталог
+
+                .swiper-wrapper
+
+                    .swiper-slide
+                        img(src=image('slider/header-bg.png'))
+                    .swiper-slide
+                        img(src=image('slider/header-bg.png'))
+                    .swiper-slide
+                        img(src=image('slider/header-bg.png'))
+
+                .swiper-pagination.intro__slider-pagination
+                .swiper-button-prev.btn.btn_radius.btn_radius_while.btn_radius_left
+                    svg
+                        use( xlink:href=sprite('arrow-slider') )
+                .swiper-button-next.btn.btn_radius.btn_radius_while.btn_radius_right
+                    svg
+                        use( xlink:href=sprite('arrow-slider') )
