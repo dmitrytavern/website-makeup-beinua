@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="ico" viewBox="0 0 21 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>UA</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="21" height="15" rx="2"></rect>
+    </defs>
+    <g id="UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-710.000000, -337.000000)" id="Acc-Dropdown">
+            <g transform="translate(623.000000, 174.000000)">
+                <g id="Group-15" transform="translate(18.827273, 160.500000)">
+                    <g id="UA" transform="translate(68.172727, 2.500000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="background" fill="#126CCF" xlink:href="#path-1"></use>
+                        <rect id="bottom" fill="#FED949" mask="url(#mask-2)" x="0" y="8" width="21" height="7"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

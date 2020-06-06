@@ -1,0 +1,50 @@
+{
+  "name": "Accelerator",
+  "version": "0.0.0",
+  "description": "It`s accelerator HTML/CSS/JS + create plugins",
+  "private": true,
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 10"
+  ],
+  "scripts": {
+    "test": "mocha",
+    "dev": "node scripts/development.js",
+    "build": "node scripts/production.js",
+    "create": "node scripts/create.js"
+  },
+  "author": "dogger",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-private-methods": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "cssnano": "^4.1.10",
+    "pug": "^2.0.4",
+    "pug-loader": "^2.4.0",
+    "rollup": "^2.3.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-watch": "^4.3.1"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.7.6",
+    "browser-sync": "^2.26.7",
+    "chokidar": "^3.4.0",
+    "glob": "^7.1.6",
+    "imagemin": "^7.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "jquery": "^3.5.1",
+    "ncp": "^2.0.0",
+    "node-sass": "^4.14.1",
+    "postcss": "^7.0.30",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-sourcemaps": "^0.6.2",
+    "svg-sprite": "^1.5.0"
+  }
+}

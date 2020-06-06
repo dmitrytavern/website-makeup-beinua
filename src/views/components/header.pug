@@ -1,0 +1,82 @@
+header.header
+    .header__row.header__row_while
+        .container.header__container
+            a(href="#")
+                svg.header__logo
+                    use( xlink:href=sprite('logo-black') )
+
+            .header__search.search
+                input(placeholder="Поиск...").search__input#header__search
+                button.search__close
+                    svg
+                        use( xlink:href=sprite('close') )
+                button.search__button
+                    svg.search__icon
+                        use( xlink:href=sprite('search') )
+
+            .header__icons
+                a(href="#").header__link-ico
+                    svg.header__icon
+                        use( xlink:href=sprite('compare') )
+                    .header__link-number 12
+
+                a(href="#").header__link-ico
+                    svg.header__icon
+                        use( xlink:href=sprite('heart') )
+                    .header__link-number 3
+
+                a(href="#").header__link-ico
+                    svg.header__icon
+                        use( xlink:href=sprite('bag') )
+                    .header__link-number 6
+
+                .header__link-ico.header__link-ico_person
+                    .header__person
+                        svg.header__icon.header__icon_black
+                            use( xlink:href=sprite('person') )
+
+                        svg.header__icon.header__icon_little
+                            use( xlink:href=sprite('dropdown-arrow') )
+
+                    .header__submenu.submenu
+                        .submenu__nav
+                            a(href="#").submenu__link Вход
+                            a(href="#").submenu__link Регистрация
+
+                        .submenu__options
+                            .submenu__option-box
+                                .submenu__option-title Валюта:
+                                .submenu__option-content
+                                    a(href="#").submenu__option-input.submenu__option-input_selected UAH
+                                    a(href="#").submenu__option-input USD
+
+                            .submenu__option-box
+                                .submenu__option-title Язык:
+                                .submenu__option-content
+                                    .submenu__option-input_img
+                                        svg
+                                            use( xlink:href=image('UA.svg#ico') )
+                                    .submenu__option-input_img.submenu__option-input_selected
+                                        svg
+                                            use( xlink:href=image('RU.svg#ico') )
+
+
+    .header__row.header__row_black
+        .header-mobile__category
+            | Каталог
+            svg
+                use( xlink:href=sprite('dropdown-arrow') )
+
+        .header-mobile__search.search.search_mobile-black
+            input(placeholder="Поиск...").search__input#header__mobile-search
+            button.search__button
+                svg.search__icon
+                    use( xlink:href=sprite('search') )
+
+        nav.header__nav#header__mobile-nav
+            a(href="#").header__link.header__link_selected Женщинам
+            a(href="#").header__link Мужчинам
+            a(href="#").header__link Детям
+            a(href="#").header__link Аксессуары
+            a(href="#").header__link Бренды
+            a(href="#").header__link Распродажа

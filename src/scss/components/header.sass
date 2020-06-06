@@ -1,0 +1,214 @@
+.header
+  &__logo
+    width: 150px
+    height: 61px
+
+  &__person
+    display: flex
+    align-items: center
+
+  &__link
+    color: #fff
+    text-transform: uppercase
+    padding: 25px 30px
+    font-size: 14px
+    letter-spacing: -0.3
+    display: inline-block
+
+    &-ico
+      position: relative
+      margin: 0 15px
+
+      &_person
+        position: relative
+        padding-top: 16px
+        padding-bottom: 16px
+        margin-left: 5px
+        padding-left: 20px
+        border-left: 1px solid #F1F1F1
+
+        .header__person
+          cursor: pointer
+
+      &:first-child
+        margin-left: 0
+      &:last-child
+        margin-right: 0
+
+    &-number
+      position: absolute
+      top: -5px
+      right: -5px
+      border-radius: 50%
+      width: 15px
+      height: 15px
+      background: #01A2E8
+      color: #ffffff
+      font-size: 10px
+      font-weight: bold
+
+      display: flex
+
+      justify-content: center
+      align-items: center
+
+    &_selected
+      background-color: #01A2E8
+      color: #ffffff
+
+  &__icons
+    display: flex
+    align-items: center
+
+  &__icon
+    width: 24px
+    height: 24px
+    fill: #A10142
+
+    &_black
+      fill: black
+
+    &_little
+      fill: black
+      width: 9px
+      height: 5px
+      margin-left: 5px
+
+  &__search
+    width: 100%
+    max-width: 719px
+    margin: 0 70px
+
+  &__nav
+    margin: 0 auto
+    padding: 0 15px
+    text-align: center
+
+  &__row
+    &_while
+      background: white
+
+    &_black
+      background: black
+
+  &__container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 28px 60px
+
+.header-mobile
+  &__category
+    display: none
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    background: #F8F8F8
+    padding: 19px 15px
+    text-transform: uppercase
+
+    svg
+      width: 9px
+      height: 5px
+
+    &_opened
+      background: #01A2E8
+      color: #ffffff
+      svg
+        fill: #ffffff
+
+
+  &__search
+    display: none
+
+
+@media (max-width: 1099px)
+  .header
+    &__link
+      padding: 25px 20px
+
+    &__container
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding: 28px 15px
+
+    &__search
+      margin: 0 48px
+
+@media (max-width: 767px)
+  .header
+    &__logo
+      width: 93px
+      height: 38px
+
+    &__container
+      padding: 12px 15px
+
+    &__nav
+      position: absolute
+      top: 100%
+      left: 15px
+      right: 15px
+      display: none
+      margin: 0
+      margin-top: 10px
+      text-align: left
+      background: #ffffff
+      border: 1px solid #E9E9E9
+
+      &_opened
+        display: block
+
+
+    &__link
+      display: block
+      color: #000000
+      border-bottom: 1px solid #F1F1F1
+      padding-left: 25px
+      position: relative
+
+      &:before
+        content: ''
+        opacity: 0
+        position: absolute
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+        width: 10px
+        height: 7px
+        background-image: url(imageUrl('check.svg'))
+        background-repeat: no-repeat
+
+      &_selected
+        background-color: #ffffff
+        color: #01A2E8
+        &:before
+          opacity: 1
+
+      &:last-child
+        border-bottom: none
+
+
+    &__row
+      &_black
+        position: relative
+        background: unset
+        display: flex
+
+        &.search_focus
+          .header-mobile__category
+            display: none
+
+    &__search
+      display: none
+
+  .header-mobile
+    &__category
+      display: flex
+      width: 100%
+
+    &__search
+      display: flex
+      width: 100%
+      background: black
