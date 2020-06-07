@@ -1,0 +1,28 @@
+.breadcrumbs
+  display: flex
+  align-items: center
+
+  &__item
+    position: relative
+    margin-right: 9px
+    padding-right: 10px
+
+    &:before
+      content: ''
+      position: absolute
+      top: 50%
+      right: 0
+      width: 4px
+      height: 6px
+      transform: translateY(-50%)
+      background-image: url(imageUrl('play.svg'))
+      background-repeat: no-repeat
+      background-size: 100% 100%
+
+    &_active
+      color: #A1A1A1
+      margin-right: 0px
+      padding-right: 0px
+
+      &:before
+        content: unset

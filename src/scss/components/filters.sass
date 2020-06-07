@@ -1,0 +1,190 @@
+.custom-filters
+  padding: 0 7px
+  padding-bottom: 3rem
+
+  &__wrapper
+    border: 1px solid #F1F1F1
+
+  &__filter
+    &:last-child
+      float: right
+      margin-left: 0
+
+  &__mobile-apply
+    display: none
+    padding: 0 15px
+    margin-top: 15px
+
+
+
+.custom-filter
+  position: relative
+  display: inline-block
+  margin: 0 20px
+
+  &__front
+    cursor: pointer
+    position: relative
+    font-size: 15px
+    color: #000
+    padding: 18px 10px
+    padding-right: 20px
+    line-height: 18px
+    letter-spacing: -0.32px
+
+    &_open
+      .custom-filter__icon
+        transform: rotate(180deg)
+
+  &__icon
+    width: 10px
+    height: 6px
+    margin-left: 10px
+    transition: .3s
+    transform: rotate(0deg)
+
+  &_right-menu
+    border-left: 1px solid #F1F1F1
+    margin-right: 0
+    float: right
+
+    .custom-filter__front
+      padding-left: 20px
+      padding-right: 40px
+
+    .custom-submenu
+      left: unset
+      right: 0
+
+  &_left-menu
+    margin-left: 0
+
+    .custom-filter__front
+      padding: 18px 30px
+      padding-left: 32px
+
+  &__front_open + .custom-submenu
+    visibility: visible
+
+
+
+.custom-submenu
+  position: absolute
+  top: 100%
+  left: 0
+  visibility: hidden
+  padding: 20px 0
+  min-width: 220px
+  border: 1px solid #E9E9E9
+  background: #ffffff
+  margin-top: 10px
+
+  &__wrapper
+    padding: 0 18px
+
+  &__item
+    position: relative
+    margin-top: 12px
+    margin-bottom: 12px
+    padding-left: 22px
+    color: #000000
+    cursor: pointer
+    font-size: 15px
+
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+      width: 10px
+      height: 7px
+      background-image: url(imageUrl('check.svg'))
+      background-repeat: no-repeat
+      opacity: 0
+
+    &_selected
+      color: #01A2E8
+
+      &:before
+        opacity: 1
+
+
+    &:first-child
+      margin-top: 0
+    &:last-child
+      margin-bottom: 0
+
+
+  &_price
+    text-align: right
+
+  &__inputs
+    display: flex
+
+  &__input
+    display: flex
+    align-items: center
+    color: #000
+    font-size: 15px
+    letter-spacing: -0.32px
+
+    &:last-child
+      margin-left: 24px
+
+    > input
+      padding: 10px 14px
+      border: 1px solid #EFEFEF
+      color: #969696
+      font-weight: 500
+      margin-left: 10px
+      max-width: 90px
+      appearance: none
+
+  &__btn
+    margin-top: 12px
+    font-size: 13px
+    font-weight: 500
+    display: inline-block
+    margin-left: auto
+
+
+
+.custom-checkbox
+  display: flex
+  align-items: center
+  cursor: pointer
+
+  &_all-brands
+    display: inline-flex
+
+  .custom-checkbox__txt
+    margin-left: 25px
+
+  &__box
+    width: 18px
+    height: 18px
+    border: 1px solid #E7E7E7
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+
+  &__img
+    max-width: 35px
+    margin-left: 18px
+    opacity: .66
+
+  &_checked
+    .custom-checkbox__box
+      border-color: #CC2121
+
+    .custom-checkbox__img
+      opacity: 1
+
+  &_txt
+    color: #929292
+    margin-left: 18px
+
+  &_checked .custom-checkbox__txt
+    color: #242424
