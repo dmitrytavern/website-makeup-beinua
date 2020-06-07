@@ -33,7 +33,7 @@ block content
                         use( xlink:href=sprite('arrow-slider') )
 
         section.home-page__catalog.catalog
-            .container
+            .container.container_lg-none
                 .catalog__head
                     h2.catalog__title Женщинам:
                     .catalog__tabs
@@ -56,7 +56,7 @@ block content
                             use( xlink:href=sprite('long-arrow') )
 
         section.home-page__catalog.catalog
-            .container
+            .container.container_lg-none
                 .catalog__head
                     h2.catalog__title Мужчинам:
                     .catalog__tabs
@@ -79,23 +79,23 @@ block content
                         svg.btn-arrow-arrow
                             use( xlink:href=sprite('long-arrow') )
 
-        section.home-page__brands.brands
+        section.home-page__brands.brands.slider-default
             .container.brands__container
-                .brands__head
-                    h3.brands__title Бренды
-                    .brands__buttons
-                        .brands__btn
-                            .brands__prev.btn.btn_radius.btn_radius_black
+                .brands__head.slider-default__head
+                    h3.brands__title.slider-default__title Бренды
+                    .slider-default__btns
+                        .slider-default__btn
+                            .brands__prev.slider-default__prev.btn.btn_radius.btn_radius_black
                                 svg
                                     use( xlink:href=sprite('arrow-slider') )
 
-                        .brands__btn
-                            .brands__next.btn.btn_radius.btn_radius_black.btn_radius_right
+                        .slider-default__btn
+                            .brands__next.slider-default__next.btn.btn_radius.btn_radius_black.btn_radius_right
                                 svg
                                     use( xlink:href=sprite('arrow-slider') )
 
-                .brands__slider.swiper-container#brands__slider
-                    .swiper-wrapper.brands__slider-wrapper
+                .slider-default__slider.brands__slider.swiper-container#brands__slider
+                    .swiper-wrapper.slider-default__slider-wrapper
                         .swiper-slide
                             img( src=image('brands/brand-logo-1.png') )
                         .swiper-slide
@@ -115,4 +115,4 @@ block content
                         .swiper-slide
                             img( src=image('brands/brand-logo-6.png') )
 
-                    .swiper-pagination.brands__slider-pagination
+                    .swiper-pagination.slider-default__slider-pagination

@@ -14,108 +14,37 @@ block content
             h1.catalog-page__title Женщинам
 
 
-        .container.catalog-page__content
-            aside.catalog-page__sidebar
+        section
+            .container.catalog-page__content
+                include elements/sidepar
+                section.catalog-page__catalog
+                    include elements/filters
 
-                .categories
+                    .catalog-page__products
+                        each product in productsHomeWoman
+                            include components/product
 
-                    .categories__category.category
-                        .category__front.category__front_opened
-                            .category__title Верхняя одежда
-                            .category__icon
-                        ul.category__submenu
-                            li
-                                a(href="#").category__item Свитера  <span>(200)</span>
-                            li
-                                a(href="#").category__item Куртки  <span>(23)</span>
-                            li
-                                a(href="#").category__item.category__item_active Футболки  <span>(563)</span>
-                            li
-                                a(href="#").category__item Рубашки  <span>(434)</span>
-                            li
-                                a(href="#").category__item Майки  <span>(456)</span>
+                        each product in productsHomeWoman
+                            include components/product
 
-                    .categories__category.category
-                        .category__front
-                            .category__title Верхняя одежда
-                            .category__icon
-                        ul.category__submenu
-                            li
-                                a(href="#").category__item Свитера  <span>(200)</span>
-                            li
-                                a(href="#").category__item Куртки  <span>(23)</span>
-                            li
-                                a(href="#").category__item.category__item_active Футболки  <span>(563)</span>
-                            li
-                                a(href="#").category__item Рубашки  <span>(434)</span>
-                            li
-                                a(href="#").category__item Майки  <span>(456)</span>
+                    include components/pagination
 
+                    section.catalog-page__popular.popular
+                        include elements/popular
+            .container
+                section.catalog-page__info
+                    p.catalog-page__info-paragraph Женские блузки и рубашки стали неотъемлемой частью гардероба женщины любого возраста.
+                        |  В нынешнем сезоне они широко представлены в коллекциях модных домов.
+                        |  Этот вид женской одежды популярен и востребован, поскольку подходит и для свободного стиля,
+                        |  и для строгого костюма.
 
-            section.catalog-page__catalog
-                .custom-filters
-                    .custom-filters__wrapper
+                    p.catalog-page__info-paragraph Современная деловая женщина, вынужденная пять дней в неделю находиться в офисе, стремится к тому, чтобы,
+                        | не выходя из рамок дресс-кода, оставаться женственной, выглядеть эффектно.
+                        | Предлагаемое современными дизайнерами невероятное разнообразие фасонов значительно помогает ей в этом.
+                        | Среди наиболее популярных:
 
-                        .custom-filters__filter.custom-filter.custom-filter_left-menu(data-filter-items='stock')
-                            .custom-filter__front
-                                span В наличии
-                                svg.custom-filter__icon
-                                    use( xlink:href=sprite('dropdown-arrow') )
-                            .custom-filter__submenu.custom-submenu
-                                .custom-submenu__wrapper
-                                    .custom-submenu__item.custom-submenu__item_selected(data-filter='1') В наличии
-                                    .custom-submenu__item(data-filter='2') Под заказ
-
-                        .custom-filters__filter.custom-filter.custom-filter_brands
-                            .custom-filter__front
-                                span Бренд
-                                svg.custom-filter__icon
-                                    use( xlink:href=sprite('dropdown-arrow') )
-                            .custom-filter__submenu.custom-submenu.custom-submenu
-                               .custom-submenu__wrapper
-
-                        .custom-filters__filter.custom-filter(data-filter-price)
-                            .custom-filter__front
-                                span Цена
-                                svg.custom-filter__icon
-                                    use( xlink:href=sprite('dropdown-arrow') )
-                            .custom-filter__submenu.custom-submenu.custom-submenu_price
-                                .custom-submenu__wrapper
-                                    .custom-submenu__inputs
-                                        .custom-submenu__input
-                                            | От
-                                            input(type='number' value='0' data-price-from)
-                                        .custom-submenu__input
-                                            | До
-                                            input(type='number' value='0' data-price-to)
-                                .custom-submenu__wrapper
-                                    .custom-submenu__btn.btn.btn-fill(data-price-btn) Применить
-
-                        .custom-filters__filter.custom-filter
-                            .custom-filter__front
-                                span Размер
-                                svg.custom-filter__icon
-                                    use( xlink:href=sprite('dropdown-arrow') )
-                            .custom-filter__submenu.custom-submenu
-                                .custom-submenu
-
-                        .custom-filters__filter.custom-filter
-                            .custom-filter__front
-                                span Рейтинг
-                                svg.custom-filter__icon
-                                    use( xlink:href=sprite('dropdown-arrow') )
-                            .custom-filter__submenu.custom-submenu
-                                .custom-submenu
-
-                        .custom-filters__filter.custom-filter.custom-filter_right-menu(data-filter-items='sort')
-                            .custom-filter__front
-                                span По популярности
-                                svg.custom-filter__icon
-                                    use( xlink:href=sprite('dropdown-arrow') )
-                            .custom-filter__submenu.custom-submenu
-                                .custom-submenu__wrapper
-                                    .custom-submenu__item.custom-submenu__item_selected(data-filter='1') По популярности
-                                    .custom-submenu__item(data-filter='2') По возрастанию цены
-                                    .custom-submenu__item(data-filter='3') По убыванию цены
-                                    .custom-submenu__item(data-filter='4') По новинкам
-                                    .custom-submenu__item(data-filter='5') По скидкам
+                    p.catalog-page__info-paragraph рубашка с острым воротничком под горло;модель рубашечного кроя со скругленным воротничком;блузы строго кроя,
+                        | украшенные такими декоративными элементами, как пуговицы под цвет жемчуга, рюши, жабо.
+                        | Модные женские блузки — это один из ключевых видов одежды, которые выгодно подчеркивают выбранный стиль.
+                        | В наступающем сезоне мода предлагает активно избавляться от минимализма, порядком всем поднадоевшего,
+                        | и вместо традиционного контраста черного и белого выплескивает целый фонтан красок, а также фактур.

@@ -1,0 +1,39 @@
+.pagination
+  display: flex
+  align-items: center
+
+  &__pages
+    display: flex
+    border: 1px solid #ECECEC
+    border-radius: 4px
+
+  &__btn
+    width: 38px
+    height: 38px
+    border-right: 1px solid #ECECEC
+    font-size: 15px
+    font-weight: 500
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    > svg
+      width: 10px
+      height: 6px
+
+    &_active
+      background: #01A2E8
+      color: #ffffff
+
+    &:first-child
+    &:last-child
+      border-right: 0
+
+  &__next
+    transform: rotate(180deg)
+  &__fast-next
+    margin-left: 25px
+    > svg
+      width: 20px
+      height: 6px

@@ -1,0 +1,20 @@
+.slider-default__head
+    h2.slider-default__title Популярные товары
+    .slider-default__btns
+        .slider-default__btn
+            .popular__prev.slider-default__prev.btn.btn_radius.btn_radius_black
+                svg
+                    use( xlink:href=sprite('arrow-slider') )
+
+        .slider-default__btn
+            .popular__next.slider-default__next.btn.btn_radius.btn_radius_black.btn_radius_right
+                svg
+                    use( xlink:href=sprite('arrow-slider') )
+
+.slider-default__slider.popular__slider.swiper-container#popular__slider
+    .swiper-wrapper
+        each product in productsHomeWoman
+            .swiper-slide
+                    include ../components/product
+
+    .swiper-pagination.slider-default__slider-pagination.popular__pagination

@@ -1,6 +1,5 @@
 .custom-filters
-  padding: 0 7px
-  padding-bottom: 3rem
+  padding-bottom: 40px
 
   &__wrapper
     border: 1px solid #F1F1F1
@@ -15,7 +14,9 @@
     padding: 0 15px
     margin-top: 15px
 
-
+@media (max-width: 1200px)
+  .custom-filters
+    display: none
 
 .custom-filter
   position: relative
@@ -78,6 +79,7 @@
   border: 1px solid #E9E9E9
   background: #ffffff
   margin-top: 10px
+  z-index: 5
 
   &__wrapper
     padding: 0 18px

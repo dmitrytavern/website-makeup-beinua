@@ -36,3 +36,32 @@ new Swiper('#brands__slider', {
 		},
 	}
 })
+
+
+new Swiper('#popular__slider', {
+	pagination: {
+		el: '.swiper-pagination',
+	},
+
+	navigation: {
+		nextEl: '.popular__next',
+		prevEl: '.popular__prev',
+	},
+
+	slidesPerView: 2,
+	spaceBetween: 30,
+	breakpoints: {
+		768: {
+			slidesPerView: 4,
+			spaceBetween: 35,
+		},
+		992: {
+			slidesPerView: 3,
+			spaceBetween: 35,
+		},
+		1600: {
+			slidesPerView: 4,
+			spaceBetween: 35,
+		},
+	}
+})

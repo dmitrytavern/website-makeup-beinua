@@ -1,0 +1,45 @@
+.slider-default
+  margin-top: 100px
+
+  &__head
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 60px
+
+  &__title
+    display: inline-block
+
+  &__slider
+    &-wrapper
+      display: flex
+      align-items: center
+
+    &-pagination
+      bottom: 0px !important
+      display: flex
+      align-items: center
+      justify-content: center
+
+      .swiper-pagination-bullet
+        background: #F1C8E0
+        margin: 0 5px !important
+
+      .swiper-pagination-bullet-active
+        width: 10px
+        height: 10px
+        background: black
+
+
+  &__btns
+    display: flex
+
+    .slider-default__btn:last-child
+      margin-left: 18px
+
+
+@media (max-width: 767px)
+  .slider-default
+    &__btns
+      display: none
+

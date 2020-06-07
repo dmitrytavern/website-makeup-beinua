@@ -1,3 +1,19 @@
 .container
   max-width: 1600px
+  padding: 0 60px
   margin: 0 auto
+
+@media (min-width: 1550px)
+  .container
+    padding: 0 20px
+
+    &_lg-none
+      padding: 0
+
+@media (max-width: 1200px)
+  .container
+    padding: 0 20px
+
+@media (max-width: 992px)
+  .container
+    padding: 0 15px

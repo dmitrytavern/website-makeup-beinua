@@ -74,7 +74,7 @@
 @media (max-width: 1530px)
   .catalog
     &__head
-      padding: 0 20px
+      padding: 0
     &__tabs
       margin-left: 64px
 
@@ -82,17 +82,16 @@
       display: none
 
     &__items
+      padding-right: unset !important
+      padding-left: unset !important
       width: 100%
       float: unset
       grid-template-columns: 1fr 1fr 1fr 1fr
       grid-column-gap: 40px
       grid-row-gap: 40px
-      padding: 0 15px !important
 
 @media (max-width: 992px)
   .catalog
-    &__head
-      padding: 0 15px
     &__btn
       justify-content: flex-end
       padding: 0 15px
@@ -124,6 +123,3 @@
       grid-template-columns: 1fr 1fr
       grid-column-gap: 30px
       grid-row-gap: 30px
-      padding: 0 15px
-
-
