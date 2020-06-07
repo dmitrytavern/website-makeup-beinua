@@ -1,0 +1,129 @@
+.catalog
+  &__head
+    display: flex
+    padding: 0 60px
+
+  &__title
+    font-size: 40px
+    font-weight: bold
+    letter-spacing: -0.85px
+
+  &__tabs
+    display: flex
+    margin-left: 73px
+
+  &__tab
+    margin: 0 18px
+    padding-top: 24px
+    padding-bottom: 12px
+    font-weight: 500
+    cursor: pointer
+    color: #747474
+
+    &_active
+      color: #000000
+      border-bottom: 2px solid #01A2E8
+
+    &:first-child
+      margin-left: 0
+    &:last-child
+      margin-right: 0
+
+
+  &__products
+    margin-top: 55px
+    display: flex
+    justify-content: space-between
+
+    &_left
+      .catalog__items
+        padding-right: 60px
+
+    &_right
+      .catalog__items
+        padding-left: 60px
+
+  &__intro-image
+    max-width: 498px
+
+  &__items
+    float: right
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-column-gap: 38px
+    grid-row-gap: 30px
+
+  &__btn
+    display: flex
+    justify-content: center
+    margin-top: 53px
+    text-transform: uppercase
+    font-size: 13px
+
+
+@media (max-width: 1560px)
+  .catalog
+    &__produts_left
+      .catalog__items
+        padding-right: 30px
+
+    &_right
+      .catalog__items
+        padding-left: 30px
+
+@media (max-width: 1530px)
+  .catalog
+    &__head
+      padding: 0 20px
+    &__tabs
+      margin-left: 64px
+
+    &__intro-image
+      display: none
+
+    &__items
+      width: 100%
+      float: unset
+      grid-template-columns: 1fr 1fr 1fr 1fr
+      grid-column-gap: 40px
+      grid-row-gap: 40px
+      padding: 0 15px !important
+
+@media (max-width: 992px)
+  .catalog
+    &__head
+      padding: 0 15px
+    &__btn
+      justify-content: flex-end
+      padding: 0 15px
+      margin-top: 50px
+
+@media (max-width: 767px)
+
+  .catalog
+    &__head
+      flex-direction: column
+
+    &__title
+      font-size: 30px
+
+    &__tabs
+      flex-wrap: wrap
+      margin-left: 0px
+
+    &__tab
+      margin: 0 18px
+      margin-top: 13px
+      padding-top: 12px
+
+    &__intro-image
+      display: none
+
+    &__items
+      float: unset
+      grid-template-columns: 1fr 1fr
+      grid-column-gap: 30px
+      grid-row-gap: 30px
+      padding: 0 15px
+
+

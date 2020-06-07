@@ -11,7 +11,7 @@ block content
 
                 .slider__over
                     p.slider__collection Новая коллекция
-                    p.slider__title Женской одежды
+                    h1.slider__title Женской одежды
                     .slider__btn
                         a(href="#").btn.btn-fill.btn-while в Каталог
 
@@ -31,3 +31,50 @@ block content
                 .swiper-button-next.btn.btn_radius.btn_radius_while.btn_radius_right
                     svg
                         use( xlink:href=sprite('arrow-slider') )
+
+        section.home-page__catalog.catalog
+            .container
+                .catalog__head
+                    h2.catalog__title Женщинам:
+                    .catalog__tabs
+                        .catalog__tab.catalog__tab_active Верхняя одежда
+                        .catalog__tab Блузки
+                        .catalog__tab Платья
+
+                .catalog__products.catalog__products_left
+                    .catalog__intro-image
+                        img( src=image('products-intro/woman-bg.png') )
+
+                    .catalog__items
+                        each product in productsHomeWoman
+                            include components/product
+
+                .catalog__btn
+                    .btn.btn-outline.btn-arrow
+                        | Женщинам
+                        svg.btn-arrow-arrow
+                            use( xlink:href=sprite('long-arrow') )
+
+        section.home-page__catalog.catalog
+            .container
+                .catalog__head
+                    h2.catalog__title Мужчинам:
+                    .catalog__tabs
+                        .catalog__tab.catalog__tab_active Верхняя одежда
+                        .catalog__tab Костюмы
+                        .catalog__tab Брюки
+
+                .catalog__products.catalog__products_right
+
+                    .catalog__items
+                        each product in productsHomeMan
+                            include components/product
+
+                    .catalog__intro-image
+                        img( src=image('products-intro/man-bg.png') )
+
+                .catalog__btn
+                    .btn.btn-outline.btn-arrow
+                        | Мужчинам
+                        svg.btn-arrow-arrow
+                            use( xlink:href=sprite('long-arrow') )

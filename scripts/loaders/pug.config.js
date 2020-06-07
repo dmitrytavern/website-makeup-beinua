@@ -33,7 +33,70 @@ module.exports = function ({ mode, routes, routesRes }) {
 		files: {
 			sass: ['style'],
 			js: ['script']
-		}
+		},
+
+		productsHomeWoman: [
+			{
+				stock: 'in',
+				mark: 'new',
+				image: 'products/woman-1.png'
+			},
+			{
+				oldPrice: true,
+				mark: 'sale',
+				stock: 'order',
+				image: 'products/woman-2.png'
+			},
+			{
+				oldPrice: true,
+				mark: 'sale',
+				stock: 'out',
+				image: 'products/woman-3.png'
+			},
+			{
+				stock: 'in',
+				image: 'products/woman-4.png'
+			},
+			{
+				stock: 'in',
+				image: 'products/woman-5.png'
+			},
+			{
+				stock: 'in',
+				image: 'products/woman-6.png'
+			},
+		],
+		productsHomeMan: [
+			{
+				stock: 'in',
+				mark: 'new',
+				image: 'products/man-1.png'
+			},
+			{
+				oldPrice: true,
+				mark: 'sale',
+				stock: 'order',
+				image: 'products/man-2.png'
+			},
+			{
+				oldPrice: true,
+				mark: 'sale',
+				stock: 'out',
+				image: 'products/man-3.png'
+			},
+			{
+				stock: 'in',
+				image: 'products/man-4.png'
+			},
+			{
+				stock: 'in',
+				image: 'products/man-5.png'
+			},
+			{
+				stock: 'in',
+				image: 'products/man-6.png'
+			},
+		]
 	}
 
 	switch (mode) {
