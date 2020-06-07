@@ -46,13 +46,12 @@
       color: #ffffff
       font-size: 10px
       font-weight: bold
-
       display: flex
-
       justify-content: center
       align-items: center
 
-    &_selected
+    &_selected,
+    &:hover
       background-color: #01A2E8
       color: #ffffff
 
@@ -184,8 +183,12 @@
       &_selected
         background-color: #ffffff
         color: #01A2E8
+
         &:before
           opacity: 1
+      &:hover
+        background-color: #ffffff
+        color: #01A2E8
 
       &:last-child
         border-bottom: none
