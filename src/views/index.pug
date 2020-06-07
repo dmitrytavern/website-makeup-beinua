@@ -78,3 +78,41 @@ block content
                         | Мужчинам
                         svg.btn-arrow-arrow
                             use( xlink:href=sprite('long-arrow') )
+
+        section.home-page__brands.brands
+            .container.brands__container
+                .brands__head
+                    h3.brands__title Бренды
+                    .brands__buttons
+                        .brands__btn
+                            .brands__prev.btn.btn_radius.btn_radius_black
+                                svg
+                                    use( xlink:href=sprite('arrow-slider') )
+
+                        .brands__btn
+                            .brands__next.btn.btn_radius.btn_radius_black.btn_radius_right
+                                svg
+                                    use( xlink:href=sprite('arrow-slider') )
+
+                .brands__slider.swiper-container#brands__slider
+                    .swiper-wrapper.brands__slider-wrapper
+                        .swiper-slide
+                            img( src=image('brands/brand-logo-1.png') )
+                        .swiper-slide
+                            img( src=image('brands/brand-logo-2.png') )
+                        .swiper-slide
+                            img( src=image('brands/brand-logo-3.png') )
+                        .swiper-slide
+                            img( src=image('brands/brand-logo-4.png') )
+                        .swiper-slide
+                            img( src=image('brands/brand-logo-5.png') )
+                        .swiper-slide
+                            img( src=image('brands/brand-logo-6.png') )
+                        .swiper-slide
+                            img( src=image('brands/brand-logo-4.png') )
+                        .swiper-slide
+                            img( src=image('brands/brand-logo-5.png') )
+                        .swiper-slide
+                            img( src=image('brands/brand-logo-6.png') )
+
+                    .swiper-pagination.brands__slider-pagination
