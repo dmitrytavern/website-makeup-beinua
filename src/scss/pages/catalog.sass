@@ -18,6 +18,7 @@
 
   &__catalog
     width: 75%
+    margin-left: 40px
 
   &__content
     display: flex
@@ -53,9 +54,6 @@
 
 @media (max-width: 1200px)
   .catalog-page
-    &__catalog
-      padding-left: 40px
-
     &__products
       grid-template-columns: 1fr 1fr 1fr
       grid-column-gap: 38px
@@ -73,7 +71,7 @@
       display: flex
 
     &__catalog
-      padding-left: unset
+      margin-left: unset
       width: 100%
 
     &__products

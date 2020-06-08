@@ -1,24 +1,25 @@
 var selectedFilter = null
 var filterFront = document.querySelectorAll('.custom-filter__front')
 var filterCheckboxes = document.querySelectorAll('.custom-checkbox')
+var filterApply = document.querySelectorAll('.custom-filter__apply')
 
 function setFilter(filter, value) {
 	var filterFront  = filter.querySelector('.custom-filter__front')
 	var filterSpan  = filterFront.querySelector('span')
-	var filterItems  = filter.querySelectorAll('.custom-submenu__item_selected')
-	var filterActive = filter.querySelector('.custom-submenu__item[data-filter="'+value+'"]')
+	var filterItems  = filter.querySelectorAll('.custom-submenu-selector__item_selected')
+	var filterActive = filter.querySelector('.custom-submenu-selector__item[data-filter="'+value+'"]')
 
 	filterFront.classList.remove('custom-filter__front_open')
 	filterSpan.innerHTML = filterActive.innerHTML
-	for (let item of [...filterItems]) item.classList.remove('custom-submenu__item_selected')
-	filterActive.classList.add('custom-submenu__item_selected')
+	for (let item of [...filterItems]) item.classList.remove('custom-submenu-selector__item_selected')
+	filterActive.classList.add('custom-submenu-selector__item_selected')
 
 	/* Logic of sort */
 }
 
 var filtersItems = document.querySelectorAll('[data-filter-items]')
 for (let filter of Array.from(filtersItems)) {
-	var items 		= filter.querySelectorAll('.custom-submenu__item')
+	var items 		= filter.querySelectorAll('.custom-submenu-selector__item')
 
 	Array.from(items).map((item) => {
 		var value = item.getAttribute('data-filter')
@@ -29,7 +30,7 @@ for (let filter of Array.from(filtersItems)) {
 }
 
 
-function toggleFilter(e) {
+function toggleFilter() {
 	if (selectedFilter) {
 		if (selectedFilter !== this) {
 			if (window.innerWidth > 992) {
@@ -85,4 +86,5 @@ document.querySelector('.mobile-apply__btn').addEventListener('click', function 
 
 
 for (let front of [...filterFront]) front.addEventListener('click', toggleFilter)
+for (let front of [...filterApply]) front.addEventListener('click', toggleFilter)
 for (let box of [...filterCheckboxes]) box.addEventListener('click', checkBoxSelect)
