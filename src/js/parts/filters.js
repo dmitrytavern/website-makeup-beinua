@@ -16,8 +16,8 @@ function setFilter(filter, value) {
 	/* Logic of sort */
 }
 
-var filters = document.querySelectorAll('[data-filter-items]')
-for (let filter of Array.from(filters)) {
+var filtersItems = document.querySelectorAll('[data-filter-items]')
+for (let filter of Array.from(filtersItems)) {
 	var items 		= filter.querySelectorAll('.custom-submenu__item')
 
 	Array.from(items).map((item) => {
@@ -65,6 +65,22 @@ document.addEventListener('click', function (e) {
 			target = target.offsetParent
 		}
 	}
+})
+
+var filtersContainer = document.querySelector('.custom-filters')
+
+function openFiltersPopup() {
+	filtersContainer.classList.add('custom-filters_opened')
+}
+function closeFiltersPopup() {
+	filtersContainer.classList.remove('custom-filters_opened')
+}
+
+document.querySelector('.tools__filters').addEventListener('click', openFiltersPopup)
+document.querySelector('.custom-filters__mobile-close').addEventListener('click', closeFiltersPopup)
+document.querySelector('.mobile-apply__btn').addEventListener('click', function () {
+	closeFiltersPopup()
+	/* Logic apply settings */
 })
 
 

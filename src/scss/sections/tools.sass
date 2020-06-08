@@ -1,0 +1,58 @@
+.tools
+  &__category
+    border: 1px solid #E7E7E7
+    font-size: 16px
+    font-weight: 500
+    padding: 15px 20px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    cursor: pointer
+
+    > svg
+      width: 12px
+      height: 7px
+
+  &__filters
+    min-width: 65px
+    width: 27%
+    padding: 15px 20px
+    border: 1px solid #E7E7E7
+    border-left: none
+    cursor: pointer
+    position: relative
+
+    display: flex
+    justify-content: center
+
+    &-wrapper
+      position: relative
+      display: inline-block
+
+    svg
+      width: 24px
+      height: 24px
+      fill: #000000
+
+  &__filter-num
+    font-size: 11px
+    font-weight: bold
+    position: absolute
+    top: -5px
+    right: -5px
+    background: #F7F7F9
+    width: 18px
+    height: 18px
+    border-radius: 50%
+    color: #242424
+    display: flex
+    align-items: center
+    justify-content: center
+
+  &__icon
+    display: block
+
+@media (max-width: 375px)
+  .tools__filters
+    width: unset

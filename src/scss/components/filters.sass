@@ -10,8 +10,6 @@
       margin-left: 0
 
   &__mobile-apply
-    display: none
-    padding: 0 15px
     margin-top: 15px
 
 @media (max-width: 1200px)
@@ -22,6 +20,12 @@
   position: relative
   display: inline-block
   margin: 0 20px
+
+  &__mobile-title
+    display: none
+    font-weight: bold
+    font-size: 14px
+    margin-bottom: 18px
 
   &__front
     cursor: pointer
@@ -48,6 +52,9 @@
     border-left: 1px solid #F1F1F1
     margin-right: 0
     float: right
+
+    span
+      font-size: 14px
 
     .custom-filter__front
       padding-left: 20px
@@ -190,3 +197,83 @@
 
   &_checked .custom-checkbox__txt
     color: #242424
+
+
+
+@media (max-width: 992px)
+  .custom-filters
+    display: block
+    margin-bottom: unset
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: #fff
+    z-index: 1001
+    padding-bottom: 0
+    overflow-y: auto
+    padding: 0
+
+    visibility: hidden
+    opacity: 0
+
+    &_opened
+      visibility: visible
+      opacity: 1
+
+    &__wrapper
+      border: none
+      position: relative
+      padding-bottom: 30px
+
+  .custom-filter
+    padding-top: 15px
+    padding-bottom: 20px
+    display: block
+    margin: 0 15px
+
+    &__mobile-title
+      display: block
+
+    &__front
+      display: inline-block
+      padding-left: 0 !important
+      padding-right: 20px !important
+      padding-top: 0 !important
+      padding-bottom: 0 !important
+
+    &_right-menu
+      position: absolute
+      top: 98px
+      right: 12px
+      border: none
+      float: unset
+
+    .custom-filter__front
+      padding-top: 0
+      padding-bottom: 0
+
+      &:before
+        right: 0
+
+    .custom-submenu
+      top: 100%
+
+
+  .custom-submenu_price .custom-submenu__btn
+    display: none
+
+  .custom-filter:not(.custom-filter_right-menu)
+    .custom-submenu
+      display: none
+      position: relative
+      min-width: unset
+      border: unset
+      top: unset
+
+    .custom-filter__front_open + .custom-filter__submenu
+      display: block
+
+  .custom-submenu__brands
+    grid-template-columns: 1fr

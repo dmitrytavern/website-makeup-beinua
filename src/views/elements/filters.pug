@@ -1,7 +1,13 @@
 .custom-filters
     .custom-filters__wrapper
 
+        .custom-filters__mobile-title.mobile-title
+            | Фильтр
+            svg.custom-filters__mobile-close
+                use(xlink:href=sprite('close'))
+
         .custom-filters__filter.custom-filter.custom-filter_left-menu(data-filter-items='stock')
+            .custom-filter__mobile-title Статус товара:
             .custom-filter__front
                 span В наличии
                 svg.custom-filter__icon
@@ -12,6 +18,7 @@
                     .custom-submenu__item(data-filter='2') Под заказ
 
         .custom-filters__filter.custom-filter.custom-filter_brands
+            .custom-filter__mobile-title Выбор Бренда:
             .custom-filter__front
                 span Бренд
                 svg.custom-filter__icon
@@ -20,6 +27,7 @@
                 .custom-submenu__wrapper
 
         .custom-filters__filter.custom-filter(data-filter-price)
+            .custom-filter__mobile-title Диапозон цен:
             .custom-filter__front
                 span Цена
                 svg.custom-filter__icon
@@ -37,6 +45,7 @@
                     .custom-submenu__btn.btn.btn-fill(data-price-btn) Применить
 
         .custom-filters__filter.custom-filter
+            .custom-filter__mobile-title Выбор размера:
             .custom-filter__front
                 span Размер
                 svg.custom-filter__icon
@@ -45,6 +54,7 @@
                 .custom-submenu
 
         .custom-filters__filter.custom-filter
+            .custom-filter__mobile-title Рейтинг продавца:
             .custom-filter__front
                 span Рейтинг
                 svg.custom-filter__icon
@@ -64,3 +74,9 @@
                     .custom-submenu__item(data-filter='3') По убыванию цены
                     .custom-submenu__item(data-filter='4') По новинкам
                     .custom-submenu__item(data-filter='5') По скидкам
+
+        .custom-filters__mobile-apply.mobile-apply
+            .mobile-apply__found-products
+                | Найдено:
+                span  5 товаров
+            .mobile-apply__btn.btn.btn-primary Применить
