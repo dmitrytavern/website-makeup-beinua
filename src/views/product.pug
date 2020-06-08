@@ -12,58 +12,172 @@ block content
             .breadcrumbs__item Верхняя одежда
             .breadcrumbs__item.breadcrumbs__item_active Весеннее пальто
 
-    section.product-inner
-        .container
-            .product-inner__slider
-                .product-inner__slider-thumbs
-                    .product-inner__slider-btn.product-inner__slider-btn_prev
-                        svg
-                            use(xlink:href=sprite('dropdown-arrow'))
-                    .swiper-container#product-inner__thumbs
-                        .swiper-wrapper
-                            .swiper-slide
-                                img(src=image('products-slider/item-1.png'))
-                            .swiper-slide
-                                img(src=image('products-slider/item-2.png'))
-                            .swiper-slide.product-inner__slider-video
-                                img(src=image('products-slider/item-3.png'))
-                                .product-inner__slider-play.product-inner__slider-play_thumbs
+    main.product-inner
+        section
+            .container.product-inner__container
+                .product-inner__slider
+                    .product-inner__slider-thumbs
+                        .product-inner__slider-btn.product-inner__slider-btn_prev
+                            svg
+                                use(xlink:href=sprite('dropdown-arrow'))
+                        .swiper-container#product-inner__thumbs
+                            .swiper-wrapper
+                                .swiper-slide
+                                    img(src=image('products-slider/item-1.png'))
+                                .swiper-slide
+                                    img(src=image('products-slider/item-2.png'))
+                                .swiper-slide.product-inner__slider-video
+                                    img(src=image('products-slider/item-3.png'))
+                                    .product-inner__slider-play.product-inner__slider-play_thumbs
+                                        svg
+                                            use( xlink:href=sprite('play') )
+                                .swiper-slide
+                                    img(src=image('products-slider/item-2.png'))
+                                .swiper-slide
+                                    img(src=image('products-slider/item-1.png'))
+                        .product-inner__slider-btn.product-inner__slider-btn_next
+                            svg
+                                use(xlink:href=sprite('dropdown-arrow'))
+
+                    .product-inner__slider-image
+                        .swiper-container#product-inner__image
+
+                            .product-inner__slider-panel
+                                a(href="#").product__panel-link.product-inner__slider-panel-link
                                     svg
-                                        use( xlink:href=sprite('play') )
-                            .swiper-slide
-                                img(src=image('products-slider/item-2.png'))
-                            .swiper-slide
-                                img(src=image('products-slider/item-1.png'))
-                    .product-inner__slider-btn.product-inner__slider-btn_next
-                        svg
-                            use(xlink:href=sprite('dropdown-arrow'))
-
-                .product-inner__slider-image
-                    .swiper-container#product-inner__image
-
-                        .product-inner__slider-panel
-                            a(href="#").product__panel-link.product-inner__slider-panel-link
-                                svg
-                                    use( xlink:href=sprite('compare') )
-                            a(href="#").product__panel-link.product-inner__slider-panel-link
-                                svg
-                                    use( xlink:href=sprite('heart') )
-
-                        .product-inner__slider-mark.product__mark.product__mark_new new
-
-                        .swiper-wrapper
-                            .swiper-slide
-                                img(src=image('products-slider/item-1.png'))
-                            .swiper-slide
-                                img(src=image('products-slider/item-2.png'))
-                            .swiper-slide
-                                img(src=image('products-slider/item-3.png'))
-                                .product-inner__slider-play.product-inner__slider-play_image
+                                        use( xlink:href=sprite('compare') )
+                                a(href="#").product__panel-link.product-inner__slider-panel-link
                                     svg
-                                        use( xlink:href=sprite('play') )
+                                        use( xlink:href=sprite('heart') )
+
+                            .product-inner__slider-mark.product__mark.product__mark_new new
+
+                            .swiper-wrapper
+                                .swiper-slide
+                                    img(src=image('products-slider/item-1.png'))
+                                .swiper-slide
+                                    img(src=image('products-slider/item-2.png'))
+                                .swiper-slide
+                                    img(src=image('products-slider/item-3.png'))
+                                    .product-inner__slider-play.product-inner__slider-play_image
+                                        svg
+                                            use( xlink:href=sprite('play') )
+                                .swiper-slide
+                                    img(src=image('products-slider/item-2.png'))
+                                .swiper-slide
+                                    img(src=image('products-slider/item-1.png'))
+                            .swiper-pagination.product-inner__slider-pagination
+
+                .product-inner__info
+                    h1.product-inner__title Весеннее пальто
+                    p.product-inner__stock.product__stock.product__stock_in-stock В наличии
+
+                    .product-inner__group
+                        .product-inner__seller
+                            svg.product-inner__seller-ico
+                                use(xlink:href=sprite('brand'))
+                            a(href="#").product-inner__seller-name Lazana
+                        .product-inner__seller-rating.product__rating
+                            span Рейтинг продавца:
+                            span.product-inner__seller-stars.stars
+                                svg.stars__star.product-inner__seller-star
+                                    use( xlink:href=sprite('star-filled') )
+                                svg.stars__star.product-inner__seller-star
+                                    use( xlink:href=sprite('star-filled') )
+                                svg.stars__star.product-inner__seller-star
+                                    use( xlink:href=sprite('star-filled') )
+                                svg.stars__star.product-inner__seller-star
+                                    use( xlink:href=sprite('star-filled') )
+                                svg.stars__star.product-inner__seller-star
+                                    use( xlink:href=sprite('star') )
+                            span.product-inner__seller-num.product__rating-num  4.8
+
+                    .product-inner__group
+                        table.product-inner__table
+                            tr
+                                td.product-inner__param Состав:
+                                td.product-inner__value Полиэстер - 95%, Эластан - 5%:
+                            tr
+                                td.product-inner__param Цвет:
+                                td.product-inner__value Белый
+                            tr
+                                td.product-inner__param Сезон:
+                                td.product-inner__value Мульти
+
+                    .product-inner__group
+                        .product-inner__param Доступные цвета:
+                        .product-inner__colors
+                            .product-inner__color.product-inner__color_selected( style="background-color: #FFFFFF" )
+                            .product-inner__color( style="background-color: #FF6826" )
+                            .product-inner__color( style="background-color: #000000" )
+
+                    .product-inner__group
+                        .product-inner__param Доступные размера
+                        .product-inner__size
+                            .product-inner__size-selector
+                                .product-inner__size-selector-front
+                                    span Выбрать размер
+                                    svg
+                                        use( xlink:href=sprite('dropdown-arrow') )
+                                .product-inner__size-filter
+
+                            .product-inner__size-btn
+                                svg
+                                    use( xlink:href=sprite('rule') )
+                                a(href="#").product-inner__size-link
+                                    span Таблица размеров
+                                    span Размеры
+
+                    .product-inner__down
+                        .product-inner__price.product__price
+                            .product__price-old.product-inner__price-old 1 400
+                            .product__price-now.product-inner__price-now 1 295 грн
+
+                        .product-inner__btn.btn.btn-primary Добавить в корзину
+
+        section.product-inner__same-products
+            .container
+                .slider-default__head
+                    h2.slider-default__title Похожее от Lazana
+                    .slider-default__btns
+                        .slider-default__btn
+                            .product-inner__prev.slider-default__prev.btn.btn_radius.btn_radius_black
+                                svg
+                                    use( xlink:href=sprite('arrow-slider') )
+
+                        .slider-default__btn
+                            .product-inner__next.slider-default__next.btn.btn_radius.btn_radius_black.btn_radius_right
+                                svg
+                                    use( xlink:href=sprite('arrow-slider') )
+
+                .slider-default__slider.popular__slider.swiper-container#product-inner__slider
+                    .swiper-wrapper
+                        each product in productsHomeWoman
                             .swiper-slide
-                                img(src=image('products-slider/item-2.png'))
-                            .swiper-slide
-                                img(src=image('products-slider/item-1.png'))
-                        .swiper-pagination.product-inner__slider-pagination
-            .product-inner__info
+                                include components/product
+
+                    .swiper-pagination.slider-default__slider-pagination.popular__pagination
+                .product-inner__btn-brand
+                    .btn.btn-outline к Бренду Lazana
+
+        section.reviews
+            .container
+                .reviews__head
+                    h2.reviews__title Отзывы
+
+                    .reviews__rating
+                        a(href="#").reviews__number 12
+                        .reviews__stars.stars
+                            svg.stars__star.reviews__star
+                                use( xlink:href=sprite('star-filled') )
+                            svg.stars__star.reviews__star
+                                use( xlink:href=sprite('star-filled') )
+                            svg.stars__star.reviews__star
+                                use( xlink:href=sprite('star-filled') )
+                            svg.stars__star.reviews__star
+                                use( xlink:href=sprite('star-50') )
+                            svg.stars__star.reviews__star
+                                use( xlink:href=sprite('star') )
+
+                .reviews__wrapper
+                    .reviews__hello-world Вставка с Шаблона

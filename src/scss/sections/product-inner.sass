@@ -3,18 +3,272 @@
 .product-inner
   padding-bottom: 120px
 
+  &__container
+    display: flex
+
   &__breadcrumbs
-    margin: 50px 0
+    margin: 46px 0
 
   &__info
-    width: 26%
+    width: 100%
     padding-left: 20px
 
-@media (max-width: 1300px)
+  &__same-products
+    margin-top: 100px
+
+  &__group
+    margin: 33px 0
+
+  &__param
+    font-size: 15px
+    font-weight: 600
+
+  &__value
+    font-size: 15px
+
+
+  &__title
+    font-weight: bold
+    margin-top: 20px
+    font-size: 26px
+
+  &__stock
+    margin-top: 22px
+
+  &__seller
+    margin-top: 20px
+    display: flex
+    align-items: center
+    margin-bottom: 15px
+
+    &-ico
+      width: 14px
+      height: 14px
+      fill: #000
+
+    &-name
+      font-size: 15px
+      text-decoration: underline
+      margin-left: 15px
+
+    &-rating
+      span:first-child
+        color: #101010
+        margin-right: 15px
+    &-num
+      font-weight: 500
+      margin-top: 3px
+
+    &-stars
+    &-star
+      width: 11px
+      height: 11px
+
+  &__table
+    border-spacing: 15px
+    tr
+      td
+        padding: 7px 0
+        &:first-child
+          padding-right: 11px
+      &:first-child td
+        padding-top: 0
+      &:last-child td
+        padding-bottom: 0
+
+  &__colors
+    margin-top: 18px
+    display: flex
+
+  &__color
+    width: 26px
+    height: 26px
+    border-radius: 50%
+    border: 2px solid transparent
+    margin: 0 4px
+    cursor: pointer
+
+    &:first-child
+      margin-left: 0
+    &:last-child
+      margin-right: 0
+
+    &:before
+      content: ''
+      width: 8px
+      height: 8px
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      border-radius: 50%
+      background: #01A2E8
+      opacity: 0
+
+    &_selected
+      position: relative
+      border: 2px solid #F1F1F1
+
+      &:before
+        opacity: 1
+
+  &__size
+    margin-top: 18px
+    display: flex
+    align-items: center
+
+    &-btn
+      display: flex
+      align-items: center
+      margin-left: 58px
+
+      a
+        font-size: 14px
+        text-decoration: underline
+        color: #747474
+
+        span:last-child
+          display: none
+
+      svg
+        fill: #747474
+        width: 20px
+        height: 12px
+        margin-right: 10px
+
+    &-selector
+      cursor: pointer
+
+      &-front
+        display: flex
+        align-items: center
+        background: #F8F8F8
+        padding: 15px
+        font-size: 14px
+
+      svg
+        width: 9px
+        height: 6px
+        margin-left: 5px
+
+    &-filter
+      display: none
+
+  &__down
+    border-top: 1px solid #F1F1F1
+    padding-top: 35px
+    width: 100%
+
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  &__price
+    &-old
+      font-size: 20px
+    &-now
+      margin-left: 10px
+      font-size: 24px
+
+  &__btn
+    text-transform: uppercase
+    padding: 15px 27px
+    font-size: 13px
+
+    &-brand
+      text-transform: uppercase
+      display: flex
+      justify-content: center
+      margin-top: 70px
+
+      .btn
+        padding-left: 40px
+        padding-right: 40px
+
+@media (max-width: 1400px)
   .product-inner
+    &__size
+      justify-content: space-between
+      &-btn
+        margin-left: 0px
+    &__price
+      &-old
+        font-size: 18px
+      &-now
+        font-size: 21px
+
+@media (max-width: 1140px)
+  .product-inner
+    &__price
+      &-old
+        font-size: 20px
+      &-now
+        font-size: 24px
+
+@media (max-width: 1050px)
+  .product-inner
+    &__price
+      &-old
+        font-size: 17px
+      &-now
+        margin-left: 5px
+        font-size: 19px
+    &__btn
+      font-size: 12px
+
 
 @media (max-width: 992px)
   .product-inner
+    &__container
+      display: block
+
+    &__title
+      margin-top: 44px
+
+    &__size
+      justify-content: unset
+      &-btn
+        margin-left: 55px
+
+    &__price
+      &-old
+        font-size: 20px
+      &-now
+        margin-left: 10px
+        font-size: 24px
+    &__btn
+      margin-left: 45px
+      font-size: 13px
+      padding-left: 98px
+      padding-right: 98px
+    &__down
+      justify-content: flex-end
 
 @media (max-width: 767px)
   .product-inner
+    &__info
+      padding-left: 0px
+    &__title
+      margin-top: 40px
+
+    &__price
+      margin-bottom: 25px
+
+    &__btn
+      text-align: center
+      width: 100%
+      margin-left: 0px
+      padding-left: 0px
+      padding-right: 0px
+
+    &__down
+      flex-direction: column
+      align-items: flex-start
+
+    &__size
+      &-btn
+        a
+          span:first-child
+            display: none
+          span:last-child
+            display: block

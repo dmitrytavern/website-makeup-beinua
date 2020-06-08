@@ -105,3 +105,32 @@ new Swiper('#product-inner__image', {
 		swiper: galleryThumbs
 	}
 });
+
+
+new Swiper('#product-inner__slider', {
+	pagination: {
+		el: '.swiper-pagination',
+	},
+
+	navigation: {
+		nextEl: '.product-inner__next',
+		prevEl: '.product-inner__prev',
+	},
+
+	slidesPerView: 2,
+	spaceBetween: 30,
+	breakpoints: {
+		768: {
+			slidesPerView: 4,
+			spaceBetween: 30,
+		},
+		1300: {
+			slidesPerView: 4,
+			spaceBetween: 40,
+		},
+		1600: {
+			slidesPerView: 4,
+			spaceBetween: 90,
+		},
+	}
+})
