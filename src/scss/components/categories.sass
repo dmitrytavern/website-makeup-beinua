@@ -80,4 +80,28 @@
 
 @media (max-width: 992px)
   .categories
-    display: none
+    display: block
+    margin-bottom: unset
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: #fff
+    z-index: 1001
+    padding-bottom: 0
+    overflow-y: auto
+    padding: 0
+
+    visibility: hidden
+    opacity: 0
+
+    &_opened
+      visibility: visible
+      opacity: 1
+
+    &__wrapper
+      padding: 0 15px
+
+    &__mobile-title
+      margin-bottom: 30px

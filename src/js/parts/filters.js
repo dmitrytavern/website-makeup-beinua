@@ -77,7 +77,7 @@ function closeFiltersPopup() {
 }
 
 document.querySelector('.tools__filters').addEventListener('click', openFiltersPopup)
-document.querySelector('.custom-filters__mobile-close').addEventListener('click', closeFiltersPopup)
+document.querySelector('.custom-filters__close').addEventListener('click', closeFiltersPopup)
 document.querySelector('.mobile-apply__btn').addEventListener('click', function () {
 	closeFiltersPopup()
 	/* Logic apply settings */
