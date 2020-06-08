@@ -1,0 +1,69 @@
+extends layouts/default
+
+block title
+    title Product Inner
+
+block content
+    .container
+        .breadcrumbs.product-inner__breadcrumbs
+            .breadcrumbs__item Главная
+            .breadcrumbs__item Каталог
+            .breadcrumbs__item Женщинам
+            .breadcrumbs__item Верхняя одежда
+            .breadcrumbs__item.breadcrumbs__item_active Весеннее пальто
+
+    section.product-inner
+        .container
+            .product-inner__slider
+                .product-inner__slider-thumbs
+                    .product-inner__slider-btn.product-inner__slider-btn_prev
+                        svg
+                            use(xlink:href=sprite('dropdown-arrow'))
+                    .swiper-container#product-inner__thumbs
+                        .swiper-wrapper
+                            .swiper-slide
+                                img(src=image('products-slider/item-1.png'))
+                            .swiper-slide
+                                img(src=image('products-slider/item-2.png'))
+                            .swiper-slide.product-inner__slider-video
+                                img(src=image('products-slider/item-3.png'))
+                                .product-inner__slider-play.product-inner__slider-play_thumbs
+                                    svg
+                                        use( xlink:href=sprite('play') )
+                            .swiper-slide
+                                img(src=image('products-slider/item-2.png'))
+                            .swiper-slide
+                                img(src=image('products-slider/item-1.png'))
+                    .product-inner__slider-btn.product-inner__slider-btn_next
+                        svg
+                            use(xlink:href=sprite('dropdown-arrow'))
+
+                .product-inner__slider-image
+                    .swiper-container#product-inner__image
+
+                        .product-inner__slider-panel
+                            a(href="#").product__panel-link.product-inner__slider-panel-link
+                                svg
+                                    use( xlink:href=sprite('compare') )
+                            a(href="#").product__panel-link.product-inner__slider-panel-link
+                                svg
+                                    use( xlink:href=sprite('heart') )
+
+                        .product-inner__slider-mark.product__mark.product__mark_new new
+
+                        .swiper-wrapper
+                            .swiper-slide
+                                img(src=image('products-slider/item-1.png'))
+                            .swiper-slide
+                                img(src=image('products-slider/item-2.png'))
+                            .swiper-slide
+                                img(src=image('products-slider/item-3.png'))
+                                .product-inner__slider-play.product-inner__slider-play_image
+                                    svg
+                                        use( xlink:href=sprite('play') )
+                            .swiper-slide
+                                img(src=image('products-slider/item-2.png'))
+                            .swiper-slide
+                                img(src=image('products-slider/item-1.png'))
+                        .swiper-pagination.product-inner__slider-pagination
+            .product-inner__info

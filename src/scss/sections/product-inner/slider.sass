@@ -1,0 +1,175 @@
+.product-inner
+  &__slider
+    width: 74%
+    padding-right: 20px
+    display: flex
+    height: 778px
+
+    &-btn
+      width: 100%
+      height: 30px
+      background: black
+      display: flex
+      justify-content: center
+      align-items: center
+      outline: none
+      cursor: pointer
+
+      > svg
+        width: 14px
+        height: 8px
+        fill: #ffffff
+
+      &_prev
+        margin-bottom: 20px
+        svg
+          transform: rotate(180deg)
+
+      &_next
+        margin-top: 20px
+
+      &.swiper-button-disabled
+        background: #F8F8F8
+
+        svg
+          fill: #CBCBCB
+
+
+    &-thumbs
+      width: 200px
+      height: 100%
+      max-height: 100%
+
+      .swiper-slide
+        overflow: hidden
+
+
+    &-image
+      max-width: 588px
+      height: 100%
+      max-height: 100%
+      padding-left: 40px
+
+      .swiper-container
+        height: 100%
+
+        img
+          height: 100%
+
+    &-video img
+      filter: blur(6px)
+
+    &-play
+      position: absolute
+      width: 48px
+      height: 48px
+      border-radius: 50%
+      background: #DB0000
+      display: flex
+      justify-content: center
+      align-items: center
+
+      svg
+        width: 12px
+        height: 14px
+        fill: #ffffff
+
+      &_thumbs
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+      &_image
+        bottom: 20px
+        right: 15px
+        cursor: pointer
+
+    &-mark
+      z-index: 3
+
+    &-panel
+      z-index: 3
+      position: absolute
+      background: #ffffff
+      top: 10px
+      right: 10px
+      display: flex
+      flex-direction: column
+      padding: 15px
+
+      &-link
+        display: block
+        padding: 0
+        margin: 18px 0
+        &:first-child
+          margin-top: 0
+        &:last-child
+          margin-bottom: 0
+
+      svg
+        width: 20px
+        height: 20px
+
+@media (max-width: 1300px)
+  .product-inner
+    &__slider
+      height: 580px
+
+      &-btn
+        height: 21px
+
+        &_prev
+          margin-bottom: 11px
+        &_next
+          margin-top: 11px
+
+      &-thumbs
+        width: 140px
+        height: 100%
+
+      &-image
+        max-width: 440px
+        height: 100%
+        padding-left: 20px
+
+@media (max-width: 992px)
+  .product-inner
+    &__slider
+      width: 100%
+      height: unset
+      padding-right: 0px
+
+      &-thumbs
+        width: 23%
+        height: unset
+        max-height: unset
+
+      &-image
+        max-width: unset
+        width: 77%
+        height: unset
+        padding-left: 20px
+
+      .swiper-container
+        height: unset
+
+      img
+        height: unset !important
+
+@media (min-width: 768px)
+  .product-inner
+    &__slider
+      &-pagination
+        display: none
+
+@media (max-width: 767px)
+  .product-inner
+    &__slider
+      &-panel
+        display: none
+      &-thumbs
+        display: none
+
+      &-image
+        width: 100%
+        padding-left: 0
