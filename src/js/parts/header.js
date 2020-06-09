@@ -14,7 +14,8 @@ const headerMobileNav         = document.querySelector('#header__mobile-nav')
 const headerMobileRow         = document.querySelector('.header__row_black')
 
 function closePersonSubmenu(e) {
-	if (e.target.parentNode.className === 'header__person' || e.target.className === 'header__person') {} else {
+	if (e.target.parentNode.className === 'header__person' || e.target.className === 'header__person' ||
+		  e.target.parentNode.className.baseVal == "" || e.target.className.baseVal == "") {} else {
 		headerSubmenu.classList.remove('submenu_open')
 	}
 }

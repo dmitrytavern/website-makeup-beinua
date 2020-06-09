@@ -84,7 +84,7 @@
     width: 26px
     height: 26px
     border-radius: 50%
-    border: 2px solid transparent
+    border: 2px solid #ffffff
     margin: 0 4px
     cursor: pointer
 
@@ -137,7 +137,15 @@
         margin-right: 10px
 
     &-selector
-      cursor: pointer
+      position: relative
+
+      .custom-submenu
+        padding-bottom: 15px
+      .custom-submenu__btn
+        display: block
+
+      .custom-submenu__wrapper
+        margin-bottom: 15px
 
       &-front
         display: flex
@@ -145,14 +153,23 @@
         background: #F8F8F8
         padding: 15px
         font-size: 14px
+        cursor: pointer
 
-      svg
-        width: 9px
-        height: 6px
-        margin-left: 5px
+        svg
+          transition: .3s
+          width: 9px
+          height: 6px
+          margin-left: 15px
 
-    &-filter
-      display: none
+        &_opened
+          svg
+            transform: rotate(180deg)
+          + .product-inner__size-submenu
+            visibility: visible
+            opacity: 1
+
+            .custom-submenu__scroll .simplebar-track
+              visibility: visible !important
 
   &__down
     border-top: 1px solid #F1F1F1

@@ -38,10 +38,12 @@
     &_left
       .catalog__items
         padding-right: 60px
+        padding-left: 75px
 
     &_right
       .catalog__items
         padding-left: 60px
+        padding-right: 75px
 
   &__intro-image
     max-width: 498px
@@ -52,6 +54,9 @@
     grid-template-columns: 1fr 1fr 1fr
     grid-column-gap: 38px
     grid-row-gap: 40px
+
+    .product__image
+      max-width: 300px
 
   &__btn
     display: flex
@@ -97,6 +102,9 @@
       padding: 0 15px
       margin-top: 50px
 
+    &__items
+      grid-column-gap: 30px
+
 @media (max-width: 767px)
 
   .catalog
@@ -121,5 +129,4 @@
     &__items
       float: unset
       grid-template-columns: 1fr 1fr
-      grid-column-gap: 30px
       grid-row-gap: 30px

@@ -12,7 +12,7 @@ block content
             .breadcrumbs__item Верхняя одежда
             .breadcrumbs__item.breadcrumbs__item_active Весеннее пальто
 
-    main.product-inner
+    main.product-inner#product-inner-page
         section
             .container.product-inner__container
                 .product-inner__slider
@@ -119,7 +119,18 @@ block content
                                     span Выбрать размер
                                     svg
                                         use( xlink:href=sprite('dropdown-arrow') )
-                                .product-inner__size-filter
+                                .product-inner__size-submenu.custom-submenu.custom-submenu-size
+                                    .custom-submenu__wrapper
+                                        .custom-submenu__title Украинский размер
+                                        .custom-submenu__scroll(data-simplebar data-simplebar-auto-hide="false")
+                                            -var size = [42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62]
+                                            each s in size
+                                                .custom-submenu__checkbox.custom-checkbox
+                                                    .custom-checkbox__box
+                                                    .custom-checkbox__txt #{s}
+
+                                    .custom-submenu__btn
+                                        .btn.btn-primary.product-inner__size-apply Применить
 
                             .product-inner__size-btn
                                 svg
