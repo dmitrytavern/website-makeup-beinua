@@ -7,16 +7,30 @@
                 .product__mark.product__mark_sale sale
             .product__image
                 img( src=image(product.image))
-            .product__panel
-                a(href="#").product__panel-link
-                    svg
-                        use( xlink:href=sprite('compare') )
-                a(href="#").product__panel-link
-                    svg
-                        use( xlink:href=sprite('bag') )
-                a(href="#").product__panel-link.product__panel-link_mobile-top
-                    svg
-                        use( xlink:href=sprite('heart') )
+
+            if (productPanelClass)
+                .product__panel.product__panel_big
+                    a(href="#").product__panel-link
+                        svg
+                            use( xlink:href=sprite('compare') )
+                    a(href="#").product__panel-link
+                        svg
+                            use( xlink:href=sprite('bag') )
+                    a(href="#").product__panel-link.product__panel-link_mobile-top
+                        svg
+                            use( xlink:href=sprite('heart') )
+
+            if (!productPanelClass)
+                .product__panel
+                    a(href="#").product__panel-link
+                        svg
+                            use( xlink:href=sprite('compare') )
+                    a(href="#").product__panel-link
+                        svg
+                            use( xlink:href=sprite('bag') )
+                    a(href="#").product__panel-link.product__panel-link_mobile-top
+                        svg
+                            use( xlink:href=sprite('heart') )
 
         .product__stock-price
             if (product.stock == 'in')
