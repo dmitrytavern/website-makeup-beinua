@@ -43,12 +43,27 @@
       .custom-filter__icon
         transform: rotate(180deg)
 
+    &_closer
+      background: #F8F8F8
+
+      .custom-filter__icon
+        display: none
+
+      .custom-filter__icon_closer
+        display: inline-block
+
   &__icon
     width: 10px
     height: 6px
     margin-left: 10px
     transition: .3s
     transform: rotate(0deg)
+
+    &_closer
+      transform: rotate(0deg)
+      width: 10px
+      height: 10px
+      display: none
 
   &_right-menu
     border-left: 1px solid #F1F1F1
@@ -122,6 +137,7 @@
   &__title
     font-weight: 500
     font-size: 15px
+
   &__scroll
     margin-top: 18px
     width: 100%
@@ -340,10 +356,6 @@
     &__mobile-title
       display: block
 
-    &__front
-      display: inline-block
-      padding: 0 !important
-
     &_right-menu
       position: absolute
       top: 98px
@@ -355,7 +367,11 @@
         padding-bottom: 20px
         margin-top: 0
 
-    .custom-filter__front
+    &_left-menu
+      .custom-filter__front
+        padding-left: 0px
+
+    .custom-filter__front:not(.custom-filter__front_closer)
       padding-top: 0
       padding-bottom: 0
 
@@ -364,6 +380,13 @@
 
     .custom-submenu
       top: 100%
+
+    &__front
+      display: inline-block
+      padding: 0
+
+      &_closer
+        padding: 18px 10px
 
 
   .custom-filter:not(.custom-filter_right-menu)
@@ -383,8 +406,9 @@
     &__wrapper
       margin-bottom: 0
 
-    &__btn
+    &__btn:not(.custom-submenu__btn_none)
       display: none
+
 
 
 @media (max-width: 460px)

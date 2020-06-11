@@ -18,24 +18,26 @@
                     .custom-submenu-selector__item(data-filter='2') Под заказ
 
 
-        .custom-filters__filter.custom-filter
+        .custom-filters__filter.custom-filter(data-filter-brands)
             .custom-filter__mobile-title Выбор Бренда:
             .custom-filter__front
                 span Бренд
                 svg.custom-filter__icon
                     use( xlink:href=sprite('dropdown-arrow') )
+                svg.custom-filter__icon.custom-filter__icon_closer
+                    use( xlink:href=sprite('close') )
             .custom-filter__submenu.custom-submenu.custom-submenu-brands
                 .custom-submenu__wrapper
                     input(placeholder="Поиск бренда" type="text").custom-submenu__search
                     .custom-submenu__scroll(data-simplebar data-simplebar-auto-hide="false")
                         -var brands = ['Adidas Originals', 'Lazana', 'Camper', 'Patrol', 'LeBerdes', 'Lazana', 'Camper', 'LeBerdes']
                         each brand in brands
-                            .custom-submenu__checkbox.custom-checkbox
+                            .custom-submenu__checkbox.custom-checkbox(data-checkbox=brand)
                                 .custom-checkbox__box
                                 .custom-checkbox__txt #{brand}
 
-                .custom-submenu__btn
-                    .btn.btn-primary.custom-filter__apply Применить
+                .custom-submenu__btn.custom-submenu__btn_none
+                    .btn.btn-primary.custom-filter__apply(data-loader="brands") Применить
 
 
         .custom-filters__filter.custom-filter(data-filter-price)

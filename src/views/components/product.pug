@@ -5,7 +5,7 @@
                 .product__mark.product__mark_new new
             if (product.mark == 'sale')
                 .product__mark.product__mark_sale sale
-            .product__image
+            a(href="/product.html").product__image
                 img( src=image(product.image))
 
             if (productPanelClass)
@@ -45,8 +45,8 @@
                     .product__price-old 1 400
                 .product__price-now 1 295 грн
 
-        .product__title Повседневные платья
-        .product__seller Lazana
+        a(href="product.html").product__title Повседневные платья
+        a(href="#").product__seller Lazana
         .product__rating
             span Рейтинг продавца:
             span.product__stars.stars

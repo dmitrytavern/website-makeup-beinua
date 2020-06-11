@@ -2,7 +2,10 @@ new Swiper('#home-slider', {
 	pagination: {
 		el: '.swiper-pagination',
 	},
-
+	effect: 'fade',
+	slidesPerView: 1,
+	fadeEffect: { crossFade: true },
+	virtualTranslate: true,
 	navigation: {
 		nextEl: '.swiper-button-next',
 		prevEl: '.swiper-button-prev',

@@ -1,26 +1,46 @@
 export default function () {
 	var selectedFilter = null
-	var filterFront = document.querySelectorAll('.custom-filter__front')
+	var filterFront = document.querySelectorAll('.custom-filter__front');
 
-	function setFilter(filter, value) {
-		var filterFront = filter.querySelector('.custom-filter__front')
-		var filterSpan = filterFront.querySelector('span')
-		var filterItems = filter.querySelectorAll('.custom-submenu-selector__item_selected')
-		var filterActive = filter.querySelector('.custom-submenu-selector__item[data-filter="' + value + '"]')
+	var loaders = {
+		brands() {
+			var brandsContainer = document.querySelector('[data-filter-brands]')
+			var brandsFront     = brandsContainer.querySelector('.custom-filter__front')
+			var brandsActive    = brandsContainer.querySelectorAll('.custom-checkbox_checked')
+			var input           = brandsContainer.querySelector('.custom-filter__front span')
 
-		filterFront.classList.remove('custom-filter__front_open')
-		filterSpan.innerHTML = filterActive.innerHTML
-		for (let item of [...filterItems]) item.classList.remove('custom-submenu-selector__item_selected')
-		filterActive.classList.add('custom-submenu-selector__item_selected')
+			$(brandsFront).removeClass('custom-filter__front_open')
 
-		/* Logic of sort */
+			if (brandsActive.length === 0) return
+
+			if (brandsActive.length === 1) {
+				input.innerHTML = $(brandsActive[0]).attr('data-checkbox')
+			} else if (brandsActive.length > 1) {
+				input.innerHTML = 'Бренд: ' + brandsActive.length
+			}
+
+			brandsFront.classList.add('custom-filter__front_closer')
+		}
 	}
 
-	var filtersItems = document.querySelectorAll('[data-filter-items]')
+	function setFilter(filter, value) {
+		var filterFront   = $('.custom-filter__front')
+		var filterSpan    = filter.querySelector('.custom-filter__front span')
+		var filterItems   = filter.querySelectorAll('.custom-submenu-selector__item_selected')
+		var filterActive  = filter.querySelector('.custom-submenu-selector__item[data-filter="' + value + '"]')
+
+		$(filterFront).removeClass('custom-filter__front_open')
+		filterSpan.innerHTML = filterActive.innerHTML
+		$(filterItems).removeClass('custom-submenu-selector__item_selected')
+		$(filterActive).addClass('custom-submenu-selector__item_selected')
+	}
+
+	var filtersItems = $('[data-filter-items]')
 	for (let filter of Array.from(filtersItems)) {
 		var items = filter.querySelectorAll('.custom-submenu-selector__item')
 
 		Array.from(items).map((item) => {
+			console.log(item)
 			var value = item.getAttribute('data-filter')
 			item.addEventListener('click', function () {
 				setFilter(filter, value)
@@ -30,6 +50,16 @@ export default function () {
 
 
 	function toggleFilter() {
+		if ($(this).hasClass('custom-filter__front_closer')) {
+			var brandsContainer = document.querySelector('[data-filter-brands]')
+			var brandsActive    = brandsContainer.querySelectorAll('.custom-checkbox_checked')
+			var inner           = this.querySelector('span')
+
+			$(this).removeClass('custom-filter__front_closer')
+			$(brandsActive).removeClass('custom-checkbox_checked')
+			inner.innerHTML = 'Бренды'
+		}
+
 		if (selectedFilter) {
 			if (selectedFilter !== this) {
 				if (window.innerWidth > 992) {
@@ -53,12 +83,12 @@ export default function () {
 	document.addEventListener('click', function (e) {
 		var target = e.target
 		while (true) {
-			if (target.classList.contains('custom-filter')) {
+			if ($(target).hasClass('custom-filter')) {
 				break
 			} else {
 				if (!target.offsetParent) {
 					if (window.innerWidth > 992) {
-						for (let front of [...filterFront]) front.classList.remove('custom-filter__front_open')
+						$(filterFront).removeClass('custom-filter__front_open')
 					}
 					break
 				}
@@ -67,28 +97,42 @@ export default function () {
 		}
 	})
 
-	var filtersContainer = document.querySelector('.custom-filters')
+
+	function applyButtons() {
+		if (window.innerWidth > 992) {
+			$(selectedFilter).removeClass('custom-filter__front_open')
+		}
+
+		const loader = $(this).attr('data-loader')
+
+
+		if (loader) {
+			if (loaders[loader]) loaders[loader]()
+		}
+	}
+
+
+	var filtersContainer = $('.custom-filters')
 
 	function openFiltersPopup() {
-		filtersContainer.classList.add('custom-filters_opened')
+		$(filtersContainer).addClass('custom-filters_opened')
 	}
 
 	function closeFiltersPopup() {
-		filtersContainer.classList.remove('custom-filters_opened')
+		$(filtersContainer).removeClass('custom-filters_opened')
 	}
 
-	document.querySelector('.tools__filters').addEventListener('click', openFiltersPopup)
-	document.querySelector('.custom-filters__close').addEventListener('click', closeFiltersPopup)
-	document.querySelector('.mobile-apply__btn').addEventListener('click', function () {
+	$('.tools__filters').on('click', openFiltersPopup)
+	$('.custom-filters__close').on('click', closeFiltersPopup)
+	$('.mobile-apply__btn').on('click', function () {
 		closeFiltersPopup()
-		/* Logic apply settings */
 	})
 
 
-	var filterCheckboxes = document.querySelectorAll('.custom-checkbox')
-	var filterApply = document.querySelectorAll('.custom-filter__apply')
-	for (let front of [...filterFront]) front.addEventListener('click', toggleFilter)
-	for (let front of [...filterApply]) front.addEventListener('click', toggleFilter)
-	for (let box of [...filterCheckboxes]) box.addEventListener('click', checkBoxSelect)
+	var filterCheckboxes  = $('.custom-checkbox')
+	var filterApply       = $('.custom-filter__apply')
 
+	$(filterFront).on('click', toggleFilter)
+	$(filterApply).on('click', applyButtons)
+	$(filterCheckboxes).on('click', checkBoxSelect)
 }
