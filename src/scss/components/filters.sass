@@ -39,6 +39,9 @@
     line-height: 18px
     letter-spacing: -0.32px
 
+    display: flex
+    align-items: center
+
     &_open
       .custom-filter__icon
         transform: rotate(180deg)
@@ -88,6 +91,7 @@
       padding-left: 32px
 
   &__front_open + .custom-submenu
+    opacity: 1
     visibility: visible
 
     .custom-submenu__scroll
@@ -97,6 +101,7 @@
 
 
 .custom-submenu
+  opacity: 0
   position: absolute
   top: 100%
   left: 0
@@ -108,6 +113,8 @@
   margin-top: 10px
   z-index: 5
   max-width: 440px
+
+  transition: .3s
 
   &__wrapper
     padding: 0 15px
@@ -382,7 +389,7 @@
       top: 100%
 
     &__front
-      display: inline-block
+      display: inline-flex
       padding: 0
 
       &_closer
@@ -401,6 +408,7 @@
       display: block
 
   .custom-submenu
+    transition: 0s
     padding-bottom: 0
 
     &__wrapper

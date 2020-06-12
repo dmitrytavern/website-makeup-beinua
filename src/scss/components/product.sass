@@ -7,6 +7,7 @@
 
   &__image
     max-width: 600px
+    display: block
 
   &__panel
     visibility: hidden
@@ -32,10 +33,14 @@
       padding: 13px 0px
 
       svg
+        transition: .3s
         display: block
-        fill: #01A2E8
+        fill: #000000
         width: 23px
         height: 20px
+
+      &:hover svg
+        fill: #01a2e8
 
   &__mark
     position: absolute

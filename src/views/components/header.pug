@@ -6,7 +6,7 @@ header.header
                     use( xlink:href=sprite('logo-black') )
 
             .header__search.search
-                input(placeholder="Поиск...").search__input#header__search
+                input(placeholder="Поиск...").search__input.header__search-input#header__search
                 button.search__close
                     svg
                         use( xlink:href=sprite('close') )
@@ -68,7 +68,10 @@ header.header
                 use( xlink:href=sprite('dropdown-arrow') )
 
         .header-mobile__search.search.search_mobile-black
-            input(placeholder="Поиск...").search__input#header__mobile-search
+            input(placeholder="Поиск...").search__input.header__search-input#header__mobile-search
+            button.search__close
+                svg
+                    use( xlink:href=sprite('close') )
             button.search__button
                 svg.search__icon
                     use( xlink:href=sprite('search') )

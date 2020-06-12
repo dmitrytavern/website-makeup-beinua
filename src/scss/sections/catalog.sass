@@ -13,6 +13,7 @@
     margin-left: 73px
 
   &__tab
+    position: relative
     margin: 0 18px
     padding-top: 24px
     padding-bottom: 12px
@@ -20,9 +21,24 @@
     cursor: pointer
     color: #747474
 
+    &:before
+      content: ''
+      transition: .3s
+      position: absolute
+      bottom: 0
+      left: 0
+      height: 2px
+      width: 0
+      background: #01a2e8
+
     &_active
       color: #000000
-      border-bottom: 2px solid #01A2E8
+
+      &:before
+        width: 100%
+
+    &:not(&_active):hover:before
+      width: 100%
 
     &:first-child
       margin-left: 0

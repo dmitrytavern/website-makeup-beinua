@@ -7,7 +7,8 @@ const headerPerson            = document.querySelector('.header__person')
 const headerSubmenu           = document.querySelector('.header__submenu')
 const headerSearch            = document.querySelector('.header__search')
 const headerInput             = document.querySelector('#header__search')
-const headerSearchClose       = document.querySelector('.search__close')
+const headerSearchClose       = $('.search__close')
+const search                  = $('.header__search-input')
 const headerMobileSearchInput = document.querySelector('#header__mobile-search')
 const headerCatalog           = document.querySelector('.header-mobile__category')
 const headerMobileNav         = document.querySelector('#header__mobile-nav')
@@ -56,9 +57,11 @@ document.addEventListener('click', (e) => {
 headerPerson.addEventListener('click', togglePersonSubmenu)
 headerInput.addEventListener('focus', setInputFocusSearch)
 headerInput.addEventListener('blur', unsetInputFocusSearch)
-headerSearchClose.addEventListener('click', () => {
-	headerInput.value = ''
-	unsetInputFocusSearch()
-})
 headerMobileSearchInput.addEventListener('focus', setInputFocusMobileSearch)
 headerMobileSearchInput.addEventListener('blur', unsetInputFocusMobileSearch)
+
+$(headerSearchClose).on('click', () => {
+	$(search).val('')
+	unsetInputFocusSearch()
+	unsetInputFocusMobileSearch()
+})

@@ -93,23 +93,30 @@ var galleryThumbs = new Swiper('#product-inner__thumbs', {
 	freeMode: true,
 	watchSlidesVisibility: true,
 	watchSlidesProgress: true,
-	slidesPerView: 3,
+	slidesPerView: 2.5,
 	breakpoints: {
 		1600: {
 			spaceBetween: 18
 		},
 	}
 });
-
-new Swiper('#product-inner__image', {
+let innerProduct = new Swiper('#product-inner__image', {
 	slidesPerView: 1,
 	pagination: {
 		el: '.swiper-pagination',
+	},
+	breakpoints: {
+		768: {
+			allowTouchMove: false,
+		}
 	},
 	thumbs: {
 		swiper: galleryThumbs
 	}
 });
+$('#product-inner__thumbs .swiper-wrapper a').on('click', function (e) {
+	innerProduct.slideTo(innerProduct.previousIndex)
+})
 
 
 new Swiper('#product-inner__slider', {

@@ -5,6 +5,9 @@
   align-items: center
 
   &__close
+    transition: .3s
+    opacity: 0
+    outline: none
     visibility: hidden
     cursor: pointer
     margin-right: 25px
@@ -28,6 +31,7 @@
       color: #999999
 
   &__button
+    outline: none
     width: 17px
     height: 17px
     background: none
@@ -35,6 +39,7 @@
     cursor: pointer
 
   &__icon
+    transition: .3s
     width: 17px
     height: 17px
     fill: #000000
@@ -44,6 +49,7 @@
       border: 1px solid #ECECEC
       &__close
         visibility: visible
+        opacity: 1
       &__icon
         fill: #01A2E8
 

@@ -1,6 +1,8 @@
 .btn
   cursor: pointer
   display: inline-block
+  outline: none
+  transition: .3s
 
   &_radius
     width: 50px
@@ -38,6 +40,7 @@
 
     &.btn_disable,
     &.swiper-button-disabled
+      pointer-events: none
       border: 1px solid #999999
       background: transparent
 
