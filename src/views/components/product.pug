@@ -10,27 +10,15 @@
 
             if (productPanelClass)
                 .product__panel.product__panel_big
-                    a(href="#").product__panel-link
-                        svg
-                            use( xlink:href=sprite('compare') )
-                    a(href="#").product__panel-link
-                        svg
-                            use( xlink:href=sprite('bag') )
-                    a(href="#").product__panel-link.product__panel-link_mobile-top
-                        svg
-                            use( xlink:href=sprite('heart') )
+                    a(href="#").product__panel-link.icon-compare
+                    a(href="#").product__panel-link.icon-bag
+                    a(href="#").product__panel-link.icon-heart.product__panel-link_mobile-top
 
             if (!productPanelClass)
                 .product__panel
-                    a(href="#").product__panel-link
-                        svg
-                            use( xlink:href=sprite('compare') )
-                    a(href="#").product__panel-link
-                        svg
-                            use( xlink:href=sprite('bag') )
-                    a(href="#").product__panel-link.product__panel-link_mobile-top
-                        svg
-                            use( xlink:href=sprite('heart') )
+                    a(href="#").product__panel-link.icon-compare
+                    a(href="#").product__panel-link.icon-bag
+                    a(href="#").product__panel-link.icon-heart.product__panel-link_mobile-top
 
         .product__stock-price
             if (product.stock == 'in')
@@ -50,15 +38,10 @@
         .product__rating
             span Рейтинг продавца:
             span.product__stars.stars
-                svg.stars__star
-                    use( xlink:href=sprite('star-filled') )
-                svg.stars__star
-                    use( xlink:href=sprite('star-filled') )
-                svg.stars__star
-                    use( xlink:href=sprite('star-filled') )
-                svg.stars__star
-                    use( xlink:href=sprite('star-filled') )
-                svg.stars__star
-                    use( xlink:href=sprite('star') )
+                i.stars__star.icon-star-filled
+                i.stars__star.icon-star-filled
+                i.stars__star.icon-star-filled
+                i.stars__star.icon-star-filled
+                i.stars__star.icon-star
 
             span.product__rating-num  4.8
