@@ -283,23 +283,39 @@
     justify-content: center
     align-items: center
 
+    &:after,
     &:before
       content: ''
       position: absolute
       left: 50%
       top: 50%
       transform: translate(-50%, -50%)
+      opacity: 0
+
+    &:after
+      width: 10px
+      height: 10px
+      border-radius: 3px
+      background: #01A2E8
+
+    &:before
       width: 10px
       height: 7px
       background-image: url(imageUrl('check.svg'))
       background-repeat: no-repeat
-      opacity: 0
+
 
   &_checked
     .custom-checkbox__box
       border-color: #01A2E8
       &:before
         opacity: 1
+
+  &_small-checked
+    .custom-checkbox__box
+      &:after
+        opacity: 1
+
 
   &__txt
     font-size: 14px

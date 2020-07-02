@@ -1,0 +1,183 @@
+extends layouts/default
+
+block title
+	title Catalog
+
+block content
+	main.account-seller-home-page.account-layout#account-table
+
+		.container
+			.row
+				.col-12.col-md-3
+
+					.account-nav
+						ul.account-nav__list
+							li.account-nav__item.account-nav__item_active
+								a(href="#").account-nav__item-wrapper
+									svg.account-nav__item-ico
+										use( xlink:href=sprite('person') )
+									.account-nav__item-text Мои товары
+
+							li.account-nav__item
+								a(href="#").account-nav__item-wrapper
+									svg.account-nav__item-ico
+										use( xlink:href=sprite('person') )
+									.account-nav__item-text Заказы
+									.account-nav__item-num 12
+
+							li.account-nav__item
+								a(href="#").account-nav__item-wrapper
+									svg.account-nav__item-ico
+										use( xlink:href=sprite('person') )
+									.account-nav__item-text Мои данные
+
+
+				.col-12.col-md-9
+
+					.account-layout__head
+						h1 Мои товары
+						.account-layout__head-actions
+							a(href="#").account-layout__head-action
+								svg
+									use( xlink:href=sprite('person') )
+
+							a(href="#").account-layout__head-action.account-layout__head-action_primary
+								svg
+									use( xlink:href=sprite('person') )
+								span Добавить товар
+
+
+					.account-layout__body
+
+						.account-layout__buttons
+							.account-layout__search.search
+								input(placeholder="Поиск...").search__input.account-layout__search-input
+								button.search__close
+									svg
+										use( xlink:href=sprite('close') )
+								button.search__button.account-layout__search-button
+									svg.search__icon
+										use( xlink:href=sprite('search') )
+
+							.account-layout__filters-btn
+								svg.tools__icon
+									use(xlink:href=sprite('filter'))
+
+								span.text-closed Фильтр
+								span.text-opened Закрыть
+
+
+						.account-layout__filters
+
+							.account-layout__filters-row
+								.selector.account-layout__filter
+									.selector__button( data-toggle="dropdown" )
+										span Категория
+										svg.selector__ico
+											use( xlink:href=sprite('dropdown-arrow') )
+									.selector__dropdown.dropdown-menu
+
+								.selector.account-layout__filter
+									.selector__button( data-toggle="dropdown" )
+										span Бренд
+										svg.selector__ico
+											use( xlink:href=sprite('dropdown-arrow') )
+									.selector__dropdown.dropdown-menu
+
+								.selector.account-layout__filter
+									.selector__button( data-toggle="dropdown" )
+										span Маркер
+										svg.selector__ico
+											use( xlink:href=sprite('dropdown-arrow') )
+									.selector__dropdown.dropdown-menu
+
+								.selector.account-layout__filter
+									.selector__button( data-toggle="dropdown" )
+										span Статус
+										svg.selector__ico
+											use( xlink:href=sprite('dropdown-arrow') )
+									.selector__dropdown.dropdown-menu
+
+							.account-layout__filters-row
+								.btn.btn-outline.account-layout__filter-btn Фильтровать
+
+						.account-layout__table
+							table.table
+								tr.table__head
+									th.table__col.table__head-col( style="width: 50px" )
+
+										.custom-checkbox( :class="checkboxStyle" )
+											.custom-checkbox__box
+
+									th.table__col.table__head-col( style="width: 74px" )
+									th.table__col.table__head-col Наименование
+									th.table__col.table__head-col.table__sort-col( v-on:click="onFilter('price')" )
+										.table__sort
+											| Цена
+											span.table__sort-box( :class="sortStyle('price')" )
+									th.table__col.table__head-col.table__sort-col( v-on:click="onFilter('brand')" )
+										.table__sort
+											| Бренд
+											span.table__sort-box( :class="sortStyle('brand')" )
+									th.table__col.table__head-col Артикул
+									th.table__col.table__head-col.table__sort-col( v-on:click="onFilter('status')" )
+										.table__sort
+											| Статус
+											span.table__sort-box( :class="sortStyle('status')" )
+									th.table__col.table__head-col( style="width: 122px" )
+
+								tr.table__row( v-for="item in list" :key="item.id" )
+									td.table__col.table__row-col
+										.custom-checkbox( v-on:click="onSelect(item)" :class="{ 'custom-checkbox_checked': item.selected }" )
+											.custom-checkbox__box
+
+									td.table__col.table__row-col
+										.table__image <img :src="'img/'+item.image">
+									td.table__col.table__row-col {{ item.title }}
+									td.table__col.table__row-col ₴{{ item.price }}
+									td.table__col.table__row-col {{ item.seller }}
+									td.table__col.table__row-col {{ item.vendor }}
+									td.table__col.table__row-col
+										.table__status.table__status_off( v-if="item.status == 'close'" ) Выкл
+										.table__status( v-if="item.status == 'open'" ) Вкл
+									td.table__col.table__row-col
+										.table__actions
+											a(:href="'product.html#'+item.id").table__action
+												svg
+													use( xlink:href=sprite('person') )
+											a(:href="'product.html#'+item.id").table__action.table__action_grey
+												svg
+													use( xlink:href=sprite('person') )
+
+
+					.account-layout__footer
+
+						.account-layout__actions.selector
+							.selector__button( data-toggle="dropdown" )
+								span Действия
+								svg.selector__ico
+									use( xlink:href=sprite('dropdown-arrow') )
+							.selector__dropdown.dropdown-menu
+
+						.account-layout__pagination.pagination
+							.pagination__pages
+								a(href="javascript:void(0)"
+									v-on:click="setPage(pagination.active - 1)"
+									:class="{ 'pagination__btn_disable': !pagination.prev }").pagination__btn.pagination__prev
+									svg
+										use( xlink:href=sprite('arrow-slider') )
+
+								a(href="javascript:void(0)"
+									v-for="n in pagination.pages"
+									v-on:click="setPage(n)"
+									:class="{ 'pagination__btn_active': pagination.active == n }").pagination__btn {{ n }}
+
+								a(href="javascript:void(0)"
+									v-on:click="setPage(pagination.active + 1)"
+									:class="{ 'pagination__btn_disable': !pagination.next }").pagination__btn.pagination__next
+									svg
+										use( xlink:href=sprite('arrow-slider') )
+							a(href="javascript:void(0)"
+								v-on:click="setPage(pagination.pages)").pagination__fast-next
+								svg
+									use( xlink:href=sprite('double-arrow') )

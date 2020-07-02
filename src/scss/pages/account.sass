@@ -1,0 +1,162 @@
+
+.account-layout
+	padding-top: 85px
+	padding-bottom: 120px
+
+	&__head
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+		> h1
+			font-size: 40px
+			letter-spacing: -0.8
+			font-weight: bold
+
+		&-actions
+			display: flex
+			align-items: center
+
+		&-action
+			font-size: 15px
+			padding: 13px 15px
+			border-radius: 3px
+			background: #A4A4A4
+			margin: 0 7px
+
+			&:hover
+				color: #fff
+
+			> svg
+				width: 16px
+				height: 16px
+				fill: #fff
+
+			> span
+				margin-left: 15px
+
+			&_primary
+				color: #fff
+				background: #01A2E8
+
+			&:first-child
+				margin-left: 0
+			&:last-child
+				margin-right: 0
+
+
+
+	&__body
+		margin-top: 40px
+
+
+	&__buttons
+		display: flex
+		align-items: center
+
+		> div
+			margin: 0 15px
+
+			&:first-child
+				margin-left: 0
+			&:last-child
+				margin-right: 0
+
+
+
+	&__search
+		max-width: 288px
+		width: 100%
+		background: #fff !important
+		border: 1px solid #F1F1F1
+		border-radius: 4px
+		overflow: hidden
+		padding: 0 18px !important
+
+		&-input
+			padding: 18px 0 !important
+
+		&-button svg
+			fill: #999999
+
+
+
+	&__filters-btn
+		display: flex
+		align-items: center
+		color: #01a2e8
+		cursor: pointer
+
+		> svg
+			width: 21px
+			height: 18px
+			fill: #01a2e8
+
+		> span
+			margin-left: 15px
+			font-size: 14px
+
+		.text-closed
+			display: block
+		.text-opened
+			display: none
+
+		&_active
+			color: #000000
+
+			> svg
+				fill: #000000
+
+			.text-closed
+				display: none
+
+			.text-opened
+				display: block
+
+
+
+	&__filters
+		background: #F8F8F8
+		padding: 20px 16px
+		margin-top: 15px
+
+		&-row
+			display: flex
+			width: 100%
+
+			&:last-child
+				justify-content: flex-end
+				margin-top: 20px
+
+
+
+	&__filter
+		display: inline-block
+		margin: 0 13px
+
+		&-btn
+			padding: 12px 20px !important
+			font-size: 15px !important
+			font-weight: 400 !important
+
+		&:first-child
+			margin-left: 0
+		&:last-child
+			margin-right: 0
+
+
+
+	&__table
+		margin-top: 25px
+
+
+	&__footer
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin-top: 25px
+
+	&__actions
+		max-width: 180px !important
+
+	&__pagination

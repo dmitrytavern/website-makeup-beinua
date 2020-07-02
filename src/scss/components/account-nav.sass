@@ -1,0 +1,60 @@
+.account-nav
+
+	&__list
+		list-style: none
+
+	&__item
+		list-style: none
+		width: 100%
+		margin: 13px 0
+
+		&-wrapper
+			width: 100%
+			padding: 23px 0px 23px 27%
+			border-radius: 4px
+			overflow: hidden
+			background: #F1F1F1
+			color: #000
+
+			display: flex
+			align-items: center
+
+			&:hover
+				color: #000
+
+		&-ico
+			fill: #000
+			width: 18px
+			height: 18px
+
+		&-text
+			margin-left: 15px
+
+		&-num
+			width: 25px
+			height: 25px
+			background: #01A2E8
+			font-size: 11px
+			font-weight: bold
+			color: #fff
+			margin-left: 15px
+			border-radius: 50%
+
+			display: flex
+			justify-content: center
+			align-items: center
+
+		&_active
+			.account-nav__item
+				&-wrapper
+					background: #01A2E8
+					color: #fff
+
+				&-ico
+					fill: #fff
+
+		&:first-child
+			margin-top: 0
+
+		&:last-child
+			margin-bottom: 0

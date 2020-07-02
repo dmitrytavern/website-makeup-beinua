@@ -1,0 +1,96 @@
+.table
+	border: 1px solid #F1F1F1
+	font-size: 14px
+
+	&__head
+		background: #F8F8F8
+
+		&-col
+			font-size: 15px
+			font-weight: 500
+			border-top: none !important
+
+	&__row
+		&-col
+			vertical-align: middle
+			border-top: 1px solid #F1F1F1 !important
+
+	&__col
+		padding: 9px !important
+		vertical-align: middle !important
+
+	&__actions
+		display: flex
+
+	&__action
+		width: 36px
+		height: 36px
+		border: 1px solid #F1F1F1
+		border-radius: 3px
+		cursor: pointer
+		margin: 0 5px
+
+		display: flex
+		align-items: center
+		justify-content: center
+
+		> svg
+			width: 16px
+			height: 16px
+
+		&_grey
+			background: #F8F8F8
+
+		&:first-child
+			margin-left: 0
+		&:last-child
+			margin-right: 0
+
+	&__status
+		&_off
+			color: #FF4E00
+
+	&__image
+		max-width: 56px
+
+	&__sort
+		display: flex
+		align-items: center
+
+		&-col
+			cursor: pointer
+
+	&__sort-box
+		position: relative
+		display: inline-block
+		width: 8px
+		height: 14px
+		margin-left: 8px
+
+		&:before,
+		&:after
+			content: ''
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+
+		&:before
+			top: 0
+			border-left: 4px solid transparent
+			border-right: 4px solid transparent
+			border-bottom: 6px solid #999999
+
+		&:after
+			bottom: 0
+			border-left: 4px solid transparent
+			border-right: 4px solid transparent
+			border-top: 6px solid #999999
+
+		&_active
+			&_top
+				&:before
+					border-bottom-color: #747474
+
+			&_down
+				&:after
+					border-top-color: #747474
