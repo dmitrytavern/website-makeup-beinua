@@ -9,10 +9,10 @@ new Vue({
 			status: ['top', 'down', 'default']
 		},
 		pagination: {
-			items: 2,
-			total: 6,
-			pages: 2,
-			active: 1,
+			items: 6,	// Max items in one page
+			total: 0,	// All items length
+			pages: 0, // Pages for pagination
+			active: 0, // Page active
 			next: true,
 			prev: false
 		},
@@ -25,21 +25,30 @@ new Vue({
 			{ id: 4, image: 'products/man-4.png', title: 'Повседневные', price: 150, seller: 'Lazana', vendor: 'KU8945386', status: 'close', selected: false },
 			{ id: 5, image: 'products/man-5.png', title: 'Повседневные', price: 50, seller: 'Lazana', vendor: 'RU8937586', status: 'open', selected: false },
 			{ id: 6, image: 'products/man-6.png', title: 'Повседневные', price: 1450, seller: 'Lazana', vendor: 'BU89d7386', status: 'close', selected: false },
+			{ id: 7, image: 'products/woman-1.png', title: 'Повседневные', price: 44000, seller: 'Lazana', vendor: 'FU8943386', status: 'close', selected: false },
+			{ id: 8, image: 'products/woman-2.png', title: 'Повседневные', price: 135, seller: 'Lazana', vendor: 'BU89336', status: 'open', selected: false },
+			{ id: 9, image: 'products/woman-3.png', title: 'Повседневные', price: 750, seller: 'Adrena', vendor: 'EU8937346', status: 'open', selected: false },
+			{ id: 10, image: 'products/woman-4.png', title: 'Повседневные', price: 40, seller: 'Lamoda', vendor: 'KU8945386', status: 'open', selected: false },
+			{ id: 11, image: 'products/woman-5.png', title: 'Повседневные', price: 1200, seller: 'Silad', vendor: 'RU8937586', status: 'open', selected: false },
+			{ id: 12, image: 'products/woman-6.png', title: 'Повседневные', price: 1300, seller: 'Axiony', vendor: 'BU89d7386', status: 'close', selected: false },
+			{ id: 13, image: 'products/woman-3.png', title: 'Повседневные', price: 44400, seller: 'Lamoda', vendor: 'KU8945386', status: 'open', selected: false },
+			{ id: 14, image: 'products/woman-4.png', title: 'Повседневные', price: 100, seller: 'Silad', vendor: 'RU8937586', status: 'open', selected: false },
+			{ id: 15, image: 'products/woman-5.png', title: 'Повседневные', price: 15600, seller: 'Axiony', vendor: 'BU89d7386', status: 'close', selected: false },
 		]
 	},
 	created() {
+		this.pagination.total 	= this.listDefault.length
+		this.pagination.pages 	= Math.ceil(this.pagination.total / this.pagination.items)
+		this.pagination.active 	= 1
+
 		this.list = [...this.listDefault].filter((item, index) => index < this.pagination.items )
 		this.listSort = [...this.listDefault]
-		this.pagination.pages = Math.ceil(this.pagination.total / this.pagination.items)
 	},
 	watch: {
 		'pagination.active'(newVal, oldVal) {
 			this.onFilter(this.filter, true)
 
-			this.list = [...this.listSort]
-				.filter((item, index) =>
-					index >= this.pagination.items * (newVal - 1) && index < this.pagination.items * newVal
-				)
+			this.list = this.getItemsList(this.listSort, newVal)
 
 			this.pagination.next = this.pagination.prev = true
 			if (newVal >= this.pagination.pages) this.pagination.next = false
@@ -55,15 +64,23 @@ new Vue({
 
 		setPagination(newArr) {
 			let newVal = this.pagination.active
-			this.list = [...newArr]
-				.filter((item, index) =>
-					index >= this.pagination.items * (newVal - 1) && index < this.pagination.items * newVal
-				)
+			this.list = this.getItemsList(newArr, newVal)
 		},
 
 		setList(newArr) {
-			this.listSort = newArr
+			this.listSort = [...newArr]
 			this.setPagination(this.listSort)
+		},
+
+		getItemsList(newArr, newPage) {
+			return [...newArr]
+				.filter((item, index) =>
+					index >= this.pagination.items * (newPage - 1) && index < this.pagination.items * newPage
+				)
+				.map(x => {
+					x.selected = false
+					return x
+				})
 		},
 
 
@@ -76,7 +93,7 @@ new Vue({
 			let filterType = this.filterType
 
 			if (this.filter !== null) {
-				this.filters[type].push(filterType)
+				this.filters[this.filter].push(filterType)
 			}
 
 			this.filter = type
@@ -88,7 +105,7 @@ new Vue({
 				this.filters[type].push('default')
 				this.filter 		= null
 				this.filterType = null
-				this.list 			= [...this.listDefault]
+				this.setList([...this.listDefault])
 				return
 			}
 
@@ -100,7 +117,7 @@ new Vue({
 		},
 
 		_onFilterPrice() {
-			let list = this.listDefault
+			let list = [...this.listDefault]
 			switch (this.filterType) {
 				case 'top':
 					this.setList(list.sort((a, b) => a.price - b.price))
@@ -111,7 +128,7 @@ new Vue({
 			}
 		},
 		_onFilterBrand() {
-			let list = this.listDefault
+			let list = [...this.listDefault]
 
 			switch (this.filterType) {
 				case 'top':
@@ -127,7 +144,7 @@ new Vue({
 				case 'down':
 					this.setList(list.sort((a, b) => {
 						let nameA = a.seller.toLowerCase(),
-							nameB = b.seller.toLowerCase()
+							  nameB = b.seller.toLowerCase()
 
 						if (nameA > nameB) return -1
 						if (nameA < nameB) return 1
@@ -137,11 +154,8 @@ new Vue({
 			}
 		},
 		_onFilterStatus() {
-			let list 		= this.listDefault
-			let filters = {
-				open: 1,
-				close: 0
-			}
+			let list 		= [...this.listDefault]
+			let filters = { open: 1, close: 0 }
 
 			switch (this.filterType) {
 				case 'top':
@@ -157,8 +171,8 @@ new Vue({
 		selectedItems() {
 			return this.list.filter(x => x.selected).length
 		},
-		sortStyle(filter) {
-			return function () {
+		sortStyle() {
+			return function (filter) {
 				return {
 					'table__sort-box_active': this.filter == filter,
 					'table__sort-box_active_down': this.filterType == 'down',
