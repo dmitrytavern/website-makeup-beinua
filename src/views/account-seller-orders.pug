@@ -1,0 +1,108 @@
+extends layouts/default
+include mixins/account-nav
+
+block title
+	title Catalog
+
+block content
+	main.account-seller-orders-page.account-layout#account-table-orders
+
+		.container
+			.row
+				.col-12.col-md-3.account-layout__column
+
+					+accountNav('orders')
+
+
+				.col-12.col-md-9.account-layout__column
+
+					.account-layout__head
+						h1 Заказы
+
+					.account-layout__body
+
+						.account-layout__search.search
+							input(placeholder="Поиск...").search__input.account-layout__search-input
+							button.search__close
+								svg
+									use( xlink:href=sprite('close') )
+							button.search__button.account-layout__search-button
+								svg.search__icon
+									use( xlink:href=sprite('search') )
+
+
+						.account-layout__table
+							table.table
+								tr.table__head
+									th.table__col.table__head-col( style="width: 50px" )
+
+										.custom-checkbox( :class="checkboxStyle" v-on:click="onSelectAll" )
+											.custom-checkbox__box
+
+									th.table__col.table__head-col Номер заказа
+									th.table__col.table__head-col Покупатель
+									th.table__col.table__head-col.table__sort-col( v-on:click="onFilter('status')" )
+										.table__sort
+											| Статус
+											span.table__sort-box( :class="sortStyle('ыефегы')" )
+									th.table__col.table__head-col.table__sort-col( v-on:click="onFilter('price')" )
+										.table__sort
+											| Сумма
+											span.table__sort-box( :class="sortStyle('price')" )
+									th.table__col.table__head-col.table__sort-col( v-on:click="onFilter('date')" )
+										.table__sort
+											| Дата
+											span.table__sort-box( :class="sortStyle('date')" )
+									th.table__col.table__head-col( style="width: 122px" )
+
+								tr.table__row( v-for="item in list" :key="item.id" )
+									td.table__col.table__row-col.table__col-checkbox
+										.custom-checkbox( v-on:click="onSelect(item)" :class="{ 'custom-checkbox_checked': item.selected }" )
+											.custom-checkbox__box
+
+									td( data-title="Номер заказа" ).table__col.table__row-col {{ item.number }}
+									td( data-title="Покупатель" ).table__col.table__row-col {{ item.buyer }}
+									td( data-title="Статус" ).table__col.table__row-col {{ item.statusTxt }}
+									td( data-title="Цена" ).table__col.table__row-col ₴{{ item.price }}
+									td( data-title="Дата" ).table__col.table__row-col {{ item.date }}
+									td( data-title="" ).table__col.table__row-col.table__col-actions
+										.table__actions
+											a(:href="'product.html#'+item.id").table__action
+												svg
+													use( xlink:href=sprite('person') )
+											a(:href="'product.html#'+item.id").table__action.table__action_grey
+												svg
+													use( xlink:href=sprite('person') )
+
+
+					.account-layout__footer
+
+						.account-layout__actions.selector
+							.selector__button( data-toggle="dropdown" )
+								span Действия
+								svg.selector__ico
+									use( xlink:href=sprite('dropdown-arrow') )
+							.selector__dropdown.dropdown-menu
+
+						.account-layout__pagination.pagination
+							.pagination__pages
+								a(href="javascript:void(0)"
+									v-on:click="setPage(pagination.active - 1)"
+									:class="{ 'pagination__btn_disable': !pagination.prev }").pagination__btn.pagination__prev
+									svg
+										use( xlink:href=sprite('arrow-slider') )
+
+								a(href="javascript:void(0)"
+									v-for="n in pagination.pages"
+									v-on:click="setPage(n)"
+									:class="{ 'pagination__btn_active': pagination.active == n }").pagination__btn {{ n }}
+
+								a(href="javascript:void(0)"
+									v-on:click="setPage(pagination.active + 1)"
+									:class="{ 'pagination__btn_disable': !pagination.next }").pagination__btn.pagination__next
+									svg
+										use( xlink:href=sprite('arrow-slider') )
+							a(href="javascript:void(0)"
+								v-on:click="setPage(pagination.pages)").pagination__fast-next
+								svg
+									use( xlink:href=sprite('double-arrow') )

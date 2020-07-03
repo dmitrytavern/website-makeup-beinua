@@ -5,7 +5,7 @@ block title
 	title Catalog
 
 block content
-	main.account-seller-home-page.account-layout#account-table
+	main.account-seller-home-page.account-layout#account-table-products
 
 		.container
 			.row
@@ -41,7 +41,7 @@ block content
 									svg.search__icon
 										use( xlink:href=sprite('search') )
 
-							.account-layout__filters-btn( data-toggle="collapse" data-target="#filters" )
+							.account-layout__filters-btn.collapsed( data-toggle="collapse" data-target="#filters" )
 								svg.tools__icon
 									use(xlink:href=sprite('filter'))
 
@@ -96,7 +96,7 @@ block content
 								tr.table__head
 									th.table__col.table__head-col( style="width: 50px" )
 
-										.custom-checkbox( :class="checkboxStyle" )
+										.custom-checkbox( :class="checkboxStyle" v-on:click="onSelectAll" )
 											.custom-checkbox__box
 
 									th.table__col.table__head-col( style="width: 74px" )

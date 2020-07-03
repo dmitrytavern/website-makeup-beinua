@@ -9,8 +9,8 @@ mixin accountNav(active)
 						span Мои товары
 						span Товары
 
-			li.account-nav__item( class=(active === 'order' ? 'account-nav__item_active' : '') )
-				a(href="#").account-nav__item-wrapper
+			li.account-nav__item( class=(active === 'orders' ? 'account-nav__item_active' : '') )
+				a(href="/account-seller-orders.html").account-nav__item-wrapper
 					svg.account-nav__item-ico
 						use( xlink:href=sprite('person') )
 					.account-nav__item-text Заказы
