@@ -1,4 +1,5 @@
 extends layouts/default
+include mixins/account-nav
 
 block title
 	title Catalog
@@ -8,31 +9,12 @@ block content
 
 		.container
 			.row
-				.col-12.col-md-3
+				.col-12.col-md-3.account-layout__column
 
-					.account-nav
-						ul.account-nav__list
-							li.account-nav__item.account-nav__item_active
-								a(href="#").account-nav__item-wrapper
-									svg.account-nav__item-ico
-										use( xlink:href=sprite('person') )
-									.account-nav__item-text Мои товары
-
-							li.account-nav__item
-								a(href="#").account-nav__item-wrapper
-									svg.account-nav__item-ico
-										use( xlink:href=sprite('person') )
-									.account-nav__item-text Заказы
-									.account-nav__item-num 12
-
-							li.account-nav__item
-								a(href="#").account-nav__item-wrapper
-									svg.account-nav__item-ico
-										use( xlink:href=sprite('person') )
-									.account-nav__item-text Мои данные
+					+accountNav('products')
 
 
-				.col-12.col-md-9
+				.col-12.col-md-9.account-layout__column
 
 					.account-layout__head
 						h1 Мои товары
@@ -59,7 +41,7 @@ block content
 									svg.search__icon
 										use( xlink:href=sprite('search') )
 
-							.account-layout__filters-btn
+							.account-layout__filters-btn( data-toggle="collapse" data-target="#filters" )
 								svg.tools__icon
 									use(xlink:href=sprite('filter'))
 
@@ -67,39 +49,47 @@ block content
 								span.text-opened Закрыть
 
 
-						.account-layout__filters
+						.account-layout__filters.collapse#filters
+							.custom-filters__mobile-title.mobile-title.account-layout__filters-head
+								| Фильтр
+								svg.custom-filters__close( data-toggle="collapse" data-target="#filters" )
+									use(xlink:href=sprite('close'))
 
-							.account-layout__filters-row
-								.selector.account-layout__filter
-									.selector__button( data-toggle="dropdown" )
-										span Категория
-										svg.selector__ico
-											use( xlink:href=sprite('dropdown-arrow') )
-									.selector__dropdown.dropdown-menu
+							.account-layout__filters-wrapper
+								.account-layout__filters-row
+									.selector.account-layout__filter
+										.selector__button( data-toggle="dropdown" )
+											span Категория
+											svg.selector__ico
+												use( xlink:href=sprite('dropdown-arrow') )
+										.selector__dropdown.dropdown-menu
 
-								.selector.account-layout__filter
-									.selector__button( data-toggle="dropdown" )
-										span Бренд
-										svg.selector__ico
-											use( xlink:href=sprite('dropdown-arrow') )
-									.selector__dropdown.dropdown-menu
+									.selector.account-layout__filter
+										.selector__button( data-toggle="dropdown" )
+											span Бренд
+											svg.selector__ico
+												use( xlink:href=sprite('dropdown-arrow') )
+										.selector__dropdown.dropdown-menu
 
-								.selector.account-layout__filter
-									.selector__button( data-toggle="dropdown" )
-										span Маркер
-										svg.selector__ico
-											use( xlink:href=sprite('dropdown-arrow') )
-									.selector__dropdown.dropdown-menu
+									.selector.account-layout__filter
+										.selector__button( data-toggle="dropdown" )
+											span Маркер
+											svg.selector__ico
+												use( xlink:href=sprite('dropdown-arrow') )
+										.selector__dropdown.dropdown-menu
 
-								.selector.account-layout__filter
-									.selector__button( data-toggle="dropdown" )
-										span Статус
-										svg.selector__ico
-											use( xlink:href=sprite('dropdown-arrow') )
-									.selector__dropdown.dropdown-menu
+									.selector.account-layout__filter
+										.selector__button( data-toggle="dropdown" )
+											span Статус
+											svg.selector__ico
+												use( xlink:href=sprite('dropdown-arrow') )
+										.selector__dropdown.dropdown-menu
 
-							.account-layout__filters-row
-								.btn.btn-outline.account-layout__filter-btn Фильтровать
+								.account-layout__filters-row
+									.account-layout__filter-text
+										| Найдено:
+										span  5 товаров
+									.btn.btn-outline.account-layout__filter-btn Фильтровать
 
 						.account-layout__table
 							table.table
@@ -115,7 +105,7 @@ block content
 										.table__sort
 											| Цена
 											span.table__sort-box( :class="sortStyle('price')" )
-									th.table__col.table__head-col.table__sort-col( v-on:click="onFilter('brand')" )
+									th.table__col.table__head-col.table__sort-col.table__col-brand( v-on:click="onFilter('brand')" )
 										.table__sort
 											| Бренд
 											span.table__sort-box( :class="sortStyle('brand')" )
@@ -127,20 +117,20 @@ block content
 									th.table__col.table__head-col( style="width: 122px" )
 
 								tr.table__row( v-for="item in list" :key="item.id" )
-									td.table__col.table__row-col
+									td.table__col.table__row-col.table__col-checkbox
 										.custom-checkbox( v-on:click="onSelect(item)" :class="{ 'custom-checkbox_checked': item.selected }" )
 											.custom-checkbox__box
 
-									td.table__col.table__row-col
+									td.table__col.table__row-col.table__col-image
 										.table__image <img :src="'img/'+item.image">
-									td.table__col.table__row-col {{ item.title }}
-									td.table__col.table__row-col ₴{{ item.price }}
-									td.table__col.table__row-col {{ item.seller }}
-									td.table__col.table__row-col {{ item.vendor }}
-									td.table__col.table__row-col
+									td( data-title="Наименование" ).table__col.table__row-col {{ item.title }}
+									td( data-title="Цена" ).table__col.table__row-col ₴{{ item.price }}
+									td.table__col.table__row-col.table__col-brand {{ item.seller }}
+									td( data-title="Артикул" ).table__col.table__row-col {{ item.vendor }}
+									td( data-title="Статус" ).table__col.table__row-col
 										.table__status.table__status_off( v-if="item.status == 'close'" ) Выкл
 										.table__status( v-if="item.status == 'open'" ) Вкл
-									td.table__col.table__row-col
+									td( data-title="" ).table__col.table__row-col.table__col-actions
 										.table__actions
 											a(:href="'product.html#'+item.id").table__action
 												svg

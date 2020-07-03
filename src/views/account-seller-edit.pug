@@ -1,0 +1,75 @@
+extends layouts/default
+include mixins/account-nav
+
+block title
+	title Catalog
+
+block content
+	main.account-seller-edit-page.account-layout
+
+		.container
+			.row
+				.col-12.col-md-3.account-layout__column
+
+					+accountNav('data')
+
+
+				.col-12.col-md-9.account-layout__column
+
+					.account-layout__head
+						h1 Редактировать профиль
+
+					.account-layout__body
+
+
+						.account-layout__input-group
+							h4 Персональные данные
+							.account-layout__input-list
+
+								.account-layout__input-box
+									h5 Имя
+									input( placeholder="Ваше Имя" ).account-layout__input
+
+								.account-layout__input-box
+									h5 Фамилия
+									input( placeholder="Ваша Фамилия" ).account-layout__input
+
+								.account-layout__input-box
+									h5 Email
+									input( placeholder="Email" ).account-layout__input
+
+								.account-layout__input-box
+									h5 Телефон
+									input( placeholder="Номер телефона" ).account-layout__input
+
+							.custom-checkbox
+								.custom-checkbox__box
+								.custom-checkbox__txt Подписаться на рассылку
+
+
+						.account-layout__input-group
+							h4 Информация о компании
+							.account-layout__input-list
+
+								.account-layout__input-box
+									h5 Бренд
+									input( placeholder="Имя бренда" ).account-layout__input
+
+								.account-layout__input-box
+									h5 Телефон компании
+									input( placeholder="Номер телефона" ).account-layout__input
+
+
+						.account-layout__input-group
+							h4 Смена пароля
+							.account-layout__input-list
+
+								.account-layout__input-box
+									h5 Новый пароль
+									input( placeholder="Введите пароль" ).account-layout__input
+
+								.account-layout__input-box
+									h5 Повторите новый пароль
+									input( placeholder="Введите пароль" ).account-layout__input
+
+						.btn.btn-primary.account-layout__btn-save Сохранить

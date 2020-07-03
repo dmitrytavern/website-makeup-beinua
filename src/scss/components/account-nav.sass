@@ -2,6 +2,7 @@
 
 	&__list
 		list-style: none
+		margin: 0
 
 	&__item
 		list-style: none
@@ -29,6 +30,12 @@
 
 		&-text
 			margin-left: 15px
+
+			> span
+				&:first-child
+					display: block
+				&:last-child
+					display: none
 
 		&-num
 			width: 25px
@@ -58,3 +65,68 @@
 
 		&:last-child
 			margin-bottom: 0
+
+
+@media (max-width: 1100px)
+	.account-nav
+		margin-bottom: 58px
+
+		&__list
+			display: flex
+		&__item
+			max-width: 235px
+			margin: 0 14px
+
+			&-wrapper
+				padding-left: 0
+				padding-bottom: 21px
+				padding-top: 21px
+				display: flex
+				align-items: center
+				justify-content: center
+				font-size: 16px
+
+			&-ico
+				width: 20px
+				height: 20px
+
+			&:first-child
+				margin-left: 0
+			&:last-child
+				margin-right: 0
+
+@media (max-width: 768px)
+	.account-nav
+		&__item
+			margin: 0 9px
+
+			&-ico
+				width: 18px
+				height: 18px
+
+@media (max-width: 767px)
+	.account-nav
+		&__item
+			position: relative
+			margin: 0 7px
+
+			&-wrapper
+				border-radius: 3px
+				flex-direction: column
+				padding: 12px 0 8px
+
+			&-text
+				margin-left: 0
+				margin-top: 8px
+				font-size: 14px
+
+				> span
+					&:first-child
+						display: none
+					&:last-child
+						display: block
+
+			&-num
+				position: absolute
+				top: 4px
+				right: 4px
