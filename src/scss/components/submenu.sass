@@ -1,17 +1,21 @@
 .submenu
+  display: block
   visibility: hidden
   position: absolute
   background: #ffffff
   color: #000000
   border: 1px solid #E9E9E9
   right: 0
-  top: 100%
+  top: 100% !important
+  left: unset !important
   opacity: 0
   z-index: 10
 
-  transition: .3s
+  transition: .3s !important
 
-  &_open
+  &.show
+    right: 0 !important
+    transform: unset !important
     visibility: visible
     opacity: 1
 

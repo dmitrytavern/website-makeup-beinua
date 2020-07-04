@@ -1,9 +1,9 @@
-.custom-filters
+.custom-filters.custom-popup-lg
     .custom-filters__wrapper
 
         .custom-filters__mobile-title.mobile-title
             | Фильтр
-            svg.custom-filters__close
+            svg.custom-filters__close( data-toggle="collapse" data-target=".custom-filters" )
                 use(xlink:href=sprite('close'))
 
         .custom-filters__filter.custom-filter.custom-filter_left-menu(data-filter-items='stock')
@@ -28,13 +28,15 @@
                     use( xlink:href=sprite('close') )
             .custom-filter__submenu.custom-submenu.custom-submenu-brands
                 .custom-submenu__wrapper
-                    input(placeholder="Поиск бренда" type="text").custom-submenu__search
+                    input(placeholder="Поиск бренда").custom-submenu__search
                     .custom-submenu__scroll(data-simplebar data-simplebar-auto-hide="false")
                         -var brands = ['Adidas Originals', 'Lazana', 'Camper', 'Patrol', 'LeBerdes', 'Lazana', 'Camper', 'LeBerdes']
                         each brand in brands
-                            .custom-submenu__checkbox.custom-checkbox(data-checkbox=brand)
-                                .custom-checkbox__box
-                                .custom-checkbox__txt #{brand}
+                            .custom-submenu__checkbox.custom-checkbox
+                                label
+                                    input(type="checkbox" data-checkbox=brand).custom-checkbox__input
+                                    .custom-checkbox__box
+                                    .custom-checkbox__txt #{brand}
 
                 .custom-submenu__btn.custom-submenu__btn_none
                     .btn.btn-primary.custom-filter__apply(data-loader="brands") Применить
@@ -71,8 +73,10 @@
                         -var size = [42,44,46,48,50,52,54,56,58,60,62]
                         each s in size
                             .custom-submenu__checkbox.custom-checkbox
-                                .custom-checkbox__box
-                                .custom-checkbox__txt #{s}
+                                label
+                                    input(type="checkbox").custom-checkbox__input
+                                    .custom-checkbox__box
+                                    .custom-checkbox__txt #{s}
 
                 .custom-submenu__btn
                     .btn.btn-primary.custom-filter__apply Применить

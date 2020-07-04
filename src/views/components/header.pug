@@ -31,14 +31,14 @@ header.header
                     .header__link-number 6
 
                 .header__link-ico.header__link-ico_person
-                    .header__person
+                    .header__person( data-toggle="dropdown" )
                         svg.header__icon.header__icon_black
                             use( xlink:href=sprite('person') )
 
                         svg.header__icon.header__icon_little
                             use( xlink:href=sprite('dropdown-arrow') )
 
-                    .header__submenu.submenu
+                    .header__submenu.submenu.dropdown-menu
                         .submenu__nav
                             a(href="#").submenu__link Вход
                             a(href="#").submenu__link Регистрация
@@ -62,7 +62,7 @@ header.header
 
 
     .header__row.header__row_black
-        .header-mobile__category
+        .header-mobile__category( data-toggle="dropdown" )
             | Каталог
             svg
                 use( xlink:href=sprite('dropdown-arrow') )
@@ -76,7 +76,7 @@ header.header
                 svg.search__icon
                     use( xlink:href=sprite('search') )
 
-        nav.header__nav#header__mobile-nav
+        nav.header__nav.dropdown-menu
             a(href="/catalog.html").header__link.header__link_selected Женщинам
             a(href="/catalog.html").header__link Мужчинам
             a(href="/catalog.html").header__link Детям

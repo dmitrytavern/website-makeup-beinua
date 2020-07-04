@@ -101,6 +101,7 @@
 .header-mobile
   &__category
     display: none
+    cursor: pointer
     justify-content: space-between
     align-items: center
     width: 100%
@@ -147,22 +148,22 @@
       padding: 12px 15px
 
     &__nav
-      transition: .3s
+      display: block
+      transition: opacity .3s
+      transform: unset
       position: absolute
       top: 100%
-      left: 15px
-      right: 15px
+      left: 15px !important
+      right: 15px !important
       opacity: 0
       visibility: hidden
-      margin: 0
-      margin-top: 10px
+      margin: 10px 0 0
       text-align: left
       background: #ffffff
       border: 1px solid #E9E9E9
       z-index: 10
-      transition: .3s
 
-      &_opened
+      &.show
         opacity: 1
         visibility: visible
 
@@ -235,6 +236,9 @@
       background: black
       position: absolute
       right: 0
+
+      .search__input
+        padding: 23px 0
 
       .search__close svg
         fill: #ffffff

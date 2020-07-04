@@ -1,17 +1,17 @@
 aside.catalog-page__sidebar
-    .categories
+    .categories.custom-popup-lg
 
         .categories__mobile-title.mobile-title
             | Фильтр
-            svg.categories__close
+            svg.categories__close( data-toggle="collapse" data-target=".categories" )
                 use(xlink:href=sprite('close'))
 
         .categories__wrapper
             .categories__category.category
-                .category__front.category__front_opened
+                .category__front
                     a(href="#").category__title Верхняя одежда
-                    .category__icon
-                ul.category__submenu
+                    .category__icon( data-toggle="collapse" data-target=".category__submenu-1" )
+                ul.category__submenu.category__submenu-1.show
                     li
                         a(href="#").category__item Свитера  <span>(200)</span>
                     li
@@ -26,32 +26,32 @@ aside.catalog-page__sidebar
             .categories__category.category
                 .category__front
                     a(href="#").category__title Платья
-                    .category__icon
-                ul.category__submenu
+                    .category__icon.collapsed( data-toggle="collapse" data-target=".category__submenu-2" )
+                ul.category__submenu.category__submenu-2
                     li
                         a(href="#").category__item Свитера  <span>(200)</span>
 
             .categories__category.category
                 .category__front
                     a(href="#").category__title Обувь
-                    .category__icon
-                ul.category__submenu
+                    .category__icon.collapsed( data-toggle="collapse" data-target=".category__submenu-3" )
+                ul.category__submenu.category__submenu-3
                     li
                         a(href="#").category__item Свитера  <span>(200)</span>
 
             .categories__category.category
                 .category__front
                     a(href="#").category__title Сумки
-                    .category__icon
-                ul.category__submenu
+                    .category__icon.collapsed( data-toggle="collapse" data-target=".category__submenu-4" )
+                ul.category__submenu.category__submenu-4
                     li
                         a(href="#").category__item Свитера  <span>(200)</span>
 
             .categories__category.category
                 .category__front
                     a(href="#").category__title Нижнее белье
-                    .category__icon
-                ul.category__submenu
+                    .category__icon.collapsed( data-toggle="collapse" data-target=".category__submenu-5" )
+                ul.category__submenu.category__submenu-5
                     li
                         a(href="#").category__item Свитера  <span>(200)</span>
 

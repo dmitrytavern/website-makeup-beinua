@@ -14,11 +14,11 @@ block content
             h1.catalog-page__title Женщинам
 
             .catalog-page__tools.tools
-                .tools__category
+                .tools__category( data-toggle="collapse" data-target=".categories" )
                     span Рубашки
                     svg.tools__icon
                         use(xlink:href=sprite('dropdown-arrow'))
-                .tools__filters
+                .tools__filters( data-toggle="collapse" data-target=".custom-filters" )
                     .tools__filters-wrapper
                         svg.tools__icon
                             use(xlink:href=sprite('filter'))
