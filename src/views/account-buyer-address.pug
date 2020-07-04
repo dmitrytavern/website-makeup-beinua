@@ -1,0 +1,62 @@
+extends layouts/default
+include mixins/account-nav
+
+block title
+	title Catalog
+
+block content
+	main.account-buyer-orders-page.account-layout
+
+		.container
+			.row
+				.col-12.col-md-3.account-layout__column
+
+					+accountNavBuyer('address')
+
+
+				.col-12.col-md-9.account-layout__column
+
+					.account-layout__head
+						h1 Мои адреса
+
+						.account-layout__head-actions
+							a(href="#").account-layout__head-action.account-layout__head-action_primary
+								svg
+									use( xlink:href=sprite('account-add') )
+								span Добавить товар
+
+					.account-layout__body
+						.account-layout__table
+							table.table
+								tr.table__head
+									th.table__col.table__head-col Инициалы
+									th.table__col.table__head-col Адрес
+									th.table__col.table__head-col( style="width: 122px" )
+
+								tr.table__row
+									td( data-title="Инициалы" ).table__col.table__row-col Левушкин Кирилл
+									td( data-title="Адрес" ).table__col.table__row-col
+										span.table__col-wrapper Украина, Львовская область, город Львов, ул. Сорочинская 6/16
+									td( data-title="" ).table__col.table__row-col.table__col-actions
+										.table__actions
+											a(href="product.html").table__action
+												svg
+													use( xlink:href=sprite('table-edit') )
+
+											a(href="#").table__action.table__action_grey
+												svg
+													use( xlink:href=sprite('table-trash') )
+
+								tr.table__row
+									td( data-title="Инициалы" ).table__col.table__row-col Левушкин Кирилл
+									td( data-title="Адрес" ).table__col.table__row-col
+										span.table__col-wrapper Украина, Львовская область, город Львов, ул. Сорочинская 6/16
+									td( data-title="" ).table__col.table__row-col.table__col-actions
+										.table__actions
+											a(href="product.html").table__action
+												svg
+													use( xlink:href=sprite('table-edit') )
+
+											a(href="#").table__action.table__action_grey
+												svg
+													use( xlink:href=sprite('table-trash') )

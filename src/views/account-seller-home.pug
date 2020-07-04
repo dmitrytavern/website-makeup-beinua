@@ -11,7 +11,7 @@ block content
 			.row
 				.col-12.col-md-3.account-layout__column
 
-					+accountNav('products')
+					+accountNavSeller('products')
 
 
 				.col-12.col-md-9.account-layout__column
@@ -21,11 +21,11 @@ block content
 						.account-layout__head-actions
 							a(href="#").account-layout__head-action
 								svg
-									use( xlink:href=sprite('person') )
+									use( xlink:href=sprite('account-upload') )
 
 							a(href="#").account-layout__head-action.account-layout__head-action_primary
 								svg
-									use( xlink:href=sprite('person') )
+									use( xlink:href=sprite('account-add') )
 								span Добавить товар
 
 
@@ -134,10 +134,10 @@ block content
 										.table__actions
 											a(:href="'product.html#'+item.id").table__action
 												svg
-													use( xlink:href=sprite('person') )
+													use( xlink:href=sprite('table-eye') )
 											a(:href="'product.html#'+item.id").table__action.table__action_grey
 												svg
-													use( xlink:href=sprite('person') )
+													use( xlink:href=sprite('table-edit') )
 
 
 					.account-layout__footer

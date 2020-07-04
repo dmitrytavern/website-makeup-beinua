@@ -5,13 +5,13 @@ block title
 	title Catalog
 
 block content
-	main.account-seller-orders-page.account-layout#account-table-orders
+	main.account-buyer-orders-page.account-layout#account-table-orders
 
 		.container
 			.row
 				.col-12.col-md-3.account-layout__column
 
-					+accountNavSeller('orders')
+					+accountNavBuyer('orders')
 
 
 				.col-12.col-md-9.account-layout__column
@@ -20,17 +20,6 @@ block content
 						h1 Заказы
 
 					.account-layout__body
-
-						.account-layout__search.search
-							input(placeholder="Поиск...").search__input.account-layout__search-input
-							button.search__close
-								svg
-									use( xlink:href=sprite('close') )
-							button.search__button.account-layout__search-button
-								svg.search__icon
-									use( xlink:href=sprite('search') )
-
-
 						.account-layout__table
 							table.table
 								tr.table__head
@@ -70,36 +59,3 @@ block content
 											a(:href="'product.html#'+item.id").table__action.table__action_grey
 												svg
 													use( xlink:href=sprite('table-eye') )
-
-
-					.account-layout__footer
-
-						.account-layout__actions.selector
-							.selector__button( data-toggle="dropdown" )
-								span Действия
-								svg.selector__ico
-									use( xlink:href=sprite('dropdown-arrow') )
-							.selector__dropdown.dropdown-menu
-
-						.account-layout__pagination.pagination
-							.pagination__pages
-								a(href="javascript:void(0)"
-									v-on:click="setPage(pagination.active - 1)"
-									:class="{ 'pagination__btn_disable': !pagination.prev }").pagination__btn.pagination__prev
-									svg
-										use( xlink:href=sprite('arrow-slider') )
-
-								a(href="javascript:void(0)"
-									v-for="n in pagination.pages"
-									v-on:click="setPage(n)"
-									:class="{ 'pagination__btn_active': pagination.active == n }").pagination__btn {{ n }}
-
-								a(href="javascript:void(0)"
-									v-on:click="setPage(pagination.active + 1)"
-									:class="{ 'pagination__btn_disable': !pagination.next }").pagination__btn.pagination__next
-									svg
-										use( xlink:href=sprite('arrow-slider') )
-							a(href="javascript:void(0)"
-								v-on:click="setPage(pagination.pages)").pagination__fast-next
-								svg
-									use( xlink:href=sprite('double-arrow') )
