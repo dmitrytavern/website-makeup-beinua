@@ -17,42 +17,48 @@ const tableMixin = {
 		}
 	},
 	mounted() {
-		this.pagination.total 	= this.listDefault.length
-		this.pagination.pages 	= Math.ceil(this.pagination.total / this.pagination.items)
-		this.pagination.active 	= 1
-
-		this.list = [...this.listDefault].filter((item, index) => index < this.pagination.items )
-		this.listSort = [...this.listDefault]
+		this.initPagination()
 	},
 	watch: {
-		'pagination.active'(newVal) {
+		'pagination.active'() {
 			this.onFilter(this.sort, true)
 
-			this.list = this.getItemsList(this.listSort, newVal)
+			this.list = this.getItemsList()
 
-			this.pagination.next = this.pagination.prev = true
-			if (newVal >= this.pagination.pages) this.pagination.next = false
-			if (newVal <= 1) this.pagination.prev = false
+			this._initPaginationBar()
 		}
 	},
 	methods: {
+		initPagination() {
+			this.pagination.total 	= this.listDefault.length
+			this.pagination.pages 	= Math.ceil(this.pagination.total / this.pagination.items)
+			this.pagination.active 	= 1
+
+			this.list = [...this.listDefault].filter((item, index) => index < this.pagination.items )
+			this.listSort = [...this.listDefault]
+
+			this._initPaginationBar()
+		},
+		_initPaginationBar() {
+			this.pagination.next = this.pagination.prev = true
+			if (this.pagination.active >= this.pagination.pages) this.pagination.next = false
+			if (this.pagination.active <= 1) this.pagination.prev = false
+		},
+
+
 		setPage(num) {
 			if (num > this.pagination.pages || num < 1) return
 			this.pagination.active = num
 		},
 
-		setPagination(newArr) {
-			let newVal = this.pagination.active
-			this.list = this.getItemsList(newArr, newVal)
-		},
-
 		setList(newArr) {
 			this.listSort = [...newArr]
-			this.setPagination(this.listSort)
+			this.list 		= this.getItemsList()
 		},
 
-		getItemsList(newArr, newPage) {
-			return [...newArr]
+		getItemsList() {
+			let newPage = this.pagination.active
+			return [...this.listSort]
 				.filter((item, index) =>
 					index >= this.pagination.items * (newPage - 1) && index < this.pagination.items * newPage
 				)
@@ -61,16 +67,27 @@ const tableMixin = {
 					return x
 				})
 		},
+
+
 		onSelect(item) {
 			item.selected = !item.selected
 		},
 		onSelectAll() {
 			this.list.map(x => x.selected = true)
 		},
+		onRemoveSelected() {
+			this.listDefault = this.listDefault.filter(x => !x.selected)
+			this.initPagination()
+		}
 	},
 	computed: {
 		selectedItems() {
 			return this.list.filter(x => x.selected).length
+		},
+		actionsStyle() {
+			return {
+				'disabled': this.list.filter(x => x.selected).length === 0
+			}
 		},
 		sortStyle() {
 			return function (sort) {
@@ -84,7 +101,7 @@ const tableMixin = {
 		checkboxStyle() {
 			return {
 				'custom-checkbox_small-checked': this.selectedItems >= 1 && this.selectedItems != this.list.length,
-				'custom-checkbox_checked': this.selectedItems == this.list.length,
+				'custom-checkbox_checked': this.selectedItems == this.list.length && this.list.length != 0,
 			}
 		}
 	}
@@ -260,6 +277,10 @@ if (document.querySelector(accountSellerOrders)) {
 			this.listDefault = tableOrders
 		},
 		methods: {
+			search (value) {
+				console.log('Searching', value)
+			},
+
 			onFilter (type, freeze = false) {
 				if(this.sort !== null) {
 					this.sorts[this.sort].push(this.sortType)
@@ -367,15 +388,9 @@ if (document.querySelector(accountBuyerOrders)) {
 				}
 
 				switch (this.sort) {
-					case 'price':
-						this._onFilterPrice();
-						break;
-					case 'date':
-						this._onFilterDate();
-						break;
-					case 'status':
-						this._onFilterStatus();
-						break;
+					case 'price': this._onFilterPrice(); break;
+					case 'date': this._onFilterDate(); break;
+					case 'status': this._onFilterStatus(); break;
 				}
 			},
 

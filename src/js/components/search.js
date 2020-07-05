@@ -15,6 +15,7 @@ Vue.component('search', {
 			this.$emit(`on-focus`)
 		},
 		onSearch() {
+			this.$refs['search-input'].blur()
 			this.$emit(`on-search`, this.input)
 		},
 		onClear() {
@@ -23,7 +24,7 @@ Vue.component('search', {
 		}
 	},
 	template: ' <div class="search" :class="{search_focus: focus}">' +
-		'           <input class="search__input" v-model="input" @focus="onFocus" @blur="onBlur" placeholder="Поиск...">' +
+		'           <input ref="search-input" class="search__input" v-model="input" @focus="onFocus" @blur="onBlur" v-on:keyup.enter="onSearch" placeholder="Поиск...">' +
 		'           <button class="search__close" @click="onClear">' +
 		'             <svg>' +
 		'               <use xlink:href="img/sprite.svg#close"></use>' +

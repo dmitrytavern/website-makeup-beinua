@@ -20,15 +20,7 @@ block content
 						h1 Заказы
 
 					.account-layout__body
-
-						.account-layout__search.search
-							input(placeholder="Поиск...").search__input.account-layout__search-input
-							button.search__close
-								svg
-									use( xlink:href=sprite('close') )
-							button.search__button.account-layout__search-button
-								svg.search__icon
-									use( xlink:href=sprite('search') )
+						| <search @on-search="search" class="account-layout__search"></search>
 
 
 						.account-layout__table
@@ -75,13 +67,14 @@ block content
 					.account-layout__footer
 
 						.account-layout__actions.selector
-							.selector__button( data-toggle="dropdown" )
+							.selector__button( data-toggle="dropdown" :class="actionsStyle" )
 								span Действия
 								svg.selector__ico
 									use( xlink:href=sprite('dropdown-arrow') )
 							.selector__dropdown.dropdown-menu
+								.dropdown-item( @click="onRemoveSelected" ) Удалить
 
-						.account-layout__pagination.pagination
+						.account-layout__pagination.pagination( v-show="pagination.pages > 1" )
 							.pagination__pages
 								a(href="javascript:void(0)"
 									v-on:click="setPage(pagination.active - 1)"

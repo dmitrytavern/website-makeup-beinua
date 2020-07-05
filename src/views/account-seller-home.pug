@@ -113,13 +113,14 @@ block content
 					.account-layout__footer
 
 						.account-layout__actions.selector
-							.selector__button( data-toggle="dropdown" )
+							.selector__button( data-toggle="dropdown" :class="actionsStyle" )
 								span Действия
 								svg.selector__ico
 									use( xlink:href=sprite('dropdown-arrow') )
 							.selector__dropdown.dropdown-menu
+								.dropdown-item( @click="onRemoveSelected" ) Удалить
 
-						.account-layout__pagination.pagination
+						.account-layout__pagination.pagination( v-show="pagination.pages > 1" )
 							.pagination__pages
 								a(href="javascript:void(0)"
 									v-on:click="setPage(pagination.active - 1)"

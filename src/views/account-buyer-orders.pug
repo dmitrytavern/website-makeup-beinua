@@ -62,7 +62,7 @@ block content
 
 					.account-layout__footer
 						div
-						.account-layout__pagination.pagination
+						.account-layout__pagination.pagination( v-show="pagination.pages > 1" )
 							.pagination__pages
 								a(href="javascript:void(0)"
 									v-on:click="setPage(pagination.active - 1)"
