@@ -290,6 +290,7 @@
     display: flex
     justify-content: center
     align-items: center
+    cursor: pointer
 
     &:after,
     &:before
@@ -313,7 +314,8 @@
       background-repeat: no-repeat
 
 
-  &__input:checked + &__box
+  &__input:checked + &__box,
+  &_checked &__box
     border-color: #01A2E8
     &:before
       opacity: 1

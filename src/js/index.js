@@ -1,3 +1,6 @@
+import './components/search'
+import './components/selector-filter'
+
 import './parts/header'
 import './parts/sliders'
 import './parts/account'

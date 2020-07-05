@@ -1,18 +1,12 @@
-header.header
+header.header#header
     .header__row.header__row_while
         .container.header__container
             a(href="/")
                 svg.header__logo
                     use( xlink:href=sprite('logo-black') )
 
-            .header__search.search
-                input(placeholder="Поиск...").search__input.header__search-input#header__search
-                button.search__close
-                    svg
-                        use( xlink:href=sprite('close') )
-                button.search__button
-                    svg.search__icon
-                        use( xlink:href=sprite('search') )
+            | <search @on-search="search" class="header__search"></search>
+
 
             .header__icons
                 a(href="#").header__link-ico
@@ -61,20 +55,13 @@ header.header
                                             use( xlink:href=image('RU.svg#ico') )
 
 
-    .header__row.header__row_black
+    .header__row.header__row_black( :class="{ 'search_focus': focus }" )
         .header-mobile__category( data-toggle="dropdown" )
             | Каталог
             svg
                 use( xlink:href=sprite('dropdown-arrow') )
 
-        .header-mobile__search.search.search_mobile-black
-            input(placeholder="Поиск...").search__input.header__search-input#header__mobile-search
-            button.search__close
-                svg
-                    use( xlink:href=sprite('close') )
-            button.search__button
-                svg.search__icon
-                    use( xlink:href=sprite('search') )
+        | <search @on-search="search" @on-focus="onFocus" @on-blur="onBlur" class="header-mobile__search search_mobile-black"></search>
 
         nav.header__nav.dropdown-menu
             a(href="/catalog.html").header__link.header__link_selected Женщинам

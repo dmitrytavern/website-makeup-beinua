@@ -5,7 +5,7 @@ block title
 	title Catalog
 
 block content
-	main.account-buyer-orders-page.account-layout#account-table-orders
+	main.account-buyer-orders-page.account-layout#account-buyer-orders
 
 		.container
 			.row
@@ -29,7 +29,7 @@ block content
 											.custom-checkbox__box
 
 									th.table__col.table__head-col Номер заказа
-									th.table__col.table__head-col Покупатель
+									th.table__col.table__head-col Наименование
 									th.table__col.table__head-col.table__sort-col( v-on:click="onFilter('status')" )
 										.table__sort
 											| Статус
@@ -50,7 +50,7 @@ block content
 											.custom-checkbox__box
 
 									td( data-title="Номер заказа" ).table__col.table__row-col {{ item.number }}
-									td( data-title="Покупатель" ).table__col.table__row-col {{ item.buyer }}
+									td( data-title="Наименование" ).table__col.table__row-col {{ item.buyer }}
 									td( data-title="Статус" ).table__col.table__row-col {{ item.statusTxt }}
 									td( data-title="Цена" ).table__col.table__row-col ₴{{ item.price }}
 									td( data-title="Дата" ).table__col.table__row-col {{ item.date }}
@@ -59,3 +59,28 @@ block content
 											a(:href="'product.html#'+item.id").table__action.table__action_grey
 												svg
 													use( xlink:href=sprite('table-eye') )
+
+					.account-layout__footer
+						div
+						.account-layout__pagination.pagination
+							.pagination__pages
+								a(href="javascript:void(0)"
+									v-on:click="setPage(pagination.active - 1)"
+									:class="{ 'pagination__btn_disable': !pagination.prev }").pagination__btn.pagination__prev
+									svg
+										use( xlink:href=sprite('arrow-slider') )
+
+								a(href="javascript:void(0)"
+									v-for="n in pagination.pages"
+									v-on:click="setPage(n)"
+									:class="{ 'pagination__btn_active': pagination.active == n }").pagination__btn {{ n }}
+
+								a(href="javascript:void(0)"
+									v-on:click="setPage(pagination.active + 1)"
+									:class="{ 'pagination__btn_disable': !pagination.next }").pagination__btn.pagination__next
+									svg
+										use( xlink:href=sprite('arrow-slider') )
+							a(href="javascript:void(0)"
+								v-on:click="setPage(pagination.pages)").pagination__fast-next
+								svg
+									use( xlink:href=sprite('double-arrow') )
