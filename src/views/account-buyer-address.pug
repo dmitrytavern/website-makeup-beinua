@@ -23,18 +23,18 @@ block content
 							a(href="#").account-layout__head-action.account-layout__head-action_primary
 								svg
 									use( xlink:href=sprite('account-add') )
-								span Добавить товар
+								span Добавить адресс
 
 					.account-layout__body
 						.account-layout__table
-							table.table
+							table.table.table_big
 								tr.table__head
-									th.table__col.table__head-col Инициалы
+									th.table__col.table__head-col.table__col-name_head Инициалы
 									th.table__col.table__head-col Адрес
 									th.table__col.table__head-col( style="width: 122px" )
 
 								tr.table__row
-									td( data-title="Инициалы" ).table__col.table__row-col Левушкин Кирилл
+									td( data-title="Инициалы" ).table__col.table__row-col.table__col-name Левушкин Кирилл
 									td( data-title="Адрес" ).table__col.table__row-col
 										span.table__col-wrapper Украина, Львовская область, город Львов, ул. Сорочинская 6/16
 									td( data-title="" ).table__col.table__row-col.table__col-actions
@@ -48,7 +48,7 @@ block content
 													use( xlink:href=sprite('table-trash') )
 
 								tr.table__row
-									td( data-title="Инициалы" ).table__col.table__row-col Левушкин Кирилл
+									td( data-title="Инициалы" ).table__col.table__row-col.table__col-name Левушкин Кирилл
 									td( data-title="Адрес" ).table__col.table__row-col
 										span.table__col-wrapper Украина, Львовская область, город Львов, ул. Сорочинская 6/16
 									td( data-title="" ).table__col.table__row-col.table__col-actions
