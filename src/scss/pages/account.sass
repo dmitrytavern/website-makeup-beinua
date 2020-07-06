@@ -18,6 +18,7 @@
 			align-items: center
 
 		&-action
+			transition: .3s
 			font-size: 15px
 			padding: 13px 15px
 			border-radius: 3px
@@ -26,6 +27,7 @@
 
 			&:hover
 				color: #fff
+				background: #01A2E8
 
 			> svg
 				width: 16px
@@ -75,8 +77,9 @@
 
 
 	&__search
-		max-width: 288px
+		transition: .3s
 		width: 100%
+		max-width: 288px
 		background: #fff !important
 		border: 1px solid #F1F1F1
 		border-radius: 4px
@@ -89,6 +92,11 @@
 		.search__button svg
 			fill: #999999
 
+		&.search_focus
+			border: 1px solid #505050
+
+			.search__button svg
+				fill: #01a2e8
 
 
 	&__filters-btn
@@ -180,6 +188,7 @@
 		max-width: 180px !important
 
 	&__input
+		transition: .3s
 		width: 100%
 		padding: 18px 20px
 		border: 1px solid #F1F1F1
@@ -188,6 +197,9 @@
 
 		&::placeholder
 			color: #747474
+
+		&:focus
+			border: 1px solid #505050
 
 		&-list
 			display: grid
@@ -219,6 +231,8 @@
 		padding: 14px 27px !important
 		font-size: 13px
 
+
+
 @media (max-width: 1100px)
 	.account-layout
 		padding-top: 58px
@@ -229,6 +243,7 @@
 			flex: 0 0 100%
 			padding-left: 15px
 			padding-right: 15px
+
 
 @media (max-width: 768px)
 	.account-layout
@@ -255,6 +270,7 @@
 
 			&-btn
 				margin: 8px !important
+
 
 @media (max-width: 767px)
 	.account-layout
@@ -320,6 +336,10 @@
 			.selector__dropdown
 				position: relative !important
 				transform: unset !important
+				display: none
+
+				&.show
+					display: block
 
 			&-btn
 				margin: 0 !important
@@ -365,3 +385,9 @@
 			&-box
 				width: 100%
 				max-width: 100%
+
+
+@media (max-width: 440px)
+	.account-layout
+		&__search
+			max-width: unset

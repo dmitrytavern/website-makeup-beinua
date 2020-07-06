@@ -26,6 +26,7 @@
 		display: flex
 
 	&__action
+		transition: .3s
 		width: 36px
 		height: 36px
 		border: 1px solid #F1F1F1
@@ -38,8 +39,24 @@
 		justify-content: center
 
 		> svg
+			transition: .3s
 			width: 16px
 			height: 16px
+
+		&_trash:hover
+			background: #FF4E00
+			> svg
+				fill: #fff
+
+		&_edit:hover
+			background: #000
+			> svg
+				fill: #fff
+
+		&_view:hover
+			background: #01a2e8
+			> svg
+				fill: #fff
 
 		&_grey
 			background: #F8F8F8

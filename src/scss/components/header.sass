@@ -76,6 +76,7 @@
       margin-left: 5px
 
   &__search
+    transition: .3s
     width: 100%
     max-width: 719px
     margin: 0 70px
@@ -137,6 +138,26 @@
 
     &__search
       margin: 0 48px
+
+@media (min-width: 768px)
+  .header__nav.dropdown-menu
+    position: unset
+    top: unset
+    left: unset
+    z-index: unset
+    display: block
+    float: unset
+    min-width: unset
+    padding: 0 15px
+    margin: 0 auto
+    font-size: unset
+    color: unset
+    text-align: center
+    list-style: unset
+    background-color: unset
+    background-clip: unset
+    border: unset
+    border-radius: unset
 
 @media (max-width: 767px)
   .header

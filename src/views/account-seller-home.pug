@@ -102,10 +102,10 @@ block content
 										.table__status( v-if="item.status == 'open'" ) Вкл
 									td( data-title="" ).table__col.table__row-col.table__col-actions
 										.table__actions
-											a(:href="'product.html#'+item.id").table__action
+											a(:href="'product.html#'+item.id").table__action.table__action_view
 												svg
 													use( xlink:href=sprite('table-eye') )
-											a(:href="'product.html#'+item.id").table__action.table__action_grey
+											a(:href="'product.html#'+item.id").table__action.table__action_edit.table__action_grey
 												svg
 													use( xlink:href=sprite('table-edit') )
 

@@ -73,7 +73,11 @@ const tableMixin = {
 			item.selected = !item.selected
 		},
 		onSelectAll() {
-			this.list.map(x => x.selected = true)
+			if (this.list.filter(x => x.selected).length === this.list.length) {
+				this.list.map(x => x.selected = false)
+			} else {
+				this.list.map(x => x.selected = true)
+			}
 		},
 		onRemoveSelected() {
 			this.listDefault = this.listDefault.filter(x => !x.selected)

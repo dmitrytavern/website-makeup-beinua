@@ -1,4 +1,5 @@
 .selector
+	position: relative
 	max-width: 288px
 	width: 100%
 
@@ -13,10 +14,25 @@
 		cursor: pointer
 
 	&__ico
+		transition: .3s
 		width: 10px
 		height: 6px
 
 	&__dropdown
+		transition: .3s
+		display: block
+		opacity: 0
+		visibility: hidden
+
+		&.show
+			top: 100% !important
+			transform: unset !important
+			opacity: 1
+			visibility: visible
 
 	.dropdown-item
 		cursor: pointer
+
+	&.show
+		.selector__ico
+			transform: rotate(180deg)
