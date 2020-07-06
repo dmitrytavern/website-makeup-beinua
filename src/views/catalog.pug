@@ -1,7 +1,11 @@
 extends layouts/default
+include components/header
 
 block title
     title Catalog
+
+block header
+    +header()
 
 block content
     main.catalog-page#catalog-page

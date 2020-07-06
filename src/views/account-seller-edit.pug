@@ -1,8 +1,12 @@
 extends layouts/default
 include mixins/account-nav
+include components/header
 
 block title
 	title Catalog
+
+block header
+	+header(false)
 
 block content
 	main.account-seller-edit-page.account-layout

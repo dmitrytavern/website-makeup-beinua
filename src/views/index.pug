@@ -1,7 +1,12 @@
 extends layouts/default
+include components/header
+
 
 block title
     title Index page
+
+block header
+    +header()
 
 block content
     main.home-page

@@ -1,7 +1,11 @@
 extends layouts/default
+include components/header
 
 block title
     title Product Inner
+
+block header
+    +header()
 
 block content
     .container
