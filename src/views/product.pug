@@ -70,7 +70,12 @@ block content
 
                 .product-inner__info
                     h1.product-inner__title Весеннее пальто
-                    p.product-inner__stock.product__stock.product__stock_in-stock В наличии
+
+
+                    .product-inner__price.product__price
+                        .product__price-old.product-inner__price-old 1 400
+                        .product__price-now.product-inner__price-now 1 295 грн
+                        p.product-inner__stock.product__stock.product__stock_in-stock В наличии
 
                     .product-inner__group
                         .product-inner__seller
@@ -121,8 +126,10 @@ block content
                                             -var size = [42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62]
                                             each s in size
                                                 .custom-submenu__checkbox.custom-checkbox
-                                                    .custom-checkbox__box
-                                                    .custom-checkbox__txt #{s}
+                                                    label
+                                                        input(type="checkbox").custom-checkbox__input
+                                                        .custom-checkbox__box
+                                                        .custom-checkbox__txt #{s}
 
                                     .custom-submenu__btn
                                         .btn.btn-primary.product-inner__size-apply Применить
@@ -135,10 +142,6 @@ block content
                                     span Размеры
 
                     .product-inner__down
-                        .product-inner__price.product__price
-                            .product__price-old.product-inner__price-old 1 400
-                            .product__price-now.product-inner__price-now 1 295 грн
-
                         .product-inner__btn.btn.btn-primary Добавить в корзину
 
         section.product-inner__same-products

@@ -10,6 +10,47 @@ html
         include components/styles
     body
 
+        #login-modal.modal.fade(tabindex='-1' role='dialog')
+            .bg( data-toggle="collapse" data-target="#login-modal" )
+            .modal__wrapper#login-modal-wrapper
+
+                .modal__content.collapse.show
+                    .modal__header
+                        h3.modal-title Вход в аккаунт
+                        a.close(href="#" data-toggle="collapse" data-target="#login-modal")
+                            svg
+                                use( xlink:href=sprite('close') )
+                    .modal__body
+                            form
+                                .form__input-box
+                                    h5 Email
+                                    input( placeholder="Email адрес" ).form__input
+
+                                .form__input-box
+                                    h5 Пароль
+                                    input( placeholder="Пароль" ).form__input
+
+                                a.modal__link-password(href="#" data-toggle="collapse" data-target=".modal__content") Забыли пароль ?
+
+                                button.btn.btn-primary.form__btn.modal__btn(type="submit") Войти
+
+                .modal__content.collapse
+                    .modal__header
+                        h3.modal-title Востановить пароль
+                        a.close(href="#" data-toggle="collapse" data-target="#login-modal")
+                            svg
+                                use( xlink:href=sprite('close') )
+                    .modal__body
+                        form
+                            .form__input-box
+                                h5 Email
+                                input( placeholder="Email адрес" ).form__input
+
+                            a.modal__link-password(href="#" data-toggle="collapse" data-target=".modal__content") Назад
+
+                            button.btn.btn-primary.form__btn.modal__btn(type="submit") Отправить
+
+
         div
             block header
 

@@ -31,9 +31,13 @@
     font-weight: bold
     margin-top: 20px
     font-size: 26px
+    margin-bottom: 30px
 
   &__stock
-    margin-top: 22px
+    font-weight: 400
+    margin-left: 30px
+    margin-bottom: 0
+    margin-top: 8px
 
   &__seller
     margin-top: 20px
@@ -176,15 +180,15 @@
     padding-top: 35px
     width: 100%
 
+  &__price
     display: flex
     align-items: center
-    justify-content: space-between
 
-  &__price
     &-old
       font-size: 20px
     &-now
       margin-left: 10px
+      color: #01A2E8
       font-size: 24px
 
   &__btn
@@ -247,6 +251,12 @@
       &-btn
         margin-left: 55px
 
+    &__stock
+      display: block
+
+    &__seller-rating
+      display: flex
+
     &__price
       &-old
         font-size: 20px
@@ -254,7 +264,6 @@
         margin-left: 10px
         font-size: 24px
     &__btn
-      margin-left: 45px
       font-size: 13px
       padding-left: 98px
       padding-right: 98px
@@ -264,9 +273,12 @@
 @media (max-width: 767px)
   .product-inner
     &__info
-      padding-left: 0px
+      padding-left: 0
     &__title
       margin-top: 40px
+
+    &__stock
+      margin-left: auto
 
     &__price
       margin-bottom: 25px
@@ -274,9 +286,9 @@
     &__btn
       text-align: center
       width: 100%
-      margin-left: 0px
-      padding-left: 0px
-      padding-right: 0px
+      margin-left: 0
+      padding-left: 0
+      padding-right: 0
 
     &__down
       flex-direction: column

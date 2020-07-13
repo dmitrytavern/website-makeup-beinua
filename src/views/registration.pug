@@ -1,0 +1,86 @@
+extends layouts/default
+include components/header
+
+block header
+	+header(false, false)
+
+block content
+	main.register-page
+		.register-page__card.reg-card
+			h3.reg-card__title Регистрация
+			.reg-card__body
+				.nav.reg-card__tabs(role='tablist')
+					a#nav-buyer-tab.active(data-toggle='tab' href='#nav-buyer' role='tab' aria-controls='nav-buyer' aria-selected='true') Покупатель
+					a#nav-seller-tab(data-toggle='tab' href='#nav-seller' role='tab' aria-controls='nav-seller' aria-selected='false') Дизайнер
+
+				.tab-content.reg-card__content
+					#nav-buyer.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='nav-buyer-tab')
+						form
+							.form__input-box.reg-card__input-name
+								h5 Имя
+								input( placeholder="Ваше Имя" ).form__input
+
+							.form__input-list
+
+								.form__input-box
+									h5 Телефон
+									input( placeholder="Номер телефона" ).form__input
+
+								.form__input-box
+									h5 Email
+									input( placeholder="Email" ).form__input
+
+								.form__input-box
+									h5 Пароль
+									input( placeholder="Пароль" ).form__input
+
+								.form__input-box
+									h5 Подтверждение пароля
+									input( placeholder="Подтвердите пароль" ).form__input
+
+							.custom-checkbox.reg-card__checkbox
+								label
+									input( type="checkbox" ).custom-checkbox__input
+									.custom-checkbox__box
+									.custom-checkbox__txt
+										| Я соглашаюсь с
+										a(href="#")  Политикой конфиденциальности
+
+							button(type="submit").btn.btn-primary.form__btn.reg-card__btn Войти
+
+					#nav-seller.tab-pane.fade(role='tabpanel' aria-labelledby='nav-seller-tab')
+						form
+							.form__input-list
+								.form__input-box
+									h5 Имя
+									input( placeholder="Ваше имя" ).form__input
+
+								.form__input-box
+									h5 Бренд
+									input( placeholder="Имя бренда" ).form__input
+
+								.form__input-box
+									h5 Телефон
+									input( placeholder="Номер телефона" ).form__input
+
+								.form__input-box
+									h5 Email
+									input( placeholder="Email" ).form__input
+
+								.form__input-box
+									h5 Пароль
+									input( placeholder="Пароль" ).form__input
+
+								.form__input-box
+									h5 Подтверждение пароля
+									input( placeholder="Подтвердите пароль" ).form__input
+
+							.custom-checkbox.reg-card__checkbox
+								label
+									input( type="checkbox" ).custom-checkbox__input
+									.custom-checkbox__box
+									.custom-checkbox__txt
+										| Я соглашаюсь с
+										a(href="#")  Политикой конфиденциальности
+
+							button(type="submit").btn.btn-primary.form__btn.reg-card__btn Войти

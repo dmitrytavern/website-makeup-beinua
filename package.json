@@ -9,7 +9,6 @@
     "IE 10"
   ],
   "scripts": {
-    "test": "mocha",
     "dev": "node scripts/development.js",
     "build": "node scripts/production.js",
     "create": "node scripts/create.js"
