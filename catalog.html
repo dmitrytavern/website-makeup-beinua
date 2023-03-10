@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Catalog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@6.0.0/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="/website-makeup-beinua/css/style.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog">
+      <div class="bg" data-toggle="collapse" data-target="#login-modal"></div>
+      <div class="modal__wrapper" id="login-modal-wrapper">
+        <div class="modal__content collapse show">
+          <div class="modal__header">
+            <h3 class="modal-title">Вход в аккаунт</h3><a class="close" href="#" data-toggle="collapse" data-target="#login-modal">
+              <svg>
+                <use xlink:href="/website-makeup-beinua/img/sprite.svg#close"></use>
+              </svg></a>
+          </div>
+          <div class="modal__body">
+            <form>
+              <div class="form__input-box">
+                <h5>Email</h5>
+                <input class="form__input" placeholder="Email адрес">
+              </div>
+              <div class="form__input-box">
+                <h5>Пароль</h5>
+                <input class="form__input" placeholder="Пароль">
+              </div><a class="modal__link-password" href="#" data-toggle="collapse" data-target=".modal__content">Забыли пароль ?</a>
+              <button class="btn btn-primary form__btn modal__btn" type="submit">Войти</button>
+            </form>
+          </div>
+        </div>
+        <div class="modal__content collapse">
+          <div class="modal__header">
+            <h3 class="modal-title">Востановить пароль</h3><a class="close" href="#" data-toggle="collapse" data-target="#login-modal">
+              <svg>
+                <use xlink:href="/website-makeup-beinua/img/sprite.svg#close"></use>
+              </svg></a>
+          </div>
+          <div class="modal__body">
+            <form>
+              <div class="form__input-box">
+                <h5>Email</h5>
+                <input class="form__input" placeholder="Email адрес">
+              </div><a class="modal__link-password" href="#" data-toggle="collapse" data-target=".modal__content">Назад</a>
+              <button class="btn btn-primary form__btn modal__btn" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <header class="header" id="header">
+        <div class="header__row header__row_while">
+          <div class="container header__container"><a href="/website-makeup-beinua/index.html">
+              <svg class="header__logo">
+                <use xlink:href="/website-makeup-beinua/img/sprite.svg#logo-black"></use>
+              </svg></a><search @on-search="search" class="header__search"></search>
+            <div class="header__icons"><a class="header__link-ico" href="#">
+                <svg class="header__icon">
+                  <use xlink:href="/website-makeup-beinua/img/sprite.svg#compare"></use>
+                </svg>
+                <div class="header__link-number">12</div></a><a class="header__link-ico" href="#">
+                <svg class="header__icon">
+                  <use xlink:href="/website-makeup-beinua/img/sprite.svg#heart"></use>
+                </svg>
+                <div class="header__link-number">3</div></a><a class="header__link-ico" href="#">
+                <svg class="header__icon">
+                  <use xlink:href="/website-makeup-beinua/img/sprite.svg#bag"></use>
+                </svg>
+                <div class="header__link-number">6</div></a>
+              <div class="header__link-ico header__link-ico_person">
+                <div class="header__person" data-toggle="dropdown">
+                  <svg class="header__icon">
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#person"></use>
+                  </svg>
+                  <svg class="header__icon header__icon_little">
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+                  </svg>
+                </div>
+                <div class="header__submenu submenu dropdown-menu">
+                  <div class="submenu__nav"><a class="submenu__link" href="#" data-toggle="collapse" data-target="#login-modal">Вход</a><a class="submenu__link" href="/website-makeup-beinua/registration.html">Регистрация</a></div>
+                  <div class="submenu__options">
+                    <div class="submenu__option-box">
+                      <div class="submenu__option-title">Валюта:</div>
+                      <div class="submenu__option-content"><a class="submenu__option-input submenu__option-input_selected" href="#">UAH</a><a class="submenu__option-input" href="#">USD</a></div>
+                    </div>
+                    <div class="submenu__option-box">
+                      <div class="submenu__option-title">Язык:</div>
+                      <div class="submenu__option-content">
+                        <div class="submenu__option-input_img">
+                          <svg>
+                            <use xlink:href="/website-makeup-beinua/img/UA.svg#ico"></use>
+                          </svg>
+                        </div>
+                        <div class="submenu__option-input_img submenu__option-input_selected">
+                          <svg>
+                            <use xlink:href="/website-makeup-beinua/img/RU.svg#ico"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header__row header__row_black" :class="{ 'search_focus': focus }">
+          <div class="header-mobile__category" data-toggle="dropdown">Каталог
+            <svg>
+              <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+            </svg>
+          </div><search @on-search="search" @on-focus="onFocus" @on-blur="onBlur" class="header-mobile__search search_mobile-black"></search>
+          <nav class="header__nav dropdown-menu"><a class="header__link_selected header__link" href="/website-makeup-beinua/catalog.html">Женщинам</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Мужчинам</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Детям</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Аксессуары</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Бренды</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Распродажа</a></nav>
+        </div>
+      </header>
+      <main class="catalog-page" id="catalog-page">
+        <div class="container">
+          <div class="breadcrumbs"><a class="breadcrumbs__item" href="/website-makeup-beinua/index.html">Главная</a><a class="breadcrumbs__item breadcrumbs__item_active" href="/website-makeup-beinua/catalog.html">Женщинам</a></div>
+          <h1 class="catalog-page__title">Женщинам</h1>
+          <div class="catalog-page__tools tools">
+            <div class="tools__category" data-toggle="collapse" data-target=".categories"><span>Рубашки</span>
+              <svg class="tools__icon">
+                <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+              </svg>
+            </div>
+            <div class="tools__filters" data-toggle="collapse" data-target=".custom-filters">
+              <div class="tools__filters-wrapper">
+                <svg class="tools__icon">
+                  <use xlink:href="/website-makeup-beinua/img/sprite.svg#filter"></use>
+                </svg>
+                <div class="tools__filter-num">3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section>
+          <div class="container catalog-page__content">
+            <aside class="catalog-page__sidebar">
+              <div class="categories custom-popup-lg">
+                <div class="categories__mobile-title mobile-title">Фильтр
+                  <svg class="categories__close" data-toggle="collapse" data-target=".categories">
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#close"></use>
+                  </svg>
+                </div>
+                <div class="categories__wrapper">
+                  <div class="categories__category category">
+                    <div class="category__front"><a class="category__title" href="#">Верхняя одежда</a>
+                      <div class="category__icon" data-toggle="collapse" data-target=".category__submenu-1"></div>
+                    </div>
+                    <ul class="category__submenu category__submenu-1 show">
+                      <li><a class="category__item" href="#">Свитера  <span>(200)</span></a></li>
+                      <li><a class="category__item" href="#">Куртки  <span>(23)</span></a></li>
+                      <li><a class="category__item category__item_active" href="#">Футболки  <span>(563)</span></a></li>
+                      <li><a class="category__item" href="#">Рубашки  <span>(434)</span></a></li>
+                      <li><a class="category__item" href="#">Майки  <span>(456)</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="categories__category category">
+                    <div class="category__front"><a class="category__title" href="#">Платья</a>
+                      <div class="category__icon collapsed" data-toggle="collapse" data-target=".category__submenu-2"></div>
+                    </div>
+                    <ul class="category__submenu category__submenu-2">
+                      <li><a class="category__item" href="#">Свитера  <span>(200)</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="categories__category category">
+                    <div class="category__front"><a class="category__title" href="#">Обувь</a>
+                      <div class="category__icon collapsed" data-toggle="collapse" data-target=".category__submenu-3"></div>
+                    </div>
+                    <ul class="category__submenu category__submenu-3">
+                      <li><a class="category__item" href="#">Свитера  <span>(200)</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="categories__category category">
+                    <div class="category__front"><a class="category__title" href="#">Сумки</a>
+                      <div class="category__icon collapsed" data-toggle="collapse" data-target=".category__submenu-4"></div>
+                    </div>
+                    <ul class="category__submenu category__submenu-4">
+                      <li><a class="category__item" href="#">Свитера  <span>(200)</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="categories__category category">
+                    <div class="category__front"><a class="category__title" href="#">Нижнее белье</a>
+                      <div class="category__icon collapsed" data-toggle="collapse" data-target=".category__submenu-5"></div>
+                    </div>
+                    <ul class="category__submenu category__submenu-5">
+                      <li><a class="category__item" href="#">Свитера  <span>(200)</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </aside>
+            <section class="catalog-page__catalog">
+              <div class="custom-filters custom-popup-lg">
+                <div class="custom-filters__wrapper">
+                  <div class="custom-filters__mobile-title mobile-title">Фильтр
+                    <svg class="custom-filters__close" data-toggle="collapse" data-target=".custom-filters">
+                      <use xlink:href="/website-makeup-beinua/img/sprite.svg#close"></use>
+                    </svg>
+                  </div>
+                  <div class="custom-filters__filter custom-filter custom-filter_left-menu" data-filter-items="stock">
+                    <div class="custom-filter__mobile-title">Статус товара:</div>
+                    <div class="custom-filter__front"><span>В наличии</span>
+                      <svg class="custom-filter__icon">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+                      </svg>
+                    </div>
+                    <div class="custom-filter__submenu custom-submenu custom-submenu-selector">
+                      <div class="custom-submenu__wrapper">
+                        <div class="custom-submenu-selector__item custom-submenu-selector__item_selected" data-filter="1">В наличии</div>
+                        <div class="custom-submenu-selector__item" data-filter="2">Под заказ</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-filters__filter custom-filter" data-filter-brands>
+                    <div class="custom-filter__mobile-title">Выбор Бренда:</div>
+                    <div class="custom-filter__front"><span>Бренд</span>
+                      <svg class="custom-filter__icon">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+                      </svg>
+                      <svg class="custom-filter__icon custom-filter__icon_closer">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#close"></use>
+                      </svg>
+                    </div>
+                    <div class="custom-filter__submenu custom-submenu custom-submenu-brands">
+                      <div class="custom-submenu__wrapper">
+                        <input class="custom-submenu__search" placeholder="Поиск бренда">
+                        <div class="custom-submenu__scroll" data-simplebar data-simplebar-auto-hide="false">
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox" data-checkbox="Adidas Originals">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">Adidas Originals</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox" data-checkbox="Lazana">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">Lazana</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox" data-checkbox="Camper">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">Camper</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox" data-checkbox="Patrol">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">Patrol</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox" data-checkbox="LeBerdes">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">LeBerdes</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox" data-checkbox="Lazana">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">Lazana</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox" data-checkbox="Camper">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">Camper</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox" data-checkbox="LeBerdes">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">LeBerdes</div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="custom-submenu__btn custom-submenu__btn_none">
+                        <div class="btn btn-primary custom-filter__apply" data-loader="brands">Применить</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-filters__filter custom-filter" data-filter-price>
+                    <div class="custom-filter__mobile-title">Диапазон цен:</div>
+                    <div class="custom-filter__front"><span>Цена</span>
+                      <svg class="custom-filter__icon">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+                      </svg>
+                    </div>
+                    <div class="custom-filter__submenu custom-submenu custom-submenu-price">
+                      <div class="custom-submenu__wrapper">
+                        <div class="custom-submenu-price__inputs">
+                          <div class="custom-submenu-price__input">От
+                            <input type="number" value="0" data-price-from>
+                          </div>
+                          <div class="custom-submenu-price__input">До
+                            <input type="number" value="0" data-price-to>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="custom-submenu__btn">
+                        <div class="btn btn-primary custom-filter__apply" data-price-btn>Применить</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-filters__filter custom-filter">
+                    <div class="custom-filter__mobile-title">Выбор размера:</div>
+                    <div class="custom-filter__front"><span>Размер</span>
+                      <svg class="custom-filter__icon">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+                      </svg>
+                    </div>
+                    <div class="custom-filter__submenu custom-submenu custom-submenu-size">
+                      <div class="custom-submenu__wrapper">
+                        <div class="custom-submenu__title">Украинский размер</div>
+                        <div class="custom-submenu__scroll" data-simplebar data-simplebar-auto-hide="false">
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">42</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">44</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">46</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">48</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">50</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">52</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">54</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">56</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">58</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">60</div>
+                            </label>
+                          </div>
+                          <div class="custom-submenu__checkbox custom-checkbox">
+                            <label>
+                              <input class="custom-checkbox__input" type="checkbox">
+                              <div class="custom-checkbox__box"></div>
+                              <div class="custom-checkbox__txt">62</div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="custom-submenu__btn">
+                        <div class="btn btn-primary custom-filter__apply">Применить</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-filters__filter custom-filter">
+                    <div class="custom-filter__mobile-title">Рейтинг продавца:</div>
+                    <div class="custom-filter__front"><span>Рейтинг</span>
+                      <svg class="custom-filter__icon">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+                      </svg>
+                    </div>
+                    <div class="custom-filter__submenu custom-submenu custom-submenu-rating">
+                      <div class="custom-submenu__wrapper">
+                        <div class="custom-submenu__title">Рейтинг продавца:</div>
+                        <div class="custom-submenu-rating__selector"><span class="custom-submenu-rating__stars stars">
+                            <svg class="custom-submenu-rating__star stars__star">
+                              <use xlink:href="/website-makeup-beinua/img/sprite.svg#star-filled"></use>
+                            </svg>
+                            <svg class="custom-submenu-rating__star stars__star">
+                              <use xlink:href="/website-makeup-beinua/img/sprite.svg#star-filled"></use>
+                            </svg>
+                            <svg class="custom-submenu-rating__star stars__star">
+                              <use xlink:href="/website-makeup-beinua/img/sprite.svg#star-filled"></use>
+                            </svg>
+                            <svg class="custom-submenu-rating__star stars__star">
+                              <use xlink:href="/website-makeup-beinua/img/sprite.svg#star-filled"></use>
+                            </svg>
+                            <svg class="custom-submenu-rating__star stars__star">
+                              <use xlink:href="/website-makeup-beinua/img/sprite.svg#star"></use>
+                            </svg></span><span class="custom-submenu-rating__value">2 и выше</span></div>
+                      </div>
+                      <div class="custom-submenu__btn">
+                        <div class="btn btn-primary custom-filter__apply">Применить</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-filters__filter custom-filter custom-filter_right-menu" data-filter-items="sort">
+                    <div class="custom-filter__front"><span>По популярности</span>
+                      <svg class="custom-filter__icon">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+                      </svg>
+                    </div>
+                    <div class="custom-filter__submenu custom-submenu custom-submenu-selector">
+                      <div class="custom-submenu__wrapper">
+                        <div class="custom-submenu-selector__item custom-submenu-selector__item_selected" data-filter="1">По популярности</div>
+                        <div class="custom-submenu-selector__item" data-filter="2">По возрастанию цены</div>
+                        <div class="custom-submenu-selector__item" data-filter="3">По убыванию цены</div>
+                        <div class="custom-submenu-selector__item" data-filter="4">По новинкам</div>
+                        <div class="custom-submenu-selector__item" data-filter="5">По скидкам</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-filters__mobile-apply mobile-apply">
+                    <div class="mobile-apply__found-products">Найдено:<span> 5 товаров</span></div>
+                    <div class="mobile-apply__btn">
+                      <div class="btn btn-primary">Применить</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="catalog-page__products">
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box">
+                      <div class="product__mark product__mark_new">new</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-1.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_in-stock">В наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box">
+                      <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-2.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_order">Под заказ</div>
+                      <div class="product__price">
+                        <div class="product__price-old">1 400</div>
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box">
+                      <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-3.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_out-stock">Нет в наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-old">1 400</div>
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-4.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_in-stock">В наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-5.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_in-stock">В наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-6.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_in-stock">В наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box">
+                      <div class="product__mark product__mark_new">new</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-1.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_in-stock">В наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box">
+                      <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-2.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_order">Под заказ</div>
+                      <div class="product__price">
+                        <div class="product__price-old">1 400</div>
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box">
+                      <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-3.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_out-stock">Нет в наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-old">1 400</div>
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-4.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_in-stock">В наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-5.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_in-stock">В наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__wrapper">
+                    <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-6.png"></a>
+                      <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                    </div>
+                    <div class="product__stock-price">
+                      <div class="product__stock product__stock_in-stock">В наличии</div>
+                      <div class="product__price">
+                        <div class="product__price-now">1 295 грн</div>
+                      </div>
+                    </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                    <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="catalog-page__pagination pagination">
+                <div class="pagination__pages"><a class="pagination__btn pagination__prev" href="#">
+                    <svg>
+                      <use xlink:href="/website-makeup-beinua/img/sprite.svg#arrow-slider"></use>
+                    </svg></a><a class="pagination__btn" href="#">1</a><a class="pagination__btn pagination__btn_active" href="#">2</a><a class="pagination__btn" href="#">3</a><a class="pagination__btn pagination__next" href="#">
+                    <svg>
+                      <use xlink:href="/website-makeup-beinua/img/sprite.svg#arrow-slider"></use>
+                    </svg></a></div><a class="pagination__fast-next" href="#">
+                  <svg>
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#double-arrow"></use>
+                  </svg></a>
+              </div>
+              <section class="catalog-page__popular popular">
+                <div class="slider-default__head">
+                  <h2 class="slider-default__title">Популярные товары</h2>
+                  <div class="slider-default__btns">
+                    <div class="slider-default__btn">
+                      <div class="popular__prev slider-default__prev btn btn_radius btn_radius_black">
+                        <svg>
+                          <use xlink:href="/website-makeup-beinua/img/sprite.svg#arrow-slider"></use>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="slider-default__btn">
+                      <div class="popular__next slider-default__next btn btn_radius btn_radius_black btn_radius_right">
+                        <svg>
+                          <use xlink:href="/website-makeup-beinua/img/sprite.svg#arrow-slider"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-default__slider popular__slider swiper-container" id="popular__slider">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="product">
+                        <div class="product__wrapper">
+                          <div class="product__image-box">
+                            <div class="product__mark product__mark_new">new</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-1.png"></a>
+                            <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                          </div>
+                          <div class="product__stock-price">
+                            <div class="product__stock product__stock_in-stock">В наличии</div>
+                            <div class="product__price">
+                              <div class="product__price-now">1 295 грн</div>
+                            </div>
+                          </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                          <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="product">
+                        <div class="product__wrapper">
+                          <div class="product__image-box">
+                            <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-2.png"></a>
+                            <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                          </div>
+                          <div class="product__stock-price">
+                            <div class="product__stock product__stock_order">Под заказ</div>
+                            <div class="product__price">
+                              <div class="product__price-old">1 400</div>
+                              <div class="product__price-now">1 295 грн</div>
+                            </div>
+                          </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                          <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="product">
+                        <div class="product__wrapper">
+                          <div class="product__image-box">
+                            <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-3.png"></a>
+                            <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                          </div>
+                          <div class="product__stock-price">
+                            <div class="product__stock product__stock_out-stock">Нет в наличии</div>
+                            <div class="product__price">
+                              <div class="product__price-old">1 400</div>
+                              <div class="product__price-now">1 295 грн</div>
+                            </div>
+                          </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                          <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="product">
+                        <div class="product__wrapper">
+                          <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-4.png"></a>
+                            <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                          </div>
+                          <div class="product__stock-price">
+                            <div class="product__stock product__stock_in-stock">В наличии</div>
+                            <div class="product__price">
+                              <div class="product__price-now">1 295 грн</div>
+                            </div>
+                          </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                          <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="product">
+                        <div class="product__wrapper">
+                          <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-5.png"></a>
+                            <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                          </div>
+                          <div class="product__stock-price">
+                            <div class="product__stock product__stock_in-stock">В наличии</div>
+                            <div class="product__price">
+                              <div class="product__price-now">1 295 грн</div>
+                            </div>
+                          </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                          <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="product">
+                        <div class="product__wrapper">
+                          <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-6.png"></a>
+                            <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                          </div>
+                          <div class="product__stock-price">
+                            <div class="product__stock product__stock_in-stock">В наличии</div>
+                            <div class="product__price">
+                              <div class="product__price-now">1 295 грн</div>
+                            </div>
+                          </div><a class="product__title" href="/website-makeup-beinua/product.html">Повседневные платья</a><a class="product__seller" href="#">Lazana</a>
+                          <div class="product__rating"><span>Рейтинг продавца:</span><span class="product__stars stars"><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star-filled"></i><i class="stars__star icon-star"></i></span><span class="product__rating-num"> 4.8</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination slider-default__slider-pagination popular__pagination"></div>
+                </div>
+              </section>
+            </section>
+          </div>
+        </section>
+        <section class="catalog-page__info">
+          <div class="container">
+            <p class="catalog-page__info-paragraph">
+              Женские блузки и рубашки стали неотъемлемой частью гардероба женщины любого возраста. В нынешнем сезоне они широко представлены в коллекциях модных домов.
+               Этот вид женской одежды популярен и востребован, поскольку подходит и для свободного стиля,
+               и для строгого костюма.
+            </p>
+            <p class="catalog-page__info-paragraph">
+              Современная деловая женщина, вынужденная пять дней в неделю находиться в офисе, стремится к тому, чтобы,не выходя из рамок дресс-кода, оставаться женственной, выглядеть эффектно.
+              Предлагаемое современными дизайнерами невероятное разнообразие фасонов значительно помогает ей в этом.
+              Среди наиболее популярных:
+            </p>
+            <p class="catalog-page__info-paragraph">
+              рубашка с острым воротничком под горло;модель рубашечного кроя со скругленным воротничком;блузы строго кроя,украшенные такими декоративными элементами, как пуговицы под цвет жемчуга, рюши, жабо.
+              Модные женские блузки — это один из ключевых видов одежды, которые выгодно подчеркивают выбранный стиль.
+              В наступающем сезоне мода предлагает активно избавляться от минимализма, порядком всем поднадоевшего,
+              и вместо традиционного контраста черного и белого выплескивает целый фонтан красок, а также фактур.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <div class="container footer__container">
+          <div class="footer__column footer__column-main"><a class="footer__logo" href="/website-makeup-beinua/index.html">
+              <svg>
+                <use xlink:href="/website-makeup-beinua/img/sprite.svg#logo-white"></use>
+              </svg></a>
+            <p>© 2020 Beinua. Все права сохранены.</p>
+          </div>
+          <div class="footer__column footer__column-nav">
+            <nav class="footer__nav footer__nav_pages">
+              <ul>
+                <li><a class="footer__link" href="/website-makeup-beinua/index.html">Главная</a></li>
+                <li><a class="footer__link" href="/website-makeup-beinua/catalog.html">Каталог</a></li>
+                <li><a class="footer__link" href="#">О наc</a></li>
+                <li><a class="footer__link" href="#">Контакты</a></li>
+              </ul>
+            </nav>
+            <nav class="footer__nav footer__nav_info">
+              <ul>
+                <li><a class="footer__link" href="#">Условия доставки</a></li>
+                <li><a class="footer__link" href="#">Оплата и возврат</a></li>
+                <li><a class="footer__link" href="#">Дизайнерам</a></li>
+                <li><a class="footer__link" href="#">Публичная оферта</a></li>
+              </ul>
+            </nav>
+            <nav class="footer__nav footer__nav_person">
+              <ul>
+                <li><a class="footer__link" href="#" data-toggle="collapse" data-target="#login-modal">Войти</a></li>
+                <li><a class="footer__link" href="/website-makeup-beinua/account-seller-home.html">Личный кабинет</a></li>
+                <li><a class="footer__link" href="/website-makeup-beinua/account-buyer-orders.html">Мои заказы</a></li>
+                <li><a class="footer__link" href="#">Избранные товары</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="footer__column footer__column-contacts">
+            <div class="footer__contact">
+              <div class="footer__contact-name">Техническая поддержка</div><a class="footer__contact-value" href="tel: +380981111111">380 (98) 111 11 11</a>
+            </div>
+            <div class="footer__contact">
+              <div class="footer__contact-name">Почта</div><a class="footer__contact-value" href="mailto: info@bein.ua">info@bein.ua</a>
+            </div>
+            <div class="footer__contact">
+              <div class="footer__contact-name">Мы в соц. соетях</div>
+              <div class="footer__contact-media"><a class="footer__contact-ico" href="#">
+                  <svg>
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#facebook"></use>
+                  </svg></a><a class="footer__contact-ico" href="#">
+                  <svg>
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#instagram"></use>
+                  </svg></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+    <script src="https://unpkg.com/swiper@6.0.0/swiper-bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="/website-makeup-beinua/js/script.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Catalog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@6.0.0/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="/website-makeup-beinua/css/style.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog">
+      <div class="bg" data-toggle="collapse" data-target="#login-modal"></div>
+      <div class="modal__wrapper" id="login-modal-wrapper">
+        <div class="modal__content collapse show">
+          <div class="modal__header">
+            <h3 class="modal-title">Вход в аккаунт</h3><a class="close" href="#" data-toggle="collapse" data-target="#login-modal">
+              <svg>
+                <use xlink:href="/website-makeup-beinua/img/sprite.svg#close"></use>
+              </svg></a>
+          </div>
+          <div class="modal__body">
+            <form>
+              <div class="form__input-box">
+                <h5>Email</h5>
+                <input class="form__input" placeholder="Email адрес">
+              </div>
+              <div class="form__input-box">
+                <h5>Пароль</h5>
+                <input class="form__input" placeholder="Пароль">
+              </div><a class="modal__link-password" href="#" data-toggle="collapse" data-target=".modal__content">Забыли пароль ?</a>
+              <button class="btn btn-primary form__btn modal__btn" type="submit">Войти</button>
+            </form>
+          </div>
+        </div>
+        <div class="modal__content collapse">
+          <div class="modal__header">
+            <h3 class="modal-title">Востановить пароль</h3><a class="close" href="#" data-toggle="collapse" data-target="#login-modal">
+              <svg>
+                <use xlink:href="/website-makeup-beinua/img/sprite.svg#close"></use>
+              </svg></a>
+          </div>
+          <div class="modal__body">
+            <form>
+              <div class="form__input-box">
+                <h5>Email</h5>
+                <input class="form__input" placeholder="Email адрес">
+              </div><a class="modal__link-password" href="#" data-toggle="collapse" data-target=".modal__content">Назад</a>
+              <button class="btn btn-primary form__btn modal__btn" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <header class="header" id="header">
+        <div class="header__row header__row_while">
+          <div class="container header__container"><a href="/website-makeup-beinua/index.html">
+              <svg class="header__logo">
+                <use xlink:href="/website-makeup-beinua/img/sprite.svg#logo-black"></use>
+              </svg></a><search @on-search="search" class="header__search"></search>
+            <div class="header__icons"><a class="header__link-ico" href="#">
+                <svg class="header__icon">
+                  <use xlink:href="/website-makeup-beinua/img/sprite.svg#compare"></use>
+                </svg>
+                <div class="header__link-number">12</div></a><a class="header__link-ico" href="#">
+                <svg class="header__icon">
+                  <use xlink:href="/website-makeup-beinua/img/sprite.svg#heart"></use>
+                </svg>
+                <div class="header__link-number">3</div></a><a class="header__link-ico" href="#">
+                <svg class="header__icon">
+                  <use xlink:href="/website-makeup-beinua/img/sprite.svg#bag"></use>
+                </svg>
+                <div class="header__link-number">6</div></a>
+              <div class="header__link-ico header__link-ico_person">
+                <div class="header__person" data-toggle="dropdown">
+                  <svg class="header__icon">
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#person"></use>
+                  </svg>
+                  <svg class="header__icon header__icon_little">
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+                  </svg>
+                </div>
+                <div class="header__submenu submenu dropdown-menu">
+                  <div class="submenu__nav"><a class="submenu__link" href="#" data-toggle="collapse" data-target="#login-modal">Вход</a><a class="submenu__link" href="/website-makeup-beinua/registration.html">Регистрация</a></div>
+                  <div class="submenu__options">
+                    <div class="submenu__option-box">
+                      <div class="submenu__option-title">Валюта:</div>
+                      <div class="submenu__option-content"><a class="submenu__option-input submenu__option-input_selected" href="#">UAH</a><a class="submenu__option-input" href="#">USD</a></div>
+                    </div>
+                    <div class="submenu__option-box">
+                      <div class="submenu__option-title">Язык:</div>
+                      <div class="submenu__option-content">
+                        <div class="submenu__option-input_img">
+                          <svg>
+                            <use xlink:href="/website-makeup-beinua/img/UA.svg#ico"></use>
+                          </svg>
+                        </div>
+                        <div class="submenu__option-input_img submenu__option-input_selected">
+                          <svg>
+                            <use xlink:href="/website-makeup-beinua/img/RU.svg#ico"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header__row header__row_black" :class="{ 'search_focus': focus }">
+          <div class="header-mobile__category" data-toggle="dropdown">Каталог
+            <svg>
+              <use xlink:href="/website-makeup-beinua/img/sprite.svg#dropdown-arrow"></use>
+            </svg>
+          </div><search @on-search="search" @on-focus="onFocus" @on-blur="onBlur" class="header-mobile__search search_mobile-black"></search>
+          <nav class="header__nav dropdown-menu"><a class="header__link" href="/website-makeup-beinua/catalog.html">Женщинам</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Мужчинам</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Детям</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Аксессуары</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Бренды</a><a class="header__link" href="/website-makeup-beinua/catalog.html">Распродажа</a></nav>
+        </div>
+      </header>
+      <main class="account-seller-edit-page account-layout">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-3 account-layout__column">
+              <div class="account-nav">
+                <ul class="account-nav__list">
+                  <li class="account-nav__item"><a class="account-nav__item-wrapper" href="/website-makeup-beinua/account-seller-home.html">
+                      <svg class="account-nav__item-ico">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#account-list"></use>
+                      </svg>
+                      <div class="account-nav__item-text"><span>Мои товары</span><span>Товары</span></div></a></li>
+                  <li class="account-nav__item"><a class="account-nav__item-wrapper" href="/website-makeup-beinua/account-seller-orders.html">
+                      <svg class="account-nav__item-ico">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#account-bag"></use>
+                      </svg>
+                      <div class="account-nav__item-text">Заказы</div>
+                      <div class="account-nav__item-num">12</div></a></li>
+                  <li class="account-nav__item account-nav__item_active"><a class="account-nav__item-wrapper" href="/website-makeup-beinua/account-seller-edit.html">
+                      <svg class="account-nav__item-ico">
+                        <use xlink:href="/website-makeup-beinua/img/sprite.svg#person"></use>
+                      </svg>
+                      <div class="account-nav__item-text">Мои данные</div></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-md-9 account-layout__column">
+              <div class="account-layout__head">
+                <h1>Редактировать профиль</h1>
+              </div>
+              <div class="account-layout__body">
+                <div class="account-layout__input-group">
+                  <h4>Персональные данные</h4>
+                  <div class="account-layout__input-list">
+                    <div class="account-layout__input-box">
+                      <h5>Имя</h5>
+                      <input class="account-layout__input" placeholder="Ваше Имя">
+                    </div>
+                    <div class="account-layout__input-box">
+                      <h5>Фамилия</h5>
+                      <input class="account-layout__input" placeholder="Ваша Фамилия">
+                    </div>
+                    <div class="account-layout__input-box">
+                      <h5>Email</h5>
+                      <input class="account-layout__input" placeholder="Email">
+                    </div>
+                    <div class="account-layout__input-box">
+                      <h5>Телефон</h5>
+                      <input class="account-layout__input" placeholder="Номер телефона">
+                    </div>
+                  </div>
+                  <div class="custom-checkbox">
+                    <label>
+                      <input class="custom-checkbox__input" type="checkbox">
+                      <div class="custom-checkbox__box"></div>
+                      <div class="custom-checkbox__txt">Подписаться на рассылку</div>
+                    </label>
+                  </div>
+                </div>
+                <div class="account-layout__input-group">
+                  <h4>Информация о компании</h4>
+                  <div class="account-layout__input-list">
+                    <div class="account-layout__input-box">
+                      <h5>Бренд</h5>
+                      <input class="account-layout__input" placeholder="Имя бренда">
+                    </div>
+                    <div class="account-layout__input-box">
+                      <h5>Телефон компании</h5>
+                      <input class="account-layout__input" placeholder="Номер телефона">
+                    </div>
+                  </div>
+                </div>
+                <div class="account-layout__input-group">
+                  <h4>Смена пароля</h4>
+                  <div class="account-layout__input-list">
+                    <div class="account-layout__input-box">
+                      <h5>Новый пароль</h5>
+                      <input class="account-layout__input" placeholder="Введите пароль" type="password">
+                    </div>
+                    <div class="account-layout__input-box">
+                      <h5>Повторите новый пароль</h5>
+                      <input class="account-layout__input" placeholder="Введите пароль" type="password">
+                    </div>
+                  </div>
+                </div>
+                <div class="btn btn-primary account-layout__btn-save">Сохранить</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <div class="container footer__container">
+          <div class="footer__column footer__column-main"><a class="footer__logo" href="/website-makeup-beinua/index.html">
+              <svg>
+                <use xlink:href="/website-makeup-beinua/img/sprite.svg#logo-white"></use>
+              </svg></a>
+            <p>© 2020 Beinua. Все права сохранены.</p>
+          </div>
+          <div class="footer__column footer__column-nav">
+            <nav class="footer__nav footer__nav_pages">
+              <ul>
+                <li><a class="footer__link" href="/website-makeup-beinua/index.html">Главная</a></li>
+                <li><a class="footer__link" href="/website-makeup-beinua/catalog.html">Каталог</a></li>
+                <li><a class="footer__link" href="#">О наc</a></li>
+                <li><a class="footer__link" href="#">Контакты</a></li>
+              </ul>
+            </nav>
+            <nav class="footer__nav footer__nav_info">
+              <ul>
+                <li><a class="footer__link" href="#">Условия доставки</a></li>
+                <li><a class="footer__link" href="#">Оплата и возврат</a></li>
+                <li><a class="footer__link" href="#">Дизайнерам</a></li>
+                <li><a class="footer__link" href="#">Публичная оферта</a></li>
+              </ul>
+            </nav>
+            <nav class="footer__nav footer__nav_person">
+              <ul>
+                <li><a class="footer__link" href="#" data-toggle="collapse" data-target="#login-modal">Войти</a></li>
+                <li><a class="footer__link" href="/website-makeup-beinua/account-seller-home.html">Личный кабинет</a></li>
+                <li><a class="footer__link" href="/website-makeup-beinua/account-buyer-orders.html">Мои заказы</a></li>
+                <li><a class="footer__link" href="#">Избранные товары</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="footer__column footer__column-contacts">
+            <div class="footer__contact">
+              <div class="footer__contact-name">Техническая поддержка</div><a class="footer__contact-value" href="tel: +380981111111">380 (98) 111 11 11</a>
+            </div>
+            <div class="footer__contact">
+              <div class="footer__contact-name">Почта</div><a class="footer__contact-value" href="mailto: info@bein.ua">info@bein.ua</a>
+            </div>
+            <div class="footer__contact">
+              <div class="footer__contact-name">Мы в соц. соетях</div>
+              <div class="footer__contact-media"><a class="footer__contact-ico" href="#">
+                  <svg>
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#facebook"></use>
+                  </svg></a><a class="footer__contact-ico" href="#">
+                  <svg>
+                    <use xlink:href="/website-makeup-beinua/img/sprite.svg#instagram"></use>
+                  </svg></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+    <script src="https://unpkg.com/swiper@6.0.0/swiper-bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="/website-makeup-beinua/js/script.min.js"></script>
+  </body>
+</html>
