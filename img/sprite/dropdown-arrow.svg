@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g id="UI" stroke="none" stroke-width="1">
+        <g transform="translate(-819.000000, -142.000000)">
+            <g transform="translate(75.000000, 82.000000)">
+                <g>
+                    <g transform="translate(549.000000, 31.000000)">
+                        <g transform="translate(172.000000, 20.000000)">
+                            <polygon transform="translate(27.500000, 11.710220) scale(1, -1) translate(-27.500000, -11.710220) " points="32 13.5 27.5 9 23 13.5 23.9204401 14.4204401 27.5 10.8408802 31.0795599 14.4204401"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
