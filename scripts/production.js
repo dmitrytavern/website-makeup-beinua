@@ -1,6 +1,5 @@
 const routes    = require('./config/routes')
 
-
 const pugLoader = require('./loaders/pug.config')
 pugLoader({
 	mode: 'production',

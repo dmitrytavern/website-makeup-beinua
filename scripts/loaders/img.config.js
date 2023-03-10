@@ -133,12 +133,14 @@ module.exports = function ({ mode, routes, routesRes }) {
 	}
 
 	function compile() {
-		glob(srcPath+'/**/*.*', {}, function (err, files) {
-			for (let file of files) {
-				createPublicRoute(file)
-				moveImage(file)
-			}
-		})
+		const filesPath = path.join(srcPath, '/**/*.*')
+		const files = glob.globSync(filesPath)
+
+		for (let file of files) {
+			createPublicRoute(file)
+			moveImage(file)
+		}
+
 		console.log('[Img]: Compiled')
 	}
 }

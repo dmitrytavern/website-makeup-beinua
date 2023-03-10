@@ -2,7 +2,7 @@ footer.footer
     .footer__wrapper
         .container.footer__container
             .footer__column.footer__column-main
-                a(href="/").footer__logo
+                a(href=route("index.html")).footer__logo
                     svg
                         use( xlink:href=sprite('logo-white') )
                 p © 2020 Beinua. Все права сохранены.
@@ -11,9 +11,9 @@ footer.footer
                 nav.footer__nav.footer__nav_pages
                     ul
                         li
-                            a(href="/").footer__link Главная
+                            a(href=route("index.html")).footer__link Главная
                         li
-                            a(href="/catalog.html").footer__link Каталог
+                            a(href=route("catalog.html")).footer__link Каталог
                         li
                             a(href="#").footer__link О наc
                         li
@@ -35,9 +35,9 @@ footer.footer
                         li
                             a(href="#" data-toggle="collapse" data-target="#login-modal").footer__link Войти
                         li
-                            a(href="/account-seller-home.html").footer__link Личный кабинет
+                            a(href=route("account-seller-home.html")).footer__link Личный кабинет
                         li
-                            a(href="/account-buyer-orders.html").footer__link Мои заказы
+                            a(href=route("account-buyer-orders.html")).footer__link Мои заказы
                         li
                             a(href="#").footer__link Избранные товары
 

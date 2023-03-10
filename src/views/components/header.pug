@@ -2,7 +2,7 @@ mixin header(selected = true, nav = true)
     header.header#header
         .header__row.header__row_while
             .container.header__container
-                a(href="/")
+                a(href=route("index.html"))
                     svg.header__logo
                         use( xlink:href=sprite('logo-black') )
 
@@ -36,7 +36,7 @@ mixin header(selected = true, nav = true)
                         .header__submenu.submenu.dropdown-menu
                             .submenu__nav
                                 a(href="#" data-toggle="collapse" data-target="#login-modal").submenu__link Вход
-                                a(href="/registration.html").submenu__link Регистрация
+                                a(href=route("registration.html")).submenu__link Регистрация
 
                             .submenu__options
                                 .submenu__option-box
@@ -66,9 +66,9 @@ mixin header(selected = true, nav = true)
                 | <search @on-search="search" @on-focus="onFocus" @on-blur="onBlur" class="header-mobile__search search_mobile-black"></search>
 
                 nav.header__nav.dropdown-menu
-                    a(href="/catalog.html" class={'header__link_selected': selected}).header__link Женщинам
-                    a(href="/catalog.html").header__link Мужчинам
-                    a(href="/catalog.html").header__link Детям
-                    a(href="/catalog.html").header__link Аксессуары
-                    a(href="/catalog.html").header__link Бренды
-                    a(href="/catalog.html").header__link Распродажа
+                    a(href=route("catalog.html") class={'header__link_selected': selected}).header__link Женщинам
+                    a(href=route("catalog.html")).header__link Мужчинам
+                    a(href=route("catalog.html")).header__link Детям
+                    a(href=route("catalog.html")).header__link Аксессуары
+                    a(href=route("catalog.html")).header__link Бренды
+                    a(href=route("catalog.html")).header__link Распродажа

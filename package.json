@@ -1,7 +1,4 @@
 {
-  "name": "Accelerator",
-  "version": "0.0.0",
-  "description": "It`s accelerator HTML/CSS/JS + create plugins",
   "private": true,
   "engines": {
     "node": "v16.16.0"
@@ -12,12 +9,11 @@
     "IE 10"
   ],
   "scripts": {
-    "dev": "node scripts/development.js",
-    "build": "node scripts/production.js",
-    "create": "node scripts/create.js"
+    "dev": "node -r dotenv/config scripts/development.js",
+    "build": "node -r dotenv/config scripts/production.js",
+    "create": "node scripts/create.js",
+    "build:serve": "node scripts/express.js"
   },
-  "author": "dogger",
-  "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
@@ -28,6 +24,8 @@
     "browser-sync": "^2.26.7",
     "chokidar": "^3.4.0",
     "cssnano": "^5.1.15",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "glob": "^9.2.1",
     "imagemin": "^7.0.1",
     "imagemin-jpegtran": "^6.0.0",

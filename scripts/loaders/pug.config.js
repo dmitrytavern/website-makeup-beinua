@@ -5,6 +5,8 @@ const chokidar    = require('chokidar');
 
 const createDirs  = require('../config/createDirs')
 
+process.env.APP_PUBLIC_PATH = process.env.APP_PUBLIC_PATH ? process.env.APP_PUBLIC_PATH : '/' 
+
 module.exports = function ({ mode, routes, routesRes }) {
 	var dirCreator, buildPath, srcPath, variables;
 
@@ -14,21 +16,24 @@ module.exports = function ({ mode, routes, routesRes }) {
 	variables   = {
 		devMode: mode == 'development',
 		script(str) {
-			if (!variables.devMode) return path.join(routes.js, str+'.min.js')
-			return path.join(routes.js, str+'.js')
+			if (!variables.devMode) return path.join(process.env.APP_PUBLIC_PATH, routes.js, str+'.min.js')
+			return path.join(process.env.APP_PUBLIC_PATH, routes.js, str+'.js')
 		},
 		style(str) {
-			if (!variables.devMode) return path.join(routes.style, str+'.min.css')
-			return path.join(routes.style, str+'.css')
+			if (!variables.devMode) return path.join(process.env.APP_PUBLIC_PATH, routes.style, str+'.min.css')
+			return path.join(process.env.APP_PUBLIC_PATH, routes.style, str+'.css')
 		},
 		image(str) {
-			return path.join(routes.img, str)
+			return path.join(process.env.APP_PUBLIC_PATH, routes.img, str)
 		},
 		sprite(str) {
-			return routes.sprite + '/sprite.svg' + '#' + str
+			return path.join(process.env.APP_PUBLIC_PATH, routes.sprite, 'sprite.svg' + '#' + str)
 		},
 		favicon(str) {
-			return path.join(routes.favicon, str)
+			return path.join(process.env.APP_PUBLIC_PATH, routes.favicon, str)
+		},
+		route(str) {
+			return path.join(process.env.APP_PUBLIC_PATH, str)
 		},
 		files: {
 			sass: ['style'],

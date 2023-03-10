@@ -2,7 +2,7 @@ mixin accountNavSeller(active)
 	.account-nav
 		ul.account-nav__list
 			li.account-nav__item( class=(active === 'products' ? 'account-nav__item_active' : '') )
-				a(href="/account-seller-home.html").account-nav__item-wrapper
+				a(href=route("account-seller-home.html")).account-nav__item-wrapper
 					svg.account-nav__item-ico
 						use( xlink:href=sprite('account-list') )
 					.account-nav__item-text
@@ -10,14 +10,14 @@ mixin accountNavSeller(active)
 						span Товары
 
 			li.account-nav__item( class=(active === 'orders' ? 'account-nav__item_active' : '') )
-				a(href="/account-seller-orders.html").account-nav__item-wrapper
+				a(href=route("account-seller-orders.html")).account-nav__item-wrapper
 					svg.account-nav__item-ico
 						use( xlink:href=sprite('account-bag') )
 					.account-nav__item-text Заказы
 					.account-nav__item-num 12
 
 			li.account-nav__item( class=(active === 'data' ? 'account-nav__item_active' : '') )
-				a(href="/account-seller-edit.html").account-nav__item-wrapper
+				a(href=route("account-seller-edit.html")).account-nav__item-wrapper
 					svg.account-nav__item-ico
 						use( xlink:href=sprite('person') )
 					.account-nav__item-text Мои данные
@@ -27,7 +27,7 @@ mixin accountNavBuyer(active)
 	.account-nav
 		ul.account-nav__list
 			li.account-nav__item( class=(active === 'orders' ? 'account-nav__item_active' : '') )
-				a(href="/account-buyer-orders.html").account-nav__item-wrapper
+				a(href=route("account-buyer-orders.html")).account-nav__item-wrapper
 					svg.account-nav__item-ico
 						use( xlink:href=sprite('account-bag') )
 					.account-nav__item-text
@@ -35,7 +35,7 @@ mixin accountNavBuyer(active)
 						span Заказы
 
 			li.account-nav__item( class=(active === 'address' ? 'account-nav__item_active' : '') )
-				a(href="/account-buyer-address.html").account-nav__item-wrapper
+				a(href=route("account-buyer-address.html")).account-nav__item-wrapper
 					svg.account-nav__item-ico
 						use( xlink:href=sprite('account-address') )
 					.account-nav__item-text
@@ -43,7 +43,7 @@ mixin accountNavBuyer(active)
 						span Адреса
 
 			li.account-nav__item( class=(active === 'data' ? 'account-nav__item_active' : '') )
-				a(href="/account-buyer-edit.html").account-nav__item-wrapper
+				a(href=route("account-buyer-edit.html")).account-nav__item-wrapper
 					svg.account-nav__item-ico
 						use( xlink:href=sprite('person') )
 					.account-nav__item-text Мои данные
