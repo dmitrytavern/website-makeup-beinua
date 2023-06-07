@@ -12,8 +12,8 @@ Makeup of a small online store with a minimum number of pages.
 ## Features
 
 - Сustom builder
-- Bootstrap gird
 - BEM naming
+- Bootstrap gird
 - Responsive layout for 1600px, 1100px, 768px, 375px
 
 ## How to build?
@@ -21,7 +21,7 @@ Makeup of a small online store with a minimum number of pages.
 1. Clone repo
 
 ```
-git clone https://github.com/dmitrytavern/object-parser.git
+git clone https://github.com/dmitrytavern/website-makeup-beinua.git
 ```
 
 2. Install deps
