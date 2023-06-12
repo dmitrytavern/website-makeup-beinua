@@ -1,6 +1,6 @@
 # **BeinUA**
 
-The **BeinUA** is a ukrainian project that specializes in creating an online platform for sellers and buyers of clothing.
+The **BeinUA** is a ukrainian project that specializes in creating an online platform for sellers and buyers of clothing. See [**demo**](https://dmitrytavern.github.io/website-makeup-beinua/).
 
 **Developers:**
 
