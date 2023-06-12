@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Product Inner</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Beinua">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@6.0.0/swiper-bundle.min.css">
@@ -58,7 +59,7 @@
     <div>
       <header class="header" id="header">
         <div class="header__row header__row_while">
-          <div class="container header__container"><a href="/website-makeup-beinua/index.html">
+          <div class="container header__container"><a href="/website-makeup-beinua/index.html" aria-label="Go to home">
               <svg class="header__logo">
                 <use xlink:href="/website-makeup-beinua/img/sprite.svg#logo-black"></use>
               </svg></a><search @on-search="search" class="header__search"></search>
@@ -142,15 +143,34 @@
                 </div>
                 <div class="swiper-container" id="product-inner__thumbs">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/website-makeup-beinua/img/products-slider/item-1.png"></div>
-                    <div class="swiper-slide"><img src="/website-makeup-beinua/img/products-slider/item-2.png"></div><a class="swiper-slide product-inner__slider-video" href="https://www.youtube.com/watch?v=6THDe-HCsEY" target="_blank"><img src="/website-makeup-beinua/img/products-slider/item-3.png">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-1.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-1.png" alt="Image 1" width="200px" height="264px">
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-2.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-2.png" alt="Image 2" width="200px" height="264px">
+                      </picture>
+                    </div><a class="swiper-slide product-inner__slider-video" href="https://www.youtube.com/watch?v=6THDe-HCsEY" target="_blank">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-3.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-3.png" alt="Image 3" width="200px" height="264px">
+                      </picture>
                       <div class="product-inner__slider-play product-inner__slider-play_thumbs">
                         <svg>
                           <use xlink:href="/website-makeup-beinua/img/sprite.svg#play"></use>
                         </svg>
                       </div></a>
-                    <div class="swiper-slide"><img src="/website-makeup-beinua/img/products-slider/item-2.png"></div>
-                    <div class="swiper-slide"><img src="/website-makeup-beinua/img/products-slider/item-1.png"></div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-2.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-2.png" alt="Image 4" width="200px" height="264px">
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-1.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-1.png" alt="Image 5" width="200px" height="264px">
+                      </picture>
+                    </div>
                   </div>
                 </div>
                 <div class="product-inner__slider-btn product-inner__slider-btn_next">
@@ -164,14 +184,34 @@
                   <div class="product-inner__slider-panel"><a class="product__panel-link icon-compare product-inner__slider-panel-link" href="#"></a><a class="product__panel-link icon-heart product-inner__slider-panel-link" href="#"></a></div>
                   <div class="product-inner__slider-mark product__mark product__mark_new">new</div>
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/website-makeup-beinua/img/products-slider/item-1.png"></div>
-                    <div class="swiper-slide"><img src="/website-makeup-beinua/img/products-slider/item-2.png"></div>
-                    <div class="swiper-slide"><img src="/website-makeup-beinua/img/products-slider/item-3.png"><a class="product-inner__slider-play product-inner__slider-play_image" href="https://www.youtube.com/watch?v=6THDe-HCsEY" target="_blank">
+                    <div class="swiper-slide">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-1.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-1.png" alt="Image 1" width="548px" height="778px">
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-2.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-2.png" alt="Image 2" width="548px" height="778px">
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-3.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-3.png" alt="Image 3" width="548px" height="778px">
+                      </picture><a class="product-inner__slider-play product-inner__slider-play_image" href="https://www.youtube.com/watch?v=6THDe-HCsEY" target="_blank">
                         <svg>
                           <use xlink:href="/website-makeup-beinua/img/sprite.svg#play"></use>
-                        </svg></a></div>
-                    <div class="swiper-slide"><img src="/website-makeup-beinua/img/products-slider/item-2.png"></div>
-                    <div class="swiper-slide"><img src="/website-makeup-beinua/img/products-slider/item-1.png"></div>
+                        </svg></a>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-1.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-2.png" alt="Image 4" width="548px" height="778px">
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture>
+                        <source srcset="/website-makeup-beinua/img/products-slider/item-1.webp" type="image/webp"><img src="/website-makeup-beinua/img/products-slider/item-1.png" alt="Image 5" width="548px" height="778px">
+                      </picture>
+                    </div>
                   </div>
                   <div class="swiper-pagination product-inner__slider-pagination"></div>
                 </div>
@@ -353,8 +393,11 @@
                   <div class="product">
                     <div class="product__wrapper">
                       <div class="product__image-box">
-                        <div class="product__mark product__mark_new">new</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-1.png"></a>
-                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                        <div class="product__mark product__mark_new">new</div><a class="product__image" href="/website-makeup-beinua/product.html" aria-label="Go to inner page">
+                          <picture>
+                            <source srcset="/website-makeup-beinua/img/products/woman-1.webp" type="image/webp"><img src="/website-makeup-beinua/img/products/woman-1.png" alt="Card" width="177px" height="232px">
+                          </picture></a>
+                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#" aria-label="Add to compare list"></a><a class="product__panel-link icon-bag" href="#" aria-label="Add to cart"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#" aria-label="Add to favorite"></a></div>
                       </div>
                       <div class="product__stock-price">
                         <div class="product__stock product__stock_in-stock">В наличии</div>
@@ -370,8 +413,11 @@
                   <div class="product">
                     <div class="product__wrapper">
                       <div class="product__image-box">
-                        <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-2.png"></a>
-                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                        <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html" aria-label="Go to inner page">
+                          <picture>
+                            <source srcset="/website-makeup-beinua/img/products/woman-2.webp" type="image/webp"><img src="/website-makeup-beinua/img/products/woman-2.png" alt="Card" width="177px" height="232px">
+                          </picture></a>
+                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#" aria-label="Add to compare list"></a><a class="product__panel-link icon-bag" href="#" aria-label="Add to cart"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#" aria-label="Add to favorite"></a></div>
                       </div>
                       <div class="product__stock-price">
                         <div class="product__stock product__stock_order">Под заказ</div>
@@ -388,8 +434,11 @@
                   <div class="product">
                     <div class="product__wrapper">
                       <div class="product__image-box">
-                        <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-3.png"></a>
-                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                        <div class="product__mark product__mark_sale">sale</div><a class="product__image" href="/website-makeup-beinua/product.html" aria-label="Go to inner page">
+                          <picture>
+                            <source srcset="/website-makeup-beinua/img/products/woman-3.webp" type="image/webp"><img src="/website-makeup-beinua/img/products/woman-3.png" alt="Card" width="177px" height="232px">
+                          </picture></a>
+                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#" aria-label="Add to compare list"></a><a class="product__panel-link icon-bag" href="#" aria-label="Add to cart"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#" aria-label="Add to favorite"></a></div>
                       </div>
                       <div class="product__stock-price">
                         <div class="product__stock product__stock_out-stock">Нет в наличии</div>
@@ -405,8 +454,11 @@
                 <div class="swiper-slide">
                   <div class="product">
                     <div class="product__wrapper">
-                      <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-4.png"></a>
-                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                      <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html" aria-label="Go to inner page">
+                          <picture>
+                            <source srcset="/website-makeup-beinua/img/products/woman-4.webp" type="image/webp"><img src="/website-makeup-beinua/img/products/woman-4.png" alt="Card" width="177px" height="232px">
+                          </picture></a>
+                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#" aria-label="Add to compare list"></a><a class="product__panel-link icon-bag" href="#" aria-label="Add to cart"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#" aria-label="Add to favorite"></a></div>
                       </div>
                       <div class="product__stock-price">
                         <div class="product__stock product__stock_in-stock">В наличии</div>
@@ -421,8 +473,11 @@
                 <div class="swiper-slide">
                   <div class="product">
                     <div class="product__wrapper">
-                      <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-5.png"></a>
-                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                      <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html" aria-label="Go to inner page">
+                          <picture>
+                            <source srcset="/website-makeup-beinua/img/products/woman-5.webp" type="image/webp"><img src="/website-makeup-beinua/img/products/woman-5.png" alt="Card" width="177px" height="232px">
+                          </picture></a>
+                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#" aria-label="Add to compare list"></a><a class="product__panel-link icon-bag" href="#" aria-label="Add to cart"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#" aria-label="Add to favorite"></a></div>
                       </div>
                       <div class="product__stock-price">
                         <div class="product__stock product__stock_in-stock">В наличии</div>
@@ -437,8 +492,11 @@
                 <div class="swiper-slide">
                   <div class="product">
                     <div class="product__wrapper">
-                      <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html"><img src="/website-makeup-beinua/img/products/woman-6.png"></a>
-                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#"></a><a class="product__panel-link icon-bag" href="#"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#"></a></div>
+                      <div class="product__image-box"><a class="product__image" href="/website-makeup-beinua/product.html" aria-label="Go to inner page">
+                          <picture>
+                            <source srcset="/website-makeup-beinua/img/products/woman-6.webp" type="image/webp"><img src="/website-makeup-beinua/img/products/woman-6.png" alt="Card" width="177px" height="232px">
+                          </picture></a>
+                        <div class="product__panel"><a class="product__panel-link icon-compare" href="#" aria-label="Add to compare list"></a><a class="product__panel-link icon-bag" href="#" aria-label="Add to cart"></a><a class="product__panel-link icon-heart product__panel-link_mobile-top" href="#" aria-label="Add to favorite"></a></div>
                       </div>
                       <div class="product__stock-price">
                         <div class="product__stock product__stock_in-stock">В наличии</div>
@@ -474,7 +532,7 @@
     <footer class="footer">
       <div class="footer__wrapper">
         <div class="container footer__container">
-          <div class="footer__column footer__column-main"><a class="footer__logo" href="/website-makeup-beinua/index.html">
+          <div class="footer__column footer__column-main"><a class="footer__logo" href="/website-makeup-beinua/index.html" aria-label="Go to home">
               <svg>
                 <use xlink:href="/website-makeup-beinua/img/sprite.svg#logo-white"></use>
               </svg></a>
@@ -515,10 +573,10 @@
             </div>
             <div class="footer__contact">
               <div class="footer__contact-name">Мы в соц. соетях</div>
-              <div class="footer__contact-media"><a class="footer__contact-ico" href="#">
+              <div class="footer__contact-media"><a class="footer__contact-ico" href="#" aria-label="Go to offical facebook account">
                   <svg>
                     <use xlink:href="/website-makeup-beinua/img/sprite.svg#facebook"></use>
-                  </svg></a><a class="footer__contact-ico" href="#">
+                  </svg></a><a class="footer__contact-ico" href="#" aria-label="Go to offical instagram account">
                   <svg>
                     <use xlink:href="/website-makeup-beinua/img/sprite.svg#instagram"></use>
                   </svg></a></div>

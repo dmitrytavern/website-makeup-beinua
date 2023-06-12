@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Catalog</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Beinua">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@6.0.0/swiper-bundle.min.css">
@@ -58,7 +59,7 @@
     <div>
       <header class="header" id="header">
         <div class="header__row header__row_while">
-          <div class="container header__container"><a href="/website-makeup-beinua/index.html">
+          <div class="container header__container"><a href="/website-makeup-beinua/index.html" aria-label="Go to home">
               <svg class="header__logo">
                 <use xlink:href="/website-makeup-beinua/img/sprite.svg#logo-black"></use>
               </svg></a><search @on-search="search" class="header__search"></search>
@@ -213,7 +214,12 @@
                         </div>
                       </td>
                       <td class="table__col table__row-col table__col-image">
-                        <div class="table__image"><img :src="'img/'+item.image"></div>
+                        <div class="table__image"> 
+                          <picture>
+                            <source :srcset="'img/'+item.image.replace('.png', '.webp')" type="image/webp" />
+                            <img :src="'img/'+item.image" alt="" width="56px" height="74px">
+                          </picture>
+                        </div>
                       </td>
                       <td class="table__col table__row-col" data-title="Наименование">{{ item.title }}</td>
                       <td class="table__col table__row-col" data-title="Цена">₴{{ item.price }}</td>
@@ -268,7 +274,7 @@
     <footer class="footer">
       <div class="footer__wrapper">
         <div class="container footer__container">
-          <div class="footer__column footer__column-main"><a class="footer__logo" href="/website-makeup-beinua/index.html">
+          <div class="footer__column footer__column-main"><a class="footer__logo" href="/website-makeup-beinua/index.html" aria-label="Go to home">
               <svg>
                 <use xlink:href="/website-makeup-beinua/img/sprite.svg#logo-white"></use>
               </svg></a>
@@ -309,10 +315,10 @@
             </div>
             <div class="footer__contact">
               <div class="footer__contact-name">Мы в соц. соетях</div>
-              <div class="footer__contact-media"><a class="footer__contact-ico" href="#">
+              <div class="footer__contact-media"><a class="footer__contact-ico" href="#" aria-label="Go to offical facebook account">
                   <svg>
                     <use xlink:href="/website-makeup-beinua/img/sprite.svg#facebook"></use>
-                  </svg></a><a class="footer__contact-ico" href="#">
+                  </svg></a><a class="footer__contact-ico" href="#" aria-label="Go to offical instagram account">
                   <svg>
                     <use xlink:href="/website-makeup-beinua/img/sprite.svg#instagram"></use>
                   </svg></a></div>

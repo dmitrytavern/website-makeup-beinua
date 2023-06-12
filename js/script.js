@@ -26,7 +26,7 @@
 	      this.$emit("on-clear");
 	    }
 	  },
-	  template: ' <div class="search" :class="{search_focus: focus}">' + '           <input ref="search-input" class="search__input" v-model="input" @focus="onFocus" @blur="onBlur" v-on:keyup.enter="onSearch" placeholder="Поиск...">' + '           <button class="search__close" @click="onClear">' + '             <svg>' + '               <use xlink:href="img/sprite.svg#close"></use>' + '             </svg>' + '           </button>' + '           <button class="search__button" @click="onSearch">' + '             <svg class="search__icon">' + '               <use xlink:href="img/sprite.svg#search"></use>' + '             </svg>' + '           </button>' + '         </div>'
+	  template: ' <div class="search" :class="{search_focus: focus}">' + '           <input ref="search-input" class="search__input" v-model="input" @focus="onFocus" @blur="onBlur" v-on:keyup.enter="onSearch" placeholder="Поиск...">' + '           <button class="search__close" @click="onClear">' + '             <svg>' + '               <use xlink:href="img/sprite.svg#close"></use>' + '             </svg>' + '           </button>' + '           <button class="search__button" @click="onSearch" aria-label="Search">' + '             <svg class="search__icon">' + '               <use xlink:href="img/sprite.svg#search"></use>' + '             </svg>' + '           </button>' + '         </div>'
 	});
 
 	Vue.component('selector-filter', {
