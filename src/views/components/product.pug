@@ -5,20 +5,22 @@
                 .product__mark.product__mark_new new
             if (product.mark == 'sale')
                 .product__mark.product__mark_sale sale
-            a(href=route("product.html")).product__image
-                img( src=image(product.image))
+            a(href=route("product.html") aria-label="Go to inner page").product__image
+                picture
+                    source(srcset=image(product.image.replace('.png', '.webp')) type="image/webp")
+                    img( src=image(product.image) alt="Card" width="177px" height="232px")
 
             if (productPanelClass)
                 .product__panel.product__panel_big
-                    a(href="#").product__panel-link.icon-compare
-                    a(href="#").product__panel-link.icon-bag
-                    a(href="#").product__panel-link.icon-heart.product__panel-link_mobile-top
+                    a(href="#"  aria-label="Add to compare list").product__panel-link.icon-compare
+                    a(href="#"  aria-label="Add to cart").product__panel-link.icon-bag
+                    a(href="#"  aria-label="Add to favorite").product__panel-link.icon-heart.product__panel-link_mobile-top
 
             if (!productPanelClass)
                 .product__panel
-                    a(href="#").product__panel-link.icon-compare
-                    a(href="#").product__panel-link.icon-bag
-                    a(href="#").product__panel-link.icon-heart.product__panel-link_mobile-top
+                    a(href="#" aria-label="Add to compare list").product__panel-link.icon-compare
+                    a(href="#" aria-label="Add to cart").product__panel-link.icon-bag
+                    a(href="#" aria-label="Add to favorite").product__panel-link.icon-heart.product__panel-link_mobile-top
 
         .product__stock-price
             if (product.stock == 'in')

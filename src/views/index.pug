@@ -3,7 +3,7 @@ include components/header
 
 
 block title
-    title Index page
+    title Beinua | Home page
 
 block header
     +header()
@@ -24,11 +24,17 @@ block content
                 .swiper-wrapper
 
                     .swiper-slide
-                        img(src=image('slider/header-bg.png'))
+                        picture
+                            source(srcset=image('slider/header-bg.webp') type="image/webp")
+                            img(src=image('slider/header-bg.png') alt="Image 1" width="1075px" height="500px")
                     .swiper-slide
-                        img(src=image('slider/header-bg-1.png'))
+                        picture
+                            source(srcset=image('slider/header-bg-1.webp') type="image/webp")
+                            img(src=image('slider/header-bg-1.png') alt="Image 2" width="1075px" height="500px")
                     .swiper-slide
-                        img(src=image('slider/header-bg.png'))
+                        picture
+                            source(srcset=image('slider/header-bg.webp') type="image/webp")
+                            img(src=image('slider/header-bg.png') alt="Image 3" width="1075px" height="500px")
 
                 .swiper-pagination.intro__slider-pagination
                 .swiper-button-prev.btn.btn_radius.btn_radius_while.btn_radius_left
@@ -49,7 +55,9 @@ block content
 
                 .catalog__products.catalog__products_left
                     .catalog__intro-image
-                        img( src=image('products-intro/woman-bg.png') )
+                        picture
+                            source(srcset=image('products-intro/woman-bg.webp') type="image/webp")
+                            img( src=image('products-intro/woman-bg.png') alt="Big image" width="500px" height="100px" )
 
                     .catalog__items
                         each product in productsHomeWoman
@@ -77,7 +85,9 @@ block content
                             include components/product
 
                     .catalog__intro-image
-                        img( src=image('products-intro/man-bg.png') )
+                        picture
+                            source(srcset=image('products-intro/man-bg.webp') type="image/webp")
+                            img( src=image('products-intro/man-bg.png') alt="Big image" width="500px" height="100px" )
 
                 .catalog__btn
                     a(href="/catalog.html").btn.btn-outline.btn-arrow
@@ -103,22 +113,40 @@ block content
                 .slider-default__slider.brands__slider.swiper-container#brands__slider
                     .swiper-wrapper.slider-default__slider-wrapper
                         .swiper-slide
-                            img( src=image('brands/brand-logo-1.png') )
+                            picture
+                                source(srcset=image('brands/brand-logo-1.webp') type="image/webp")
+                                img( src=image('brands/brand-logo-1.png') alt="Brand 1" width="172px" height="16px" )
                         .swiper-slide
-                            img( src=image('brands/brand-logo-2.png') )
+                            picture
+                                source(srcset=image('brands/brand-logo-2.webp') type="image/webp")
+                                img( src=image('brands/brand-logo-2.png') alt="Brand 2" width="172px" height="25px" )
                         .swiper-slide
-                            img( src=image('brands/brand-logo-3.png') )
+                            picture
+                                source(srcset=image('brands/brand-logo-3.webp') type="image/webp")
+                                img( src=image('brands/brand-logo-3.png') alt="Brand 3" width="172px" height="101px" )
                         .swiper-slide
-                            img( src=image('brands/brand-logo-4.png') )
+                            picture
+                                source(srcset=image('brands/brand-logo-4.webp') type="image/webp")
+                                img( src=image('brands/brand-logo-4.png') alt="Brand 4" width="172px" height="36px" )
                         .swiper-slide
-                            img( src=image('brands/brand-logo-5.png') )
+                            picture
+                                source(srcset=image('brands/brand-logo-5.webp') type="image/webp")
+                                img( src=image('brands/brand-logo-5.png') alt="Brand 5" width="172px" height="48px" )
                         .swiper-slide
-                            img( src=image('brands/brand-logo-6.png') )
+                            picture
+                                source(srcset=image('brands/brand-logo-6.webp') type="image/webp")
+                                img( src=image('brands/brand-logo-6.png') alt="Brand 6" width="172px" height="23px" )
                         .swiper-slide
-                            img( src=image('brands/brand-logo-4.png') )
+                            picture
+                                source(srcset=image('brands/brand-logo-4.webp') type="image/webp")
+                                img( src=image('brands/brand-logo-4.png') alt="Brand 7" width="172px" height="36px" )
                         .swiper-slide
-                            img( src=image('brands/brand-logo-5.png') )
+                            picture
+                                source(srcset=image('brands/brand-logo-5.webp') type="image/webp")
+                                img( src=image('brands/brand-logo-5.png') alt="Brand 8" width="172px" height="48px" )
                         .swiper-slide
-                            img( src=image('brands/brand-logo-6.png') )
+                            picture
+                                source(srcset=image('brands/brand-logo-6.webp') type="image/webp")
+                                img( src=image('brands/brand-logo-6.png') alt="Brand 9" width="172px" height="23px" )
 
                     .swiper-pagination.slider-default__slider-pagination

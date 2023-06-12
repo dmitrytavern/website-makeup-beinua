@@ -27,18 +27,28 @@ block content
                         .swiper-container#product-inner__thumbs
                             .swiper-wrapper
                                 .swiper-slide
-                                    img(src=image('products-slider/item-1.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-1.webp') type="image/webp")
+                                        img(src=image('products-slider/item-1.png') alt="Image 1" width="200px" height="264px")
                                 .swiper-slide
-                                    img(src=image('products-slider/item-2.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-2.webp') type="image/webp")
+                                        img(src=image('products-slider/item-2.png') alt="Image 2" width="200px" height="264px")
                                 a(href="https://www.youtube.com/watch?v=6THDe-HCsEY" target="_blank").swiper-slide.product-inner__slider-video
-                                    img(src=image('products-slider/item-3.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-3.webp') type="image/webp")
+                                        img(src=image('products-slider/item-3.png') alt="Image 3" width="200px" height="264px")
                                     .product-inner__slider-play.product-inner__slider-play_thumbs
                                         svg
                                             use( xlink:href=sprite('play') )
                                 .swiper-slide
-                                    img(src=image('products-slider/item-2.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-2.webp') type="image/webp")
+                                        img(src=image('products-slider/item-2.png') alt="Image 4" width="200px" height="264px")
                                 .swiper-slide
-                                    img(src=image('products-slider/item-1.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-1.webp') type="image/webp")
+                                        img(src=image('products-slider/item-1.png') alt="Image 5" width="200px" height="264px")
                         .product-inner__slider-btn.product-inner__slider-btn_next
                             svg
                                 use(xlink:href=sprite('dropdown-arrow'))
@@ -54,18 +64,29 @@ block content
 
                             .swiper-wrapper
                                 .swiper-slide
-                                    img(src=image('products-slider/item-1.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-1.webp') type="image/webp")
+                                        img(src=image('products-slider/item-1.png') alt="Image 1" width="548px" height="778px")
                                 .swiper-slide
-                                    img(src=image('products-slider/item-2.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-2.webp') type="image/webp")
+                                        img(src=image('products-slider/item-2.png') alt="Image 2" width="548px" height="778px")
                                 .swiper-slide
-                                    img(src=image('products-slider/item-3.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-3.webp') type="image/webp")
+                                        img(src=image('products-slider/item-3.png') alt="Image 3" width="548px" height="778px")
                                     a(href="https://www.youtube.com/watch?v=6THDe-HCsEY" target="_blank").product-inner__slider-play.product-inner__slider-play_image
                                         svg
                                             use( xlink:href=sprite('play') )
                                 .swiper-slide
-                                    img(src=image('products-slider/item-2.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-1.webp') type="image/webp")
+                                        img(src=image('products-slider/item-2.png') alt="Image 4" width="548px" height="778px")
                                 .swiper-slide
-                                    img(src=image('products-slider/item-1.png'))
+                                    picture
+                                        source(srcset=image('products-slider/item-1.webp') type="image/webp")
+                                        img(src=image('products-slider/item-1.png') alt="Image 5" width="548px" height="778px")
+
                             .swiper-pagination.product-inner__slider-pagination
 
                 .product-inner__info

@@ -30,7 +30,7 @@ Vue.component('search', {
 		'               <use xlink:href="img/sprite.svg#close"></use>' +
 		'             </svg>' +
 		'           </button>' +
-		'           <button class="search__button" @click="onSearch">' +
+		'           <button class="search__button" @click="onSearch" aria-label="Search">' +
 		'             <svg class="search__icon">' +
 		'               <use xlink:href="img/sprite.svg#search"></use>' +
 		'             </svg>' +

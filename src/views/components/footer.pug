@@ -2,7 +2,7 @@ footer.footer
     .footer__wrapper
         .container.footer__container
             .footer__column.footer__column-main
-                a(href=route("index.html")).footer__logo
+                a(href=route("index.html") aria-label="Go to home").footer__logo
                     svg
                         use( xlink:href=sprite('logo-white') )
                 p © 2020 Beinua. Все права сохранены.
@@ -52,9 +52,9 @@ footer.footer
                 .footer__contact
                     .footer__contact-name Мы в соц. соетях
                     .footer__contact-media
-                        a(href="#").footer__contact-ico
+                        a(href="#" aria-label="Go to offical facebook account").footer__contact-ico
                             svg
                                 use( xlink:href=sprite('facebook') )
-                        a(href="#").footer__contact-ico
+                        a(href="#" aria-label="Go to offical instagram account").footer__contact-ico
                             svg
                                 use( xlink:href=sprite('instagram') )

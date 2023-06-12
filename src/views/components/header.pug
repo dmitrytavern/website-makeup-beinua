@@ -2,7 +2,7 @@ mixin header(selected = true, nav = true)
     header.header#header
         .header__row.header__row_while
             .container.header__container
-                a(href=route("index.html"))
+                a(href=route("index.html") aria-label="Go to home")
                     svg.header__logo
                         use( xlink:href=sprite('logo-black') )
 

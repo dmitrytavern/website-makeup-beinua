@@ -50,7 +50,7 @@ module.exports = function ({ mode, routes, routesRes }) {
 			outputStyle: 'expanded',
 			functions: variables
 		}, function(err, result) {
-			if(err) console.log('[SASS]: Has error', err)
+			if(err) return console.log('[SASS]: Has error', err)
 
 			if (mode === 'development') {
 				postcssRender(result.css, buildFile, [
