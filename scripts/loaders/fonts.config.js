@@ -113,12 +113,13 @@ module.exports = function ({ mode, routes, routesRes }) {
 	}
 
 	function compile() {
-		glob(srcPath+'/**/*.*', {}, function (err, files) {
+		glob(srcPath+'/**/*.*').then((files) => {
 			for (let file of files) {
 				createPublicRoute(file)
 				moveImage(file)
 			}
+
+			console.log('[Fonts]: Compiled')
 		})
-		console.log('[Fonts]: Compiled')
 	}
 }
