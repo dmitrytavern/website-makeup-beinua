@@ -1133,7 +1133,9 @@
 	  if (window.innerWidth > 992 && !isClickInside.length) {
 	    $(".custom-filter__front").removeClass("show");
 	  } else {
-	    $(".custom-filter__front").not(isClickInside[0]).removeClass("show");
+	    $(".custom-filter__front").map(function (el) {
+	      if (el != isClickInside[0]) $(el).removeClass("show");
+	    });
 	  }
 	});
 
